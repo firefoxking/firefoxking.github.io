@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Redis基础与概念 ::
+        Hello Friend — A simple theme for Hugo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="[TOC] Redis概念与基础 1. Redis基本概念、特点 Redis是一款内存高速缓存数据库，作为非关系型数据库，其不是采用表的形式存储数据。 Redi"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://firefoxking.github.io/post/Redis%E5%9F%BA%E7%A1%80%E4%B8%8E%E6%A6%82%E5%BF%B5/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://firefoxking.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://firefoxking.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://firefoxking.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://firefoxking.github.io/img/favicon.png" />
+
+
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Redis基础与概念"/>
+<meta name="twitter:description" content="Redis是一种支持key-value等多种数据结构的存储系统。可用于缓存，事件发布或订阅，高速队列等场景。"/>
+
+
+
+<meta property="og:title" content="Redis基础与概念" />
+<meta property="og:description" content="Redis是一种支持key-value等多种数据结构的存储系统。可用于缓存，事件发布或订阅，高速队列等场景。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://firefoxking.github.io/post/Redis%E5%9F%BA%E7%A1%80%E4%B8%8E%E6%A6%82%E5%BF%B5/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-09-15T14:47:55+08:00" />
+<meta property="article:modified_time" content="2021-09-15T14:47:55+08:00" /><meta property="og:site_name" content="Hello Friend" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+        
+          <li><a href="/categories/">分类</a></li>
+        
+      
+        
+          <li><a href="/post/">归档</a></li>
+        
+      
+        
+          <li><a href="/tags/">标签</a></li>
+        
+      
+        
+          <li><a href="/">首页</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+      
+        <li><a href="/categories/">分类</a></li>
+      
+    
+      
+        <li><a href="/post/">归档</a></li>
+      
+    
+      
+        <li><a href="/tags/">标签</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Redis基础与概念</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-09-15
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by firefoxking</span
+        >
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://firefoxking.github.io/tags/Redis/">#Redis</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <p>[TOC]</p>
+<h1 id="redis概念与基础">Redis概念与基础</h1>
+<h2 id="1-redis基本概念特点">1. Redis基本概念、特点</h2>
+<p>Redis是一款内存高速缓存数据库，作为非关系型数据库，其不是采用表的形式存储数据。</p>
+<p>Redis全称为：<strong>Remote Dictionary Server</strong>（远程数据服务），使用C语言编写，Redis是一个key-value存储系统（键值存储系统）。</p>
+<ul>
+<li>
+<p>Redis不是一个普通的key-value存储系统，它实际上是一个数据结构服务器，支持不同类型的值。如：String、list、set、zset、hash等。</p>
+</li>
+<li>
+<p>单线程操作（Redis其实不是单线程，fysnc file descriptor进行持久化）</p>
+</li>
+<li>
+<p>Redis的key是二进制安全的，这意味着您可以使用任何二进制序列作为键，从“ foo”这样的字符串到 JPEG 文件的内容。空字符串也是一个有效的键。但是太长或太短的key都不建议使用，需要兼顾效率与可读性，一般采用“object-type:id&quot;的形式。</p>
+</li>
+<li>
+<p>优点：读写性能优异、数据类型丰富、原子性操作（合并）、持久化操作（快照或日志）、分布式特点。</p>
+</li>
+</ul>
+<h2 id="2-redis数据类型与简单命令操作">2. Redis数据类型与简单命令操作</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/firefoxking/image-hosting@master/20210915/1.6yrvv8srjqc0.png" alt=""></p>
+<ol>
+<li>
+<p>STRING</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">set key value <span style="color:#f92672">[</span>EX seconds<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>PX ms<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>nx|xx<span style="color:#f92672">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>常用命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/firefoxking/image-hosting@master/20210915/2.5xyus88pzgg0.png" alt=""></p>
+</li>
+<li>
+<p>命令执行</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">127.0.0.1:6379&gt; set hello world
+OK
+127.0.0.1:6379&gt; get hello
+<span style="color:#e6db74">&#34;world&#34;</span>
+127.0.0.1:6379&gt; del hello
+<span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">1</span>
+127.0.0.1:6379&gt; get hello
+<span style="color:#f92672">(</span>nil<span style="color:#f92672">)</span>
+127.0.0.1:6379&gt; get counter
+<span style="color:#e6db74">&#34;2&#34;</span>
+127.0.0.1:6379&gt; incr counter
+<span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">3</span>
+127.0.0.1:6379&gt; get counter
+<span style="color:#e6db74">&#34;3&#34;</span>
+127.0.0.1:6379&gt; incrby counter <span style="color:#ae81ff">100</span>
+<span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">103</span>
+127.0.0.1:6379&gt; get counter
+<span style="color:#e6db74">&#34;103&#34;</span>
+127.0.0.1:6379&gt; decr counter
+<span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">102</span>
+127.0.0.1:6379&gt; get counter
+<span style="color:#e6db74">&#34;102&#34;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>实战场景</strong></p>
+<ul>
+<li><strong>缓存</strong>： 经典使用场景，把常用信息，字符串，图片或者视频等信息放到redis中，redis作为缓存层，mysql做持久化层，降低mysql的读写压力。</li>
+<li><strong>计数器</strong>：redis是单线程模型，一个命令执行完才会执行下一个，同时数据可以一步落地到其他的数据源</li>
+<li><strong>session</strong>：常见方案spring session + redis实现session共享</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>LIST</p>
+<blockquote>
+<p>Redis中的List其实就是链表（Redis用双端链表实现List）。</p>
+</blockquote>
+<ul>
+<li>
+<p>常用命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/firefoxking/image-hosting@master/20210915/3.3tmq3aamfri0.png" alt="image-20210915155310074"></p>
+</li>
+<li>
+<p>命令执行</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">127.0.0.1:6379&gt; lpush mylist <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> ll ls mem
+<span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">5</span>
+127.0.0.1:6379&gt; lrange mylist <span style="color:#ae81ff">0</span> -1
+1<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;mem&#34;</span>
+2<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;ls&#34;</span>
+3<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;ll&#34;</span>
+4<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;2&#34;</span>
+5<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;1&#34;</span>
+127.0.0.1:6379&gt; lindex mylist -1
+<span style="color:#e6db74">&#34;1&#34;</span>
+127.0.0.1:6379&gt; lindex mylist <span style="color:#ae81ff">10</span>        <span style="color:#75715e"># index不在 mylist 的区间范围内</span>
+<span style="color:#f92672">(</span>nil<span style="color:#f92672">)</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>实战场景</p>
+<ul>
+<li><strong>微博TimeLine</strong>: 有人发布微博，用lpush加入时间轴，展示新的列表信息。</li>
+<li><strong>消息队列</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>SET</p>
+<blockquote>
+<p>Redis 的 Set 是 String 类型的无序集合。集合成员是唯一的，这就意味着集合中不能出现重复的数据。</p>
+</blockquote>
+<ul>
+<li>
+<p>常用命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/firefoxking/image-hosting@master/20210915/4.68ay7ykt3kg0.png" alt="image-20210915155823232"></p>
+</li>
+<li>
+<p>命令执行</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">127.0.0.1:6379&gt; sadd myset hao hao1 xiaohao hao
+<span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">3</span>
+127.0.0.1:6379&gt; smember myset
+1<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;xiaohao&#34;</span>
+2<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;hao1&#34;</span>
+3<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;hao&#34;</span>
+127.0.0.1:6379&gt; sismember myset hao
+<span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">1</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>实战场景</p>
+<ul>
+<li><strong>标签</strong>（tag）,给用户添加标签，或者用户给消息添加标签，这样有同一标签或者类似标签的可以给推荐关注的事或者关注的人。</li>
+<li><strong>点赞，或点踩，收藏等</strong>，可以放到set中实现</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>HASH</p>
+<blockquote>
+<p>Redis hash 是一个 string 类型的 field（字段） 和 value（值） 的映射表，hash 特别适合用于存储对象。</p>
+</blockquote>
+<ul>
+<li>
+<p>常用命令、</p>
+<p><img src="https://cdn.jsdelivr.net/gh/firefoxking/image-hosting@master/20210915/5.227n1atcfehs.png" alt="image-20210915160231815"></p>
+</li>
+<li>
+<p>命令执行</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">127.0.0.1:6379&gt; hset user name1 hao
+<span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">1</span>
+127.0.0.1:6379&gt; hset user email1 hao@163.com
+<span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">1</span>
+127.0.0.1:6379&gt; hgetall user
+1<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;name1&#34;</span>
+2<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;hao&#34;</span>
+3<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;email1&#34;</span>
+4<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;hao@163.com&#34;</span>
+127.0.0.1:6379&gt; hget user user
+<span style="color:#f92672">(</span>nil<span style="color:#f92672">)</span>
+127.0.0.1:6379&gt; hget user name1
+<span style="color:#e6db74">&#34;hao&#34;</span>
+127.0.0.1:6379&gt; hset user name2 xiaohao
+<span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">1</span>
+127.0.0.1:6379&gt; hset user email2 xiaohao@163.com
+<span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">1</span>
+127.0.0.1:6379&gt; hgetall user
+1<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;name1&#34;</span>
+2<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;hao&#34;</span>
+3<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;email1&#34;</span>
+4<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;hao@163.com&#34;</span>
+5<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;name2&#34;</span>
+6<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;xiaohao&#34;</span>
+7<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;email2&#34;</span>
+8<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;xiaohao@163.com&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>实战场景</p>
+<ul>
+<li><strong>缓存</strong>： 能直观，相比string更节省空间，的维护缓存信息，如用户信息，视频信息等。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>ZSET 有序集合</p>
+<ul>
+<li>
+<p>常用命令</p>
+<p><img src="https://cdn.jsdelivr.net/gh/firefoxking/image-hosting@master/20210915/6.3bpzd9khxqw0.png" alt="image-20210915160418671"></p>
+</li>
+<li>
+<p>命令执行</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">127.0.0.1:6379&gt; zadd myscoreset <span style="color:#ae81ff">100</span> hao <span style="color:#ae81ff">90</span> xiaohao
+<span style="color:#f92672">(</span>integer<span style="color:#f92672">)</span> <span style="color:#ae81ff">2</span>
+127.0.0.1:6379&gt; ZRANGE myscoreset <span style="color:#ae81ff">0</span> -1
+1<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;xiaohao&#34;</span>
+2<span style="color:#f92672">)</span> <span style="color:#e6db74">&#34;hao&#34;</span>
+127.0.0.1:6379&gt; ZSCORE myscoreset hao
+<span style="color:#e6db74">&#34;100&#34;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>实战场景</p>
+<ul>
+<li><strong>排行榜</strong>：有序集合经典使用场景。例如小说视频等网站需要对用户上传的小说视频做排行榜，榜单可以按照用户关注数，更新时间，字数等打分，做排行</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="3-使用场景">3. 使用场景</h2>
+<ul>
+<li>
+<p><strong>计数器</strong></p>
+<p>可以对 String 进行自增自减运算，从而实现计数器功能。</p>
+<p>Redis 这种内存型数据库的读写性能非常高，很适合存储频繁读写的计数量。</p>
+</li>
+<li>
+<p><strong>缓存</strong></p>
+<p>将热点数据放到内存中，设置内存的最大使用量以及淘汰策略来保证缓存的命中率。</p>
+</li>
+<li>
+<p><strong>查找表</strong></p>
+<p>例如 DNS 记录就很适合使用 Redis 进行存储。</p>
+<p>查找表和缓存类似，也是利用了 Redis 快速的查找特性。但是查找表的内容不能失效，而缓存的内容可以失效，因为缓存不作为可靠的数据来源。</p>
+</li>
+<li>
+<p><strong>消息队列</strong></p>
+<p>List 是一个双向链表，可以通过 lpush 和 rpop 写入和读取消息</p>
+<p>不过最好使用 Kafka、RabbitMQ 等消息中间件。</p>
+</li>
+<li>
+<p><strong>会话缓存</strong></p>
+<p>可以使用 Redis 来统一存储多台应用服务器的会话信息。</p>
+<p>当应用服务器不再存储用户的会话信息，也就不再具有状态，一个用户可以请求任意一个应用服务器，从而更容易实现高可用性以及可伸缩性。</p>
+</li>
+<li>
+<p><strong>分布式锁</strong></p>
+</li>
+<li>
+<p><strong>点赞、好友等相互关系存储</strong></p>
+<p>Redis 利用集合的一些命令，比如求交集、并集、差集等。</p>
+<p>在微博应用中，每个用户关注的人存在一个集合中，就很容易实现求两个人的共同好友功能。</p>
+</li>
+<li>
+<p><strong>排行榜</strong></p>
+<p>关系型数据库在排行榜方面查询速度普遍偏慢，所以可以借助redis的SortedSet进行热点数据的排序。</p>
+<p>比如点赞排行榜，做一个SortedSet, 然后以用户的openid作为上面的username, 以用户的点赞数作为上面的score, 然后针对每个用户做一个hash, 通过zrangebyscore就可以按照点赞数获取排行榜，然后再根据username获取用户的hash信息，这个当时在实际运用中性能体验也蛮不错的</p>
+</li>
+</ul>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://www.pdai.tech/md/db/nosql-redis/db-redis-data-types.html">Redis入门 - 数据类型：5种基础数据类型详解</a></p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="https://firefoxking.github.io/post/%E5%89%8D%E7%BC%80%E6%A0%91/">
+                  <span class="button__text">前缀树</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://firefoxking.github.io/assets/main.js"></script>
+<script src="https://firefoxking.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

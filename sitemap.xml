@@ -2,28 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/</loc>
+    <loc>https://firefoxking.github.io/categories/</loc>
+    <lastmod>2021-09-15T14:47:55+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/</loc>
+    <lastmod>2021-09-15T14:47:55+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/post/</loc>
+    <lastmod>2021-09-15T14:47:55+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/tags/Redis/</loc>
+    <lastmod>2021-09-15T14:47:55+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/post/Redis%E5%9F%BA%E7%A1%80%E4%B8%8E%E6%A6%82%E5%BF%B5/</loc>
+    <lastmod>2021-09-15T14:47:55+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/tags/</loc>
+    <lastmod>2021-09-15T14:47:55+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <lastmod>2021-09-15T14:47:55+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/post/%E5%89%8D%E7%BC%80%E6%A0%91/</loc>
+    <lastmod>2021-09-14T22:05:47+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/post/java%E5%86%85%E9%83%A8%E7%B1%BB/</loc>
     <lastmod>2021-09-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/java%E5%86%85%E9%83%A8%E7%B1%BB/</loc>
-    <lastmod>2021-09-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/post/</loc>
-    <lastmod>2021-09-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/about/</loc>
+    <loc>https://firefoxking.github.io/about/</loc>
     <lastmod>2019-01-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/showcase/</loc>
+    <loc>https://firefoxking.github.io/showcase/</loc>
     <lastmod>2019-01-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/hello/</loc>
+    <loc>https://firefoxking.github.io/post/hello/</loc>
     <lastmod>1986-09-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/archive/</loc>
-  </url><url>
-    <loc>/categories/</loc>
-  </url><url>
-    <loc>/tags/</loc>
+    <loc>https://firefoxking.github.io/archive/</loc>
   </url>
 </urlset>
