@@ -9,10 +9,30 @@
     <description>Recent content on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 15 Sep 2021 14:47:55 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 16 Sep 2021 21:42:48 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java8接口多继承问题</title>
+      <link>https://firefoxking.github.io/post/Java8%E6%8E%A5%E5%8F%A3%E5%A4%9A%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 16 Sep 2021 21:42:48 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/Java8%E6%8E%A5%E5%8F%A3%E5%A4%9A%E7%BB%A7%E6%89%BF%E9%97%AE%E9%A2%98/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Java8提供了接口默认方法，产生了实现多继承类似的问题
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Redis基础与概念</title>
