@@ -9,10 +9,30 @@
     <description>Recent content on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 17 Sep 2021 10:47:46 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Sep 2021 11:17:33 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JUC集合之BlockingQueue</title>
+      <link>https://firefoxking.github.io/post/JUC%E9%9B%86%E5%90%88%E4%B9%8BBlockingQueue/</link>
+      <pubDate>Fri, 17 Sep 2021 11:17:33 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/JUC%E9%9B%86%E5%90%88%E4%B9%8BBlockingQueue/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          BlockingQueue是一个**先进先出**的队列(Queue)，之所以说是阻塞(Blocking)是因为在获取队列元素时，如果队列为空，则会阻塞等待队列有元素再返回。
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>JUC锁原理分析之LockSupport</title>
@@ -170,26 +190,6 @@ This theme is pretty basic and covers all of the essentials. All you have to do 
         
         
           
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>JUC集合之BlockingQueue</title>
-      <link>https://firefoxking.github.io/post/JUC%E9%9B%86%E5%90%88%E4%B9%8BBlockingQueue/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://firefoxking.github.io/post/JUC%E9%9B%86%E5%90%88%E4%B9%8BBlockingQueue/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          BlockingQueue是一个**先进先出**的队列(Queue)，之所以说是阻塞(Blocking)是因为在获取队列元素时，如果队列为空，则会阻塞等待队列有元素再返回。
           
         
         </description>
