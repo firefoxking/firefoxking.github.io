@@ -9,10 +9,50 @@
     <description>Recent content in Categories on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 17 Sep 2021 11:17:33 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 23 Sep 2021 19:17:16 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>数学建模</title>
+      <link>https://firefoxking.github.io/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/</link>
+      <pubDate>Thu, 23 Sep 2021 19:17:16 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>搜索引擎</title>
+      <link>https://firefoxking.github.io/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</link>
+      <pubDate>Wed, 22 Sep 2021 11:22:54 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/categories/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>java并发</title>

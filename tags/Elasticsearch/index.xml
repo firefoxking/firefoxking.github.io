@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Elasticsearch on Hello Friend</title>
+    
+    
+    
+    <link>https://firefoxking.github.io/tags/Elasticsearch/</link>
+    <description>Recent content in Elasticsearch on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 22 Sep 2021 11:22:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://firefoxking.github.io/tags/Elasticsearch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Elasticsearch学习</title>
+      <link>https://firefoxking.github.io/post/Elasticsearch%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 22 Sep 2021 11:22:54 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/Elasticsearch%E5%AD%A6%E4%B9%A0/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Elasticsearch是一个实时的分布式全文搜索引擎，可以近乎实时的存储、检索数据；本身扩展性很好，可以扩展到上百台服务器，处理PB级别的数据。
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

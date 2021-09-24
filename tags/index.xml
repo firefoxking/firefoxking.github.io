@@ -9,10 +9,70 @@
     <description>Recent content in Tags on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 17 Sep 2021 11:17:33 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 23 Sep 2021 19:17:16 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>蒙特卡洛方法</title>
+      <link>https://firefoxking.github.io/tags/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Thu, 23 Sep 2021 19:17:16 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Elasticsearch</title>
+      <link>https://firefoxking.github.io/tags/Elasticsearch/</link>
+      <pubDate>Wed, 22 Sep 2021 11:22:54 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/Elasticsearch/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>搜索引擎</title>
+      <link>https://firefoxking.github.io/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</link>
+      <pubDate>Wed, 22 Sep 2021 11:22:54 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>JUC</title>
