@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>画图，problem on Hello Friend</title>
+    
+    
+    
+    <link>https://firefoxking.github.io/tags/%E7%94%BB%E5%9B%BEproblem/</link>
+    <description>Recent content in 画图，problem on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 25 Sep 2021 15:12:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://firefoxking.github.io/tags/%E7%94%BB%E5%9B%BEproblem/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>论文画图工具小计</title>
+      <link>https://firefoxking.github.io/post/%E8%AE%BA%E6%96%87%E7%94%BB%E5%9B%BE%E5%B7%A5%E5%85%B7%E5%B0%8F%E8%AE%A1/</link>
+      <pubDate>Sat, 25 Sep 2021 15:12:21 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E8%AE%BA%E6%96%87%E7%94%BB%E5%9B%BE%E5%B7%A5%E5%85%B7%E5%B0%8F%E8%AE%A1/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          队列同步器AbstractQueuedSynchronizer，是用来构建锁或者其他同步组件的基础框架，被认为是 J.U.C 的核心。
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
