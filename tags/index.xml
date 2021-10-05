@@ -9,10 +9,90 @@
     <description>Recent content in Tags on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 25 Sep 2021 15:12:21 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Sep 2021 22:00:36 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CountDownLatch</title>
+      <link>https://firefoxking.github.io/tags/CountDownLatch/</link>
+      <pubDate>Wed, 29 Sep 2021 22:00:36 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/CountDownLatch/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>CyclicBarrier</title>
+      <link>https://firefoxking.github.io/tags/CyclicBarrier/</link>
+      <pubDate>Wed, 29 Sep 2021 22:00:36 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/CyclicBarrier/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>JUC</title>
+      <link>https://firefoxking.github.io/tags/JUC/</link>
+      <pubDate>Wed, 29 Sep 2021 22:00:36 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/JUC/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Semaphore</title>
+      <link>https://firefoxking.github.io/tags/Semaphore/</link>
+      <pubDate>Wed, 29 Sep 2021 22:00:36 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/Semaphore/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>画图，problem</title>
@@ -100,26 +180,6 @@
       <pubDate>Fri, 17 Sep 2021 14:17:33 +0800</pubDate>
       
       <guid>https://firefoxking.github.io/tags/AQS/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>JUC</title>
-      <link>https://firefoxking.github.io/tags/JUC/</link>
-      <pubDate>Fri, 17 Sep 2021 14:17:33 +0800</pubDate>
-      
-      <guid>https://firefoxking.github.io/tags/JUC/</guid>
       <description>
         
           

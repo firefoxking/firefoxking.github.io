@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CountDownLatch on Hello Friend</title>
+    
+    
+    
+    <link>https://firefoxking.github.io/tags/CountDownLatch/</link>
+    <description>Recent content in CountDownLatch on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 29 Sep 2021 22:00:36 +0800</lastBuildDate>
+    
+	<atom:link href="https://firefoxking.github.io/tags/CountDownLatch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JUC工具类使用</title>
+      <link>https://firefoxking.github.io/post/JUC%E5%B7%A5%E5%85%B7%E7%B1%BB%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 29 Sep 2021 22:00:36 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/JUC%E5%B7%A5%E5%85%B7%E7%B1%BB%E4%BD%BF%E7%94%A8/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          JUC 利用底层的 AQS 实现了多个用于同步的常用并发工具类，包括CountDownLatch、CyclicBarrier、Semaphore。
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
