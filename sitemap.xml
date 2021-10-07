@@ -3,18 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://firefoxking.github.io/categories/</loc>
-    <lastmod>2021-09-29T22:00:36+08:00</lastmod>
+    <lastmod>2021-10-02T17:36:04+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/</loc>
+    <lastmod>2021-10-02T17:36:04+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/post/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2021-10-02T17:36:04+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/categories/java%E5%B9%B6%E5%8F%91/</loc>
+    <lastmod>2021-10-02T17:36:04+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/tags/JMM/</loc>
+    <lastmod>2021-10-02T17:36:04+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/tags/jvm%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2021-10-02T17:36:04+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/post/</loc>
+    <lastmod>2021-10-02T17:36:04+08:00</lastmod>
+  </url><url>
+    <loc>https://firefoxking.github.io/tags/</loc>
+    <lastmod>2021-10-02T17:36:04+08:00</lastmod>
   </url><url>
     <loc>https://firefoxking.github.io/tags/CountDownLatch/</loc>
     <lastmod>2021-09-29T22:00:36+08:00</lastmod>
   </url><url>
     <loc>https://firefoxking.github.io/tags/CyclicBarrier/</loc>
-    <lastmod>2021-09-29T22:00:36+08:00</lastmod>
-  </url><url>
-    <loc>https://firefoxking.github.io/</loc>
-    <lastmod>2021-09-29T22:00:36+08:00</lastmod>
-  </url><url>
-    <loc>https://firefoxking.github.io/categories/java%E5%B9%B6%E5%8F%91/</loc>
     <lastmod>2021-09-29T22:00:36+08:00</lastmod>
   </url><url>
     <loc>https://firefoxking.github.io/tags/JUC/</loc>
@@ -23,13 +38,7 @@
     <loc>https://firefoxking.github.io/post/JUC%E5%B7%A5%E5%85%B7%E7%B1%BB%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2021-09-29T22:00:36+08:00</lastmod>
   </url><url>
-    <loc>https://firefoxking.github.io/post/</loc>
-    <lastmod>2021-09-29T22:00:36+08:00</lastmod>
-  </url><url>
     <loc>https://firefoxking.github.io/tags/Semaphore/</loc>
-    <lastmod>2021-09-29T22:00:36+08:00</lastmod>
-  </url><url>
-    <loc>https://firefoxking.github.io/tags/</loc>
     <lastmod>2021-09-29T22:00:36+08:00</lastmod>
   </url><url>
     <loc>https://firefoxking.github.io/tags/%E7%94%BB%E5%9B%BEproblem/</loc>
