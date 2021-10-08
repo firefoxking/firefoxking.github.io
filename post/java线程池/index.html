@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Java线程池 ::
+        Hello Friend — A simple theme for Hugo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="一、前言 Java 中的线程池是运用场景最多的并发框架，几乎所有需要异步或并发执行任务的程序都可以使用线程池。线程池的使用能带来3个好处。 池化技术：线"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://firefoxking.github.io/post/java%E7%BA%BF%E7%A8%8B%E6%B1%A0/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://firefoxking.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://firefoxking.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://firefoxking.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://firefoxking.github.io/img/favicon.png" />
+
+
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java线程池"/>
+<meta name="twitter:description" content="Java 中的线程池是运用场景最多的并发框架，几乎所有需要异步或并发执行任务的程序都可以使用线程池。"/>
+
+
+
+<meta property="og:title" content="Java线程池" />
+<meta property="og:description" content="Java 中的线程池是运用场景最多的并发框架，几乎所有需要异步或并发执行任务的程序都可以使用线程池。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://firefoxking.github.io/post/java%E7%BA%BF%E7%A8%8B%E6%B1%A0/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-07T17:16:29+08:00" />
+<meta property="article:modified_time" content="2021-10-07T17:16:29+08:00" /><meta property="og:site_name" content="Hello Friend" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+        
+          <li><a href="/categories/">分类</a></li>
+        
+      
+        
+          <li><a href="/post/">归档</a></li>
+        
+      
+        
+          <li><a href="/tags/">标签</a></li>
+        
+      
+        
+          <li><a href="/">首页</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+      
+        <li><a href="/categories/">分类</a></li>
+      
+    
+      
+        <li><a href="/post/">归档</a></li>
+      
+    
+      
+        <li><a href="/tags/">标签</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Java线程池</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-10-07
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by firefoxking</span
+        >
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://firefoxking.github.io/tags/JUC/">#JUC</a>&nbsp;
+        
+          <a href="https://firefoxking.github.io/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">#线程池</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-线程池工作原理">1. 线程池工作原理</a></li>
+    <li><a href="#2-executor-框架">2. Executor 框架</a></li>
+    <li><a href="#3-threadpoolexecutor-类简介">3. ThreadPoolExecutor 类简介</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <h1 id="一前言">一、前言</h1>
+<p>Java 中的线程池是运用场景最多的并发框架，几乎所有需要异步或并发执行任务的程序都可以使用线程池。线程池的使用能带来3个好处。</p>
+<blockquote>
+<p>池化技术：线程池、数据库连接池、Http连接池等</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>降低资源消耗</strong>。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。</p>
+</li>
+<li>
+<p><strong>提高响应速度</strong>。当任务到达时，任务可以不需要等到线程创建就能立即执行。</p>
+</li>
+<li>
+<p><strong>提高线程的可管理性</strong>。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。</p>
+</li>
+</ol>
+<h1 id="二线程池实现原理">二、线程池实现原理</h1>
+<h2 id="1-线程池工作原理">1. 线程池工作原理</h2>
+<p>​	一般线程池设计后的工作过程都是一样的，当提交一个新任务到线程池中是，线程池的处理流程如下：</p>
+<ol>
+<li>
+<p>线程池判断核心线程池里的线程是否都在执行任务。如果不是，则创建一个新的工作线程，直到当前线程数等于corePoolSize。如果核心线程池中的线程都在执行任务，则进入下一个流程。</p>
+</li>
+<li>
+<p>线程池判断工作队列是否已经满。如果工作队列（阻塞队列）没有满，则将新提交的任务存储在这个工作队列里。如果工作队列满了，则进入下个流程。</p>
+</li>
+<li>
+<p>线程池判断线程池的线程是否都处于工作状态。如果没有，则创建一个新的工作线程来执行任务。如果已经满了，则交给饱和策略来处理这个任务。</p>
+</li>
+</ol>
+<p>ThreadPoolExecutor 执行 execute() 方法的示意图与上述是相通的。</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211007185514982.png" alt="image-20211007185514982"></p>
+<h2 id="2-executor-框架">2. Executor 框架</h2>
+<p>Executor 框架不仅包括了线程池的管理，还提供了线程工厂、队列以及拒绝策略等，Executor 框架让并发编程变得更加简单。还有关键的一点：有助于避免 this 逃逸问题。</p>
+<blockquote>
+<p>补充：this 逃逸是指在构造函数返回之前其他线程就持有该对象的引用. 调用尚未构造完全的对象的方法可能引发令人疑惑的错误。</p>
+</blockquote>
+<p><strong>Executor 框架主要由3大部分组成：</strong></p>
+<ul>
+<li>
+<p><strong>任务：</strong> 包括被执行的任务需要实现的接口：Runable 接口、Callable接口；</p>
+</li>
+<li>
+<p><strong>任务的执行</strong>：包括任务执行机制的核心接口Executor，以及继承自Executor的ExecutorService接口。Executor框架有两个关键类实现了ExecutorService接口：ThreadPoolExecutor 和 ScheduledThreadPoolExecutor、ForkJoinPool；</p>
+<blockquote>
+<p>这里提了很多底层的类关系，但是，实际上我们需要更多关注的是 <code>ThreadPoolExecutor</code> 这个类，这个类在我们实际使用线程池的过程中，使用频率还是非常高的。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>任务的异步计算结果：</strong> 包括Future接口和实现Future接口的FutureTask类、ForkJoinTask类。</p>
+</li>
+</ul>
+<p><strong>Executor类图</strong></p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/820628cf179f4952812da4e8ca5de672.png" alt="img"></p>
+<p>简单理解这些类的作用：</p>
+<ul>
+<li>
+<p>Executor 接口：是Executor框架的基础，它将任务的提交与任务的执行分离开来。</p>
+</li>
+<li>
+<p>ExecutorService 接口： 扩展了Executor接口，提供了管理终止的方法（<em>shutdown( )</em> ,etc），以及可为跟踪一个或多个异步任务执行状况而生成 Future 的方法。</p>
+</li>
+<li>
+<p>AbstractExecutorService 类： 提供 ExecutorService 执行方法的默认实现。</p>
+</li>
+<li>
+<p>ScheduledExecutorService 接口： 一个特殊的 ExecutorService，提供了可安排在给定的延迟后运行或定期执行的命令。</p>
+</li>
+</ul>
+<p><strong>Executor 框架的使用</strong></p>
+<p><img src="https://snailclimb.gitee.io/javaguide/docs/java/multi-thread/images/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/Executor%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="Executor 框架的使用示意图"></p>
+<p>使用步骤：</p>
+<ol>
+<li>
+<p>创建Runnable并重写run（）方法或者Callable对象并重写call（）方法，实现任务对象。</p>
+</li>
+<li>
+<p><strong>把创建完成的实现 <code>Runnable</code>/<code>Callable</code>接口的 对象直接交给 <code>ExecutorService</code> 执行</strong>: <code>ExecutorService.execute（Runnable command）</code>）或者也可以把 <code>Runnable</code> 对象或<code>Callable</code> 对象提交给 <code>ExecutorService</code> 执行（<code>ExecutorService.submit（Runnable task）</code>或 <code>ExecutorService.submit（Callable &lt;T&gt; task）</code>）。</p>
+</li>
+<li>
+<p><strong>如果执行 <code>ExecutorService.submit（…）</code>，<code>ExecutorService</code> 将返回一个实现<code>Future</code>接口的对象</strong>（我们刚刚也提到过了执行 <code>execute()</code>方法和 <code>submit()</code>方法的区别，<code>submit()</code>会返回一个 <code>FutureTask </code>对象）。由于 <code>FutureTask</code> 实现了 <code>Runnable</code>，我们也可以创建 <code>FutureTask</code>，然后直接交给 <code>ExecutorService</code> 执行。</p>
+</li>
+<li>
+<p><strong>最后，主线程可以执行 <code>FutureTask.get()</code>方法来等待任务执行完成。主线程也可以执行 <code>FutureTask.cancel（boolean mayInterruptIfRunning）</code>来取消此任务的执行。</strong></p>
+</li>
+</ol>
+<h2 id="3-threadpoolexecutor-类简介">3. ThreadPoolExecutor 类简介</h2>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://firefoxking.github.io/post/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">遗传算法之scikit Opt库使用</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://firefoxking.github.io/post/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
+                  <span class="button__text">Java内存模型</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://firefoxking.github.io/assets/main.js"></script>
+<script src="https://firefoxking.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

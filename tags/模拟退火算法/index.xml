@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>模拟退火算法 on Hello Friend</title>
+    
+    
+    
+    <link>https://firefoxking.github.io/tags/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 模拟退火算法 on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 08 Oct 2021 19:14:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://firefoxking.github.io/tags/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>模拟退火算法之scikit Opt库使用</title>
+      <link>https://firefoxking.github.io/post/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 08 Oct 2021 19:14:57 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          模拟退火算法（Simulate Annealing Arithmetic，SAA）是一种通用概率演算法，用来在一个大的搜寻空间内找寻命题的最优解。
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

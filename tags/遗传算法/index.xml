@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>遗传算法 on Hello Friend</title>
+    
+    
+    
+    <link>https://firefoxking.github.io/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 遗传算法 on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 08 Oct 2021 15:59:29 +0800</lastBuildDate>
+    
+	<atom:link href="https://firefoxking.github.io/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>遗传算法之scikit Opt库使用</title>
+      <link>https://firefoxking.github.io/post/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 08 Oct 2021 15:59:29 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          遗传算法(GA)是一种全局寻优搜索算法，它依据的是大自然生物进化过程中“适者生存”的规律。
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

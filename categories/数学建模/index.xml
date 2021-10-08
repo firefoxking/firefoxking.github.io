@@ -9,10 +9,90 @@
     <description>Recent content in 数学建模 on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 23 Sep 2021 19:17:16 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 Oct 2021 21:37:50 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>蚁群算法之scikit Opt库使用</title>
+      <link>https://firefoxking.github.io/post/%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 08 Oct 2021 21:37:50 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          蚁群算法的基本原理来源于自然界中蚂蚁觅食的最短路径问题。
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>模拟退火算法之scikit Opt库使用</title>
+      <link>https://firefoxking.github.io/post/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 08 Oct 2021 19:14:57 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          模拟退火算法（Simulate Annealing Arithmetic，SAA）是一种通用概率演算法，用来在一个大的搜寻空间内找寻命题的最优解。
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>粒子群优化算法之scikit Opt库使用</title>
+      <link>https://firefoxking.github.io/post/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 08 Oct 2021 17:15:16 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          遗传算法(GA)是一种全局寻优搜索算法，它依据的是大自然生物进化过程中“适者生存”的规律。
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>遗传算法之scikit Opt库使用</title>
+      <link>https://firefoxking.github.io/post/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 08 Oct 2021 15:59:29 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          遗传算法(GA)是一种全局寻优搜索算法，它依据的是大自然生物进化过程中“适者生存”的规律。
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>数学建模十大算法之一 蒙特卡洛方法</title>

@@ -9,10 +9,130 @@
     <description>Recent content in Tags on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 02 Oct 2021 17:36:04 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 Oct 2021 21:37:50 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>蚁群算法</title>
+      <link>https://firefoxking.github.io/tags/%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Fri, 08 Oct 2021 21:37:50 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>模拟退火算法</title>
+      <link>https://firefoxking.github.io/tags/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Fri, 08 Oct 2021 19:14:57 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>粒子群优化算法</title>
+      <link>https://firefoxking.github.io/tags/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Fri, 08 Oct 2021 17:15:16 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E7%B2%92%E5%AD%90%E7%BE%A4%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>遗传算法</title>
+      <link>https://firefoxking.github.io/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Fri, 08 Oct 2021 15:59:29 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>JUC</title>
+      <link>https://firefoxking.github.io/tags/JUC/</link>
+      <pubDate>Thu, 07 Oct 2021 17:16:29 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/JUC/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>线程池</title>
+      <link>https://firefoxking.github.io/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/</link>
+      <pubDate>Thu, 07 Oct 2021 17:16:29 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>JMM</title>
@@ -80,26 +200,6 @@
       <pubDate>Wed, 29 Sep 2021 22:00:36 +0800</pubDate>
       
       <guid>https://firefoxking.github.io/tags/CyclicBarrier/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>JUC</title>
-      <link>https://firefoxking.github.io/tags/JUC/</link>
-      <pubDate>Wed, 29 Sep 2021 22:00:36 +0800</pubDate>
-      
-      <guid>https://firefoxking.github.io/tags/JUC/</guid>
       <description>
         
           

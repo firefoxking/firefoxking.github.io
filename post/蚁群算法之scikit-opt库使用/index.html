@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        蚁群算法之scikit Opt库使用 ::
+        Hello Friend — A simple theme for Hugo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="一、蚁群算法概念 1. 基本思想 蚁群算法的基本原理来源于自然界中蚂蚁觅食的最短路径问题。根据昆虫学家的观察，发现自然界的蚂蚁虽然视觉不发达，但它可"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://firefoxking.github.io/post/%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://firefoxking.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://firefoxking.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://firefoxking.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://firefoxking.github.io/img/favicon.png" />
+
+
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="蚁群算法之scikit Opt库使用"/>
+<meta name="twitter:description" content="蚁群算法的基本原理来源于自然界中蚂蚁觅食的最短路径问题。"/>
+
+
+
+<meta property="og:title" content="蚁群算法之scikit Opt库使用" />
+<meta property="og:description" content="蚁群算法的基本原理来源于自然界中蚂蚁觅食的最短路径问题。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://firefoxking.github.io/post/%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-08T21:37:50+08:00" />
+<meta property="article:modified_time" content="2021-10-08T21:37:50+08:00" /><meta property="og:site_name" content="Hello Friend" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+        
+          <li><a href="/categories/">分类</a></li>
+        
+      
+        
+          <li><a href="/post/">归档</a></li>
+        
+      
+        
+          <li><a href="/tags/">标签</a></li>
+        
+      
+        
+          <li><a href="/">首页</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+      
+        <li><a href="/categories/">分类</a></li>
+      
+    
+      
+        <li><a href="/post/">归档</a></li>
+      
+    
+      
+        <li><a href="/tags/">标签</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">蚁群算法之scikit Opt库使用</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-10-08
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by firefoxking</span
+        >
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://firefoxking.github.io/tags/%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95/">#蚁群算法</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一蚁群算法概念">一、蚁群算法概念</a>
+      <ul>
+        <li><a href="#1-基本思想">1. 基本思想</a></li>
+        <li><a href="#2-算法特点">2. 算法特点</a></li>
+      </ul>
+    </li>
+    <li><a href="#二蚁群算法流程">二、蚁群算法流程</a></li>
+    <li><a href="#三蚁群算法工具箱">三、蚁群算法工具箱</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <h2 id="一蚁群算法概念">一、蚁群算法概念</h2>
+<h3 id="1-基本思想">1. 基本思想</h3>
+<p>蚁群算法的基本原理来源于自然界中蚂蚁觅食的最短路径问题。根据昆虫学家的观察，发现自然界的蚂蚁虽然视觉不发达，但它可以在没有任何提示的情况下找到从食物源到巢穴的最短路径，并且能在环境发生变化(如原有路径上有了障碍物)后，自适应地搜索新的最佳路径。蚂蚁是如何做到这一点的呢？</p>
+<p>原来，蚂蚁在寻找食物源时，能在其走过的路径上释放一种蚂蚁特有的分泌物一信息激素一也可称之为信息素，使得一定范围内的其他蚂蚁能够察觉到并由此影响它们以后的行为。当一些路径上通过的蚂蚁越来越多时，其留下的信息素也越来越多，以致信息素强度增大(当然，随时间的推移会逐渐减弱)，所以蚂蚁选择该路径的概率也越高，从而更增加了该路径的信息素强度，这种选择过程被称之为蚂蚁的自催化行为。由于其原理是一种正反馈机制.因此，也可将蚂蚁王国理解为所谓的增强型学习系统。</p>
+<p>在自然界中，蚁群的这种寻找路径的过程表现为一种正反馈过程，“蚁群算法”就是模仿生物学蚂蚁群觅食寻找最优路径原理衍生出来的。</p>
+<h3 id="2-算法特点">2. 算法特点</h3>
+<p>这种算法具有分布计算、信息正反馈和启发式搜索的特征，本质上是进化算法中的一种启发式全局优化算法。在数字时代背景下，蚁群算法在网络路由中的应用受到越来越多学者的关注，并提出了一些新的基于蚂蚁算法的路由算法。</p>
+<h2 id="二蚁群算法流程">二、蚁群算法流程</h2>
+<ol>
+<li>
+<p>根据具体问题设置多只蚂蚁，分头并行搜索。</p>
+</li>
+<li>
+<p>每只蚂蚁完成一次周游后，在行进的路上释放信息素，信息素量与解的质量成正比。</p>
+</li>
+<li>
+<p>蚂蚁路径的选择根据信息素强度大小（初始信息素量设为相等），同时考虑两点之间的距离，采用随机的局部搜索策略。这使得距离较短的边，其上的信息素量较大，后来的蚂蚁选择该边的概率也较大。</p>
+</li>
+<li>
+<p>每只蚂蚁只能走合法路线（经过每个城市<code>1</code>次且仅<code>1</code>次），为此设置禁忌表来控制。</p>
+</li>
+<li>
+<p>所有蚂蚁都搜索完一次就是迭代一次，每迭代一次就对所有的边做一次信息素更新，原来的蚂蚁死掉，新的蚂蚁进行新一轮搜索。</p>
+</li>
+<li>
+<p>更新信息素包括原有信息素的蒸发和经过的路径上信息素的增加。</p>
+</li>
+<li>
+<p>达到预定的迭代步数，或出现停滞现象（所有蚂蚁都选择同样的路径，解不再变化），则算法结束，以当前最优解作为问题的最优解。</p>
+</li>
+</ol>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211008215146874.png" alt="image-20211008215146874"></p>
+<h2 id="三蚁群算法工具箱">三、蚁群算法工具箱</h2>
+<p>只提供了蚁群算法(ACA, Ant Colony Algorithm)解决TSP问题</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+<span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> spatial
+<span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+
+num_points <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>
+
+points_coordinate <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(num_points, <span style="color:#ae81ff">2</span>)  <span style="color:#75715e"># generate coordinate of points</span>
+distance_matrix <span style="color:#f92672">=</span> spatial<span style="color:#f92672">.</span>distance<span style="color:#f92672">.</span>cdist(points_coordinate, points_coordinate, metric<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;euclidean&#39;</span>)
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cal_total_distance</span>(routine):
+    num_points, <span style="color:#f92672">=</span> routine<span style="color:#f92672">.</span>shape
+    <span style="color:#66d9ef">return</span> sum([distance_matrix[routine[i <span style="color:#f92672">%</span> num_points], routine[(i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> num_points]] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(num_points)])
+
+
+<span style="color:#75715e"># %% Do ACA</span>
+<span style="color:#f92672">from</span> sko.ACA <span style="color:#f92672">import</span> ACA_TSP
+
+aca <span style="color:#f92672">=</span> ACA_TSP(func<span style="color:#f92672">=</span>cal_total_distance, n_dim<span style="color:#f92672">=</span>num_points,
+              size_pop<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, max_iter<span style="color:#f92672">=</span><span style="color:#ae81ff">200</span>,
+              distance_matrix<span style="color:#f92672">=</span>distance_matrix)
+
+best_x, best_y <span style="color:#f92672">=</span> aca<span style="color:#f92672">.</span>run()
+
+<span style="color:#75715e"># %% Plot</span>
+fig, ax <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>subplots(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+best_points_ <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>concatenate([best_x, [best_x[<span style="color:#ae81ff">0</span>]]])
+best_points_coordinate <span style="color:#f92672">=</span> points_coordinate[best_points_, :]
+ax[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>plot(best_points_coordinate[:, <span style="color:#ae81ff">0</span>], best_points_coordinate[:, <span style="color:#ae81ff">1</span>], <span style="color:#e6db74">&#39;o-r&#39;</span>)
+pd<span style="color:#f92672">.</span>DataFrame(aca<span style="color:#f92672">.</span>y_best_history)<span style="color:#f92672">.</span>cummin()<span style="color:#f92672">.</span>plot(ax<span style="color:#f92672">=</span>ax[<span style="color:#ae81ff">1</span>])
+plt<span style="color:#f92672">.</span>show()
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211008220003745.png" alt="image-20211008220003745"></p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="https://firefoxking.github.io/post/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95%E4%B9%8Bscikit-opt%E5%BA%93%E4%BD%BF%E7%94%A8/">
+                  <span class="button__text">模拟退火算法之scikit Opt库使用</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://firefoxking.github.io/assets/main.js"></script>
+<script src="https://firefoxking.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
