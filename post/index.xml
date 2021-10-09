@@ -9,10 +9,30 @@
     <description>Recent content in Posts on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 09 Oct 2021 13:43:49 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 09 Oct 2021 15:34:19 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git工具知识记录</title>
+      <link>https://firefoxking.github.io/post/git%E5%B7%A5%E5%85%B7%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Sat, 09 Oct 2021 15:34:19 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/git%E5%B7%A5%E5%85%B7%E7%9F%A5%E8%AF%86%E8%AE%B0%E5%BD%95/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          一、前言 一直都有在使用git 工具，一般常用的命令都有在使用，但是有时候需要进行一些操作时，还是会去查找相关的命令，所以感觉用起来就不是很熟练
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>VScode调试第三方库</title>
