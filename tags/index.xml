@@ -9,10 +9,30 @@
     <description>Recent content in Tags on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 09 Oct 2021 13:43:49 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 09 Oct 2021 15:34:19 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>git</title>
+      <link>https://firefoxking.github.io/tags/git/</link>
+      <pubDate>Sat, 09 Oct 2021 15:34:19 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/git/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>调试，problem，VScode</title>
