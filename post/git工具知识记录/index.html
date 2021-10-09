@@ -245,12 +245,10 @@
 <p><code>git add</code></p>
 <p><code>git commit</code></p>
 <h3 id="2-分支相关">2. 分支相关</h3>
-<blockquote>
 <p>Git 的分支也非常轻量。它们只是简单地指向某个提交纪录 —— 仅此而已。所以许多 Git 爱好者传颂：</p>
 <p><strong>早建分支！多用分支！</strong></p>
 <p>这是因为即使创建再多的分支也不会造成储存或内存上的开销，并且按逻辑分解工作到不同的分支要比维护那些特别臃肿的分支简单多了。</p>
 <p>在将分支和提交记录结合起来后，我们会看到两者如何协作。现在只要记住使用分支其实就相当于在说：“我想基于这个提交以及它所有的父提交进行新的工作。”</p>
-</blockquote>
 <p><code>git branch &lt;分支名&gt; # 创建分支</code></p>
 <p><code>git checkout &lt;分支名&gt; # 切换到分支</code></p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -264,9 +262,7 @@ git checkout bugFix
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211009163429839.png" alt="image-20211009163429839"></p>
-<blockquote>
 <p><code>git merge &lt;分支名&gt;</code>。在 Git 中合并两个分支时会产生一个特殊的提交记录，它有两个父节点。翻译成自然语言相当于：“我要把这两个父节点本身及它们所有的祖先都包含进来。</p>
-</blockquote>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -290,10 +286,8 @@ git merge main
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211009164908336.png" alt="image-20211009164908336"></p>
-<blockquote>
 <p>第二种合并分支的方法是 <code>git rebase</code>。Rebase 实际上就是取出一系列的提交记录，“复制”它们，然后在另外一个地方逐个的放下去。</p>
 <p>Rebase 的优势就是可以创造更线性的提交历史，这听上去有些难以理解。如果只允许使用 Rebase 的话，代码库的提交历史将会变得异常清晰。</p>
-</blockquote>
 <p>该命令更多<a href="https://www.waynerv.com/posts/git-rebase-intro/#%E7%90%86%E8%A7%A3-rebase-%E5%91%BD%E4%BB%A4">参考</a></p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -316,46 +310,33 @@ git rebase main
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211009170222336.png" alt="image-20211009170222336"></p>
-<blockquote>
 <p>HEAD 是一个对当前检出记录的符号引用 —— 也就是指向你正在其基础上进行工作的提交记录。</p>
 <p>HEAD 总是指向当前分支上最近一次提交记录。大多数修改提交树的 Git 命令都是从改变 HEAD 的指向开始的。Git 分离头指针</p>
-</blockquote>
 <p><code>git checkout &lt;commit id&gt;</code></p>
 <p>也可以使用相对应用来指定</p>
 <p><code>git checkout HEAD^^</code>或 <code>git checkout HEAD~2</code></p>
-<blockquote>
 <p>强制修改分支位置</p>
 <p>使用相对引用最多的就是移动分支。可以直接使用 <code>-f</code> 选项让分支指向另一个提交。例如:</p>
 <p><code>git branch -f main HEAD~3</code></p>
 <p>上面的命令会将 main 分支强制指向 HEAD 的第 3 级父提交</p>
-</blockquote>
 <p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211009173041512.png" alt="image-20211009173041512"></p>
 <h3 id="3-撤销变更">3. 撤销变更</h3>
-<blockquote>
 <p><code>git reset</code> 通过把分支记录回退几个提交记录来实现撤销改动。你可以将这想象成“改写历史”。<code>git reset</code> 向上移动分支，原来指向的提交记录就跟从来没有提交过一样。</p>
 <p>虽然在你的本地分支中使用 <code>git reset</code> 很方便，但是这种“改写历史”的方法对大家一起使用的远程分支是无效的哦！</p>
 <p>为了撤销更改并<strong>分享</strong>给别人，我们需要使用 <code>git revert</code>。</p>
-</blockquote>
 <p><code>git reset HEAD^</code></p>
 <p><code>git revert HEAD</code></p>
 <h3 id="4-移动提交记录">4. 移动提交记录</h3>
-<blockquote>
 <p>如果你想将一些提交复制到当前所在的位置（<code>HEAD</code>）下面的话， Cherry-pick 是最直接的方式了。</p>
-</blockquote>
 <p><code>git cherry-pick &lt;提交号&gt;...</code></p>
 <p>将 side 分支的C2、C4复制到 main 分支。</p>
 <p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211009191006009.png" alt="image-20211009191006009"></p>
-<blockquote>
 <p>交互式 rebase 指的是使用带参数 <code>--interactive</code> 的 rebase 命令, 简写为 <code>-i</code></p>
 <p>如果你在命令后增加了这个选项, Git 会打开一个 UI 界面并列出将要被复制到目标分支的备选提交记录，它还会显示每个提交记录的哈希值和提交说明，提交说明有助于你理解这个提交进行了哪些更改。</p>
 <p>在实际使用时，所谓的 UI 窗口一般会在文本编辑器 —— 如 Vim —— 中打开一个文件。 考虑到课程的初衷，我弄了一个对话框来模拟这些操作。</p>
-</blockquote>
 <h3 id="5-远程仓库">5. 远程仓库</h3>
-<blockquote>
 <p>我们现在需要学习远程仓库的操作 —— 我们需要一个配置这种环境的命令, 它就是 <code>git clone</code>。 从技术上来讲，<code>git clone</code> 命令在真实的环境下的作用是在<strong>本地</strong>创建一个远程仓库的拷贝（比如从 github.com）。</p>
-</blockquote>
 <p><code>git clone &lt;git-repo-url&gt;</code></p>
-<blockquote>
 <p><code>git fetch</code> 完成了仅有的但是很重要的两步:</p>
 <ul>
 <li>从远程仓库下载本地仓库中缺失的提交记录</li>
@@ -363,9 +344,7 @@ git rebase main
 </ul>
 <p><code>git fetch</code> 实际上将本地仓库中的远程分支更新成了远程仓库相应分支最新的状态。</p>
 <p><code>git fetch</code> 并不会改变你本地仓库的状态。它不会更新你的 <code>main</code> 分支，也不会修改你磁盘上的文件。</p>
-</blockquote>
 <p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211009195143336.png" alt="image-20211009195143336"></p>
-<blockquote>
 <p>既然我们已经知道了如何用 <code>git fetch</code> 获取远程的数据, 现在我们学习如何将这些变化更新到我们的工作当中。</p>
 <p>其实有很多方法的 —— 当远程分支中有新的提交时，你可以像合并本地分支那样来合并远程分支。也就是说就是你可以执行以下命令:</p>
 <ul>
@@ -375,11 +354,8 @@ git rebase main
 <li>等等</li>
 </ul>
 <p>实际上，由于先抓取更新再合并到本地分支这个流程很常用，因此 Git 提供了一个专门的命令来完成这两个操作。它就是我们要讲的 <code>git pull</code>。</p>
-</blockquote>
 <p><code>git pull</code> === <code>git fetch; git merge origin/main</code></p>
-<blockquote>
 <p><code>git push</code> 负责将<strong>你的</strong>变更上传到指定的远程仓库，并在远程仓库上合并你的新提交记录。一旦 <code>git push</code> 完成, 你的朋友们就可以从这个远程仓库下载你分享的成果了！</p>
-</blockquote>
 <p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211009200404809.png" alt="image-20211009200404809"></p>
 <p><code>git push</code> 后：</p>
 <p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211009200431945.png" alt="image-20211009200431945"></p>
