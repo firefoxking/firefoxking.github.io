@@ -9,10 +9,30 @@
     <description>Recent content on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 09 Oct 2021 15:34:19 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 11 Oct 2021 20:13:20 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Quartz入门及使用</title>
+      <link>https://firefoxking.github.io/post/Quartz%E5%85%A5%E9%97%A8%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 11 Oct 2021 20:13:20 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/Quartz%E5%85%A5%E9%97%A8%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          `Quartz` 可以说是 Java 定时任务领域的老大哥或者说参考标准，其他的任务调度框架基本都是基于 `Quartz` 开发的。
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Git工具知识记录</title>

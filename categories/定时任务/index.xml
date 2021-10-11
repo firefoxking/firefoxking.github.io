@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>定时任务 on Hello Friend</title>
+    
+    
+    
+    <link>https://firefoxking.github.io/categories/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
+    <description>Recent content in 定时任务 on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 11 Oct 2021 20:13:20 +0800</lastBuildDate>
+    
+	<atom:link href="https://firefoxking.github.io/categories/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quartz入门及使用</title>
+      <link>https://firefoxking.github.io/post/Quartz%E5%85%A5%E9%97%A8%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 11 Oct 2021 20:13:20 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/Quartz%E5%85%A5%E9%97%A8%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          `Quartz` 可以说是 Java 定时任务领域的老大哥或者说参考标准，其他的任务调度框架基本都是基于 `Quartz` 开发的。
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
