@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Docker入门基础(一) ::
+        Hello Friend — A simple theme for Hugo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="一、Docker 概述 开发人员也需要基础的运维操作。 开发一些 jar 运行需要依赖（redis、mysql等环境），重新安装部署会很麻烦，可以使用Do"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://firefoxking.github.io/post/Docker%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E4%B8%80/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://firefoxking.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://firefoxking.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://firefoxking.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://firefoxking.github.io/img/favicon.png" />
+
+
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Docker入门基础(一)"/>
+<meta name="twitter:description" content="Elasticsearch是一个实时的分布式全文搜索引擎，可以近乎实时的存储、检索数据；本身扩展性很好，可以扩展到上百台服务器，处理PB级别的数据。"/>
+
+
+
+<meta property="og:title" content="Docker入门基础(一)" />
+<meta property="og:description" content="Elasticsearch是一个实时的分布式全文搜索引擎，可以近乎实时的存储、检索数据；本身扩展性很好，可以扩展到上百台服务器，处理PB级别的数据。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://firefoxking.github.io/post/Docker%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E4%B8%80/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-13T20:08:30+08:00" />
+<meta property="article:modified_time" content="2021-10-13T20:08:30+08:00" /><meta property="og:site_name" content="Hello Friend" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+        
+          <li><a href="/categories/">分类</a></li>
+        
+      
+        
+          <li><a href="/post/">归档</a></li>
+        
+      
+        
+          <li><a href="/tags/">标签</a></li>
+        
+      
+        
+          <li><a href="/">首页</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+      
+        <li><a href="/categories/">分类</a></li>
+      
+    
+      
+        <li><a href="/post/">归档</a></li>
+      
+    
+      
+        <li><a href="/tags/">标签</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Docker入门基础(一)</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-10-13
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by firefoxking</span
+        >
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://firefoxking.github.io/tags/Docker/">#Docker</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一docker-概述">一、Docker 概述</a></li>
+    <li><a href="#二docker-基础概念">二、Docker 基础概念</a>
+      <ul>
+        <li><a href="#1-docker-与-传统虚拟化技术比较">1. Docker 与 传统虚拟化技术比较</a></li>
+        <li><a href="#2-为什么要使用-docker">2. 为什么要使用 Docker</a></li>
+        <li><a href="#3-docker-的基本组成">3. Docker 的基本组成</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></aside>
+        
+      
+      <h2 id="一docker-概述">一、Docker 概述</h2>
+<p>开发人员也需要基础的运维操作。</p>
+<p>开发一些 jar 运行需要依赖（redis、mysql等环境），重新安装部署会很麻烦，可以使用Docker 打包jar包及所依赖的服务环境。</p>
+<p>相比于Vmware 等其他虚拟化技术更加轻量级。</p>
+<p>Docker 是基于 Go 语言开发的！开源项目！</p>
+<p>官网：https://www.docker.com/</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211013204900239.png" alt="image-20211013204900239"></p>
+<p>文档地址：https://docs.docker.com/ Docker 的文档是超级详细的。</p>
+<p>仓库地址：https://hub.docker.com/</p>
+<h2 id="二docker-基础概念">二、Docker 基础概念</h2>
+<h3 id="1-docker-与-传统虚拟化技术比较">1. Docker 与 传统虚拟化技术比较</h3>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/virtualization.png" alt="img"></p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/docker.png" alt="img"></p>
+<ul>
+<li>传统虚拟机技术是虚拟出一套硬件后，在其上运行一个完整操作系统，在该系统上再运行所需应用进程；</li>
+<li>容器内的应用进程直接运行于宿主的内核，容器内没有自己的内核，而且也没有进行硬件虚拟。因此容器要比传统虚拟机更为轻便。</li>
+</ul>
+<h3 id="2-为什么要使用-docker">2. 为什么要使用 Docker</h3>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211013205814632.png" alt="image-20211013205814632"></p>
+<ol>
+<li>更高效的利用系统资源</li>
+<li>更快速的启动时间</li>
+<li>一致的运行环境</li>
+<li>持续交付和部署</li>
+<li>更轻松的迁移</li>
+<li>更轻松的维护和扩展</li>
+</ol>
+<h3 id="3-docker-的基本组成">3. Docker 的基本组成</h3>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/20210717120256284.png" alt="img"></p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://firefoxking.github.io/post/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">单元测试</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://firefoxking.github.io/post/Quartz%E5%85%A5%E9%97%A8%E5%8F%8A%E4%BD%BF%E7%94%A8/">
+                  <span class="button__text">Quartz入门及使用</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://firefoxking.github.io/assets/main.js"></script>
+<script src="https://firefoxking.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

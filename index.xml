@@ -9,10 +9,50 @@
     <description>Recent content on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 11 Oct 2021 20:13:20 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Oct 2021 09:16:11 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>单元测试</title>
+      <link>https://firefoxking.github.io/post/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Wed, 20 Oct 2021 09:16:11 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          在计算机编程中，单元测试（英语：Unit Testing）又称为模块测试，是针对程序模块软件设计的最小单位来进行正确性检验的测试工作。
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Docker入门基础(一)</title>
+      <link>https://firefoxking.github.io/post/Docker%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E4%B8%80/</link>
+      <pubDate>Wed, 13 Oct 2021 20:08:30 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/Docker%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E4%B8%80/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Elasticsearch是一个实时的分布式全文搜索引擎，可以近乎实时的存储、检索数据；本身扩展性很好，可以扩展到上百台服务器，处理PB级别的数据。
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Quartz入门及使用</title>
