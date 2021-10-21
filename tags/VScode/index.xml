@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VScode on Hello Friend</title>
+    
+    
+    
+    <link>https://firefoxking.github.io/tags/VScode/</link>
+    <description>Recent content in VScode on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 09 Oct 2021 13:43:49 +0800</lastBuildDate>
+    
+	<atom:link href="https://firefoxking.github.io/tags/VScode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VScode调试第三方库</title>
+      <link>https://firefoxking.github.io/post/VScode%E8%B0%83%E8%AF%95%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/</link>
+      <pubDate>Sat, 09 Oct 2021 13:43:49 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/VScode%E8%B0%83%E8%AF%95%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          使用VScode 调试python代码时，需要进入第三方库查看源码，但是默认情况下无法进入，设断点都是显示白色无法生效。 后来在网上搜索发现vs
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -9,10 +9,30 @@
     <description>Recent content in Junit on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 20 Oct 2021 09:16:11 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Oct 2021 11:54:59 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/tags/Junit/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>单元测试插件使用</title>
+      <link>https://firefoxking.github.io/post/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 20 Oct 2021 11:54:59 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          在计算机编程中，单元测试（英语：Unit Testing）又称为模块测试，是针对程序模块软件设计的最小单位来进行正确性检验的测试工作。
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>单元测试</title>

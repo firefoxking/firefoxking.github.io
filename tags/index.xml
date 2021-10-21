@@ -9,15 +9,35 @@
     <description>Recent content in Tags on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 20 Oct 2021 09:16:11 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Oct 2021 17:32:17 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>服务器</title>
+      <link>https://firefoxking.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Wed, 20 Oct 2021 17:32:17 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>Junit</title>
       <link>https://firefoxking.github.io/tags/Junit/</link>
-      <pubDate>Wed, 20 Oct 2021 09:16:11 +0800</pubDate>
+      <pubDate>Wed, 20 Oct 2021 11:54:59 +0800</pubDate>
       
       <guid>https://firefoxking.github.io/tags/Junit/</guid>
       <description>
@@ -95,11 +115,51 @@
     </item>
     
     <item>
-      <title>调试，problem，VScode</title>
-      <link>https://firefoxking.github.io/tags/%E8%B0%83%E8%AF%95problemVScode/</link>
+      <title>problem</title>
+      <link>https://firefoxking.github.io/tags/problem/</link>
       <pubDate>Sat, 09 Oct 2021 13:43:49 +0800</pubDate>
       
-      <guid>https://firefoxking.github.io/tags/%E8%B0%83%E8%AF%95problemVScode/</guid>
+      <guid>https://firefoxking.github.io/tags/problem/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>VScode</title>
+      <link>https://firefoxking.github.io/tags/VScode/</link>
+      <pubDate>Sat, 09 Oct 2021 13:43:49 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/VScode/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>调试</title>
+      <link>https://firefoxking.github.io/tags/%E8%B0%83%E8%AF%95/</link>
+      <pubDate>Sat, 09 Oct 2021 13:43:49 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E8%B0%83%E8%AF%95/</guid>
       <description>
         
           
