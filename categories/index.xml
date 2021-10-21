@@ -9,10 +9,50 @@
     <description>Recent content in Categories on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 20 Oct 2021 17:32:17 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 21 Oct 2021 14:02:42 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker</title>
+      <link>https://firefoxking.github.io/categories/Docker/</link>
+      <pubDate>Thu, 21 Oct 2021 14:02:42 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/categories/Docker/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>问题解决</title>
+      <link>https://firefoxking.github.io/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Thu, 21 Oct 2021 13:24:01 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>服务器</title>
@@ -55,26 +95,6 @@
     </item>
     
     <item>
-      <title>Docker</title>
-      <link>https://firefoxking.github.io/categories/Docker/</link>
-      <pubDate>Wed, 13 Oct 2021 20:08:30 +0800</pubDate>
-      
-      <guid>https://firefoxking.github.io/categories/Docker/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          
-          
-        
-        </description>
-    </item>
-    
-    <item>
       <title>定时任务</title>
       <link>https://firefoxking.github.io/categories/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
       <pubDate>Mon, 11 Oct 2021 20:13:20 +0800</pubDate>
@@ -100,26 +120,6 @@
       <pubDate>Sat, 09 Oct 2021 15:34:19 +0800</pubDate>
       
       <guid>https://firefoxking.github.io/categories/git%E5%B7%A5%E5%85%B7/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>问题解决</title>
-      <link>https://firefoxking.github.io/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
-      <pubDate>Sat, 09 Oct 2021 13:43:49 +0800</pubDate>
-      
-      <guid>https://firefoxking.github.io/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
       <description>
         
           
