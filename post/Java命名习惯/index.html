@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Java命名习惯 ::
+        Hello Friend — A simple theme for Hugo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="一、前言 编程有很大一部分时间都是在阅读代码，一般开源的软件源码编码都非常规范，或者说自成体系，虽然会有部分风格不同，但总体上是一致的。我自己"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://firefoxking.github.io/post/Java%E5%91%BD%E5%90%8D%E4%B9%A0%E6%83%AF/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://firefoxking.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://firefoxking.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://firefoxking.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://firefoxking.github.io/img/favicon.png" />
+
+
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java命名习惯"/>
+<meta name="twitter:description" content="一、前言 编程有很大一部分时间都是在阅读代码，一般开源的软件源码编码都非常规范，或者说自成体系，虽然会有部分风格不同，但总体上是一致的。我自己"/>
+
+
+
+<meta property="og:title" content="Java命名习惯" />
+<meta property="og:description" content="一、前言 编程有很大一部分时间都是在阅读代码，一般开源的软件源码编码都非常规范，或者说自成体系，虽然会有部分风格不同，但总体上是一致的。我自己" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://firefoxking.github.io/post/Java%E5%91%BD%E5%90%8D%E4%B9%A0%E6%83%AF/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-25T17:09:36+08:00" />
+<meta property="article:modified_time" content="2021-10-25T17:09:36+08:00" /><meta property="og:site_name" content="Hello Friend" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+        
+          <li><a href="/categories/">分类</a></li>
+        
+      
+        
+          <li><a href="/post/">归档</a></li>
+        
+      
+        
+          <li><a href="/tags/">标签</a></li>
+        
+      
+        
+          <li><a href="/">首页</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+      
+        <li><a href="/categories/">分类</a></li>
+      
+    
+      
+        <li><a href="/post/">归档</a></li>
+      
+    
+      
+        <li><a href="/tags/">标签</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Java命名习惯</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-10-25
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by firefoxking</span
+        >
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://firefoxking.github.io/tags/Java%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/">#Java代码规范</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一前言">一、前言</a></li>
+    <li><a href="#二命名风格">二、命名风格</a></li>
+    <li><a href="#三常量定义">三、常量定义</a></li>
+    <li><a href="#四代码格式">四、代码格式</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <h2 id="一前言">一、前言</h2>
+<p>编程有很大一部分时间都是在阅读代码，一般开源的软件源码编码都非常规范，或者说自成体系，虽然会有部分风格不同，但总体上是一致的。我自己在写代码时，尤其是在命名的时候也会遵从这些规范。但没有成体系的阅读相关的代码规范的书籍，有时候在写代码时，对于类、变量、方法这些命名风格会产生错用（如驼峰命名、蛇形命名、串行命名），特别是在想严格区分变量、方法等的命名风格时。本次体系地阅读阿里java规范来更好规范自己地代码命名风格。</p>
+<h2 id="二命名风格">二、命名风格</h2>
+<ol>
+<li>
+<p>驼峰命名法（CamelCase）</p>
+<ul>
+<li>【强制】类名使用 UpperCamelCase 风格，必须遵从驼峰形式。</li>
+<li>【强制】方法名、参数名、成员变量、局部变量都统一使用 lowerCamelCase 风格，必须遵从驼峰形式。</li>
+</ul>
+</li>
+<li>
+<p>蛇形命名法（snake_case）</p>
+<ul>
+<li>测试方法名、常量、枚举名称需要使用蛇形命名方法</li>
+<li>【强制】常量命名全部大写，单词间用下划线隔开，力求语义表达完整清楚，不要嫌名字长。 MAX_STOCK_COUNT</li>
+<li>并且，<strong>测试方法名称要求全部小写，常量以及枚举名称需要全部大写。</strong></li>
+</ul>
+<p>在蛇形命名法中，各个单词之间通过下划线“_”连接，比如<code>should_get_200_status_code_when_request_is_valid</code>、<code>CLIENT_CONNECT_SERVER_FAILURE</code>。</p>
+<p>蛇形命名法的优势是命名所需要的单词比较多的时候，比如我把上面的命名通过小驼峰命名法给大家看一下：“shouldGet200StatusCodeWhenRequestIsValid”。</p>
+</li>
+<li>
+<p>串行命名法（kebab-case）</p>
+<p>在串式命名法中，各个单词之间通过连接符“-”连接，比如<code>dubbo-registry</code>。</p>
+<p>建议项目文件夹名称使用串式命名法（kebab-case），比如 dubbo 项目的各个模块的命名是下面这样的。</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/dubbo-naming.png" alt="img"></p>
+</li>
+<li>
+<p>其他</p>
+<ul>
+<li>【强制】抽象类命名使用Abstract 或Base 开头；异常类命名使用Exception 结尾；测试类命名以它要测试的类的名称开始，以Test 结尾。</li>
+<li>【强制】包名统一<strong>使用小写，点分隔符之间有且仅有一个自然语义的英语单词</strong>。包名统一使用单数形式，但是类名如果有复数含义，类名可以使用复数形式。</li>
+<li>【强制】杜绝完全不规范的缩写，避免望文不知义。</li>
+<li>接口类中的方法和属性不要加任何修饰符号（public 也不要加），保持代码的简洁性，并加上有效的Javadoc 注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是与接口方法相关，并且是整个应用的基础常量。</li>
+</ul>
+</li>
+<li>
+<p>命名易读性规范</p>
+<ul>
+<li>
+<p><strong>为了能让命名更加易懂和易读，尽量不要缩写/简写单词，除非这些单词已经被公认可以被这样缩写/简写。比如 <code>CustomThreadFactory</code> 不可以被写成 ~~<code>CustomTF</code> 。</strong></p>
+</li>
+<li>
+<p><strong>命名不像函数一样要尽量追求短，可读性强的名字优先于简短的名字，虽然可读性强的名字会比较长一点。</strong> 这个对应我们上面说的第 1 点。<strong>命名也不要过长。</strong></p>
+</li>
+<li>
+<p><strong>避免无意义的命名，你起的每一个名字都要能表明意思。</strong></p>
+<p>正例：<code>UserService userService;</code> <code>int userCount</code>;</p>
+<p>反例: <del><code>UserService service</code></del> <del><code>int count</code></del></p>
+</li>
+<li>
+<p><strong>不要使用拼音，更不要使用中文。</strong> 不过像 alibaba 、wuhan、taobao 这种国际通用名词可以当做英文来看待。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>Codelf 提供了在线网站版本，网址：https://unbug.github.io/codelf/，VScode 插件。</p>
+<h2 id="三常量定义">三、常量定义</h2>
+<p>以下列出部分个人认为自己容易出错的：</p>
+<ol>
+<li>
+<p>【强制】long 或者Long 初始赋值时，<strong>必须使用大写的L，不能是小写的l，小写容易跟数字1 混淆，造成误解。</strong>
+说明：Long a = 2l; 写的是数字的21，还是Long 型的2?</p>
+</li>
+<li>
+<p>【推荐】不要使用一个常量类维护所有常量，应该**按常量功能进行归类，分开维护。**如：缓存相关的常量放在类：CacheConsts 下；系统配置相关的常量放在类：ConfigConsts 下。
+说明：大而全的常量类，非得使用查找功能才能定位到修改的常量，不利于理解和维护。</p>
+</li>
+<li>
+<p>【推荐】如果变量值仅在一个范围内变化，且带有名称之外的延伸属性，定义为枚举类。下面正例中的数字就是延伸信息，表示星期几。</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211025191417773.png" alt="image-20211025191417773"></p>
+</li>
+</ol>
+<h2 id="四代码格式">四、代码格式</h2>
+<ol>
+<li>
+<p>【强制】大括号的使用约定。如果是大括号内为空，则简洁地写成{}即可，不需要换行；如果
+是非空代码块则：
+1） 左大括号前不换行。
+2） 左大括号后换行。
+3） 右大括号前换行。
+4） 右大括号后还有else 等代码则不换行；表示终止的右大括号后必须换行。</p>
+<blockquote>
+<p>这里个人的代码风格不同，以后要修正过来。</p>
+</blockquote>
+</li>
+<li>
+<p>【强制】 左小括号和字符之间不出现空格；同样，右小括号和字符之间也不出现空格。详见第5 条下方正例提示。<br>
+<img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211025191929206.png" alt="image-20211025191929206"></p>
+</li>
+<li>
+<p>【强制】if/for/while/switch/do 等保留字与括号之间都必须加空格。</p>
+<blockquote>
+<p>此处也要注意改正。</p>
+</blockquote>
+</li>
+<li>
+<p>【强制】任何二目、三目运算符的左右两边都需要加一个空格。
+说明：运算符包括赋值运算符=、逻辑运算符&amp;&amp;、加减乘除符号等。</p>
+</li>
+<li>
+<p>【强制】缩进采用4 个空格，禁止使用tab 字符。</p>
+<p>说明：如果使用<code>tab</code> 缩进，必须设置1 个<code>tab</code> 为4 个空格。IDEA 设置<code>tab</code> 为4 个空格时，请勿勾选<code>Use tab character</code>；而在eclipse 中，必须勾选<code>insert spaces for tabs</code>。</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211025192559642.png" alt="image-20211025192559642"></p>
+</li>
+<li>
+<p>【强制】单行字符数限制不超过120 个，超出需要换行，换行时遵循如下原则：
+1）  第二行相对第一行缩进4 个空格，从第三行开始，不再继续缩进，参考示例。
+2） 运算符与下文一起换行。
+3） 方法调用的点符号与下文一起换行。
+4） 在多个参数超长，在逗号后换行。
+5） 在括号前不要换行，见反例。</p>
+<p>​	<img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211025192842179.png" alt="image-20211025192842179"></p>
+</li>
+<li>
+<p>【强制】方法参数在定义和传入时，多个参数逗号后边必须加空格。</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211025192933319.png" alt="image-20211025192933319"></p>
+</li>
+<li>
+<p>【强制】IDE 的text file encoding 设置为UTF-8; IDE 中文件的换行符使用Unix 格式，
+不要使用windows 格式。</p>
+</li>
+</ol>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="https://firefoxking.github.io/post/Docker%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E4%B8%89/">
+                  <span class="button__text">Docker入门基础（三）</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://firefoxking.github.io/assets/main.js"></script>
+<script src="https://firefoxking.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
