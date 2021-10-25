@@ -9,10 +9,30 @@
     <description>Recent content in Docker on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 21 Oct 2021 14:02:42 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 25 Oct 2021 11:49:46 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/categories/Docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker入门基础（三）</title>
+      <link>https://firefoxking.github.io/post/Docker%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E4%B8%89/</link>
+      <pubDate>Mon, 25 Oct 2021 11:49:46 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/Docker%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E4%B8%89/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Docker 是基于 Go 语言开发的更为高效轻量的虚拟化工具。
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Docker入门基础（二）</title>
