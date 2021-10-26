@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        设计模式用法基础一 ::
+        Hello Friend — A simple theme for Hugo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="一、设计模式基本概念 1. 七个原则 总原则： 开闭原则 对扩展开放，对修改封闭。 在程序需要进行拓展的时候，不能去修改原有的代码，而是要扩展原有代码，实"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://firefoxking.github.io/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%94%A8%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%80/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://firefoxking.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://firefoxking.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://firefoxking.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://firefoxking.github.io/img/favicon.png" />
+
+
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="设计模式用法基础一"/>
+<meta name="twitter:description" content="在软件开发中，前人对软件系统的设计和开发总结了一些原则和模式。"/>
+
+
+
+<meta property="og:title" content="设计模式用法基础一" />
+<meta property="og:description" content="在软件开发中，前人对软件系统的设计和开发总结了一些原则和模式。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://firefoxking.github.io/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%94%A8%E6%B3%95%E5%9F%BA%E7%A1%80%E4%B8%80/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-25T17:02:38+08:00" />
+<meta property="article:modified_time" content="2021-10-25T17:02:38+08:00" /><meta property="og:site_name" content="Hello Friend" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+        
+          <li><a href="/categories/">分类</a></li>
+        
+      
+        
+          <li><a href="/post/">归档</a></li>
+        
+      
+        
+          <li><a href="/tags/">标签</a></li>
+        
+      
+        
+          <li><a href="/">首页</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+      
+        <li><a href="/categories/">分类</a></li>
+      
+    
+      
+        <li><a href="/post/">归档</a></li>
+      
+    
+      
+        <li><a href="/tags/">标签</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">设计模式用法基础一</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-10-25
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by firefoxking</span
+        >
+
+
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一设计模式基本概念">一、设计模式基本概念</a>
+      <ul>
+        <li><a href="#1-七个原则">1. 七个原则</a></li>
+        <li><a href="#2-设计模式分类">2. 设计模式分类</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></aside>
+        
+      
+      <h2 id="一设计模式基本概念">一、设计模式基本概念</h2>
+<h3 id="1-七个原则">1. 七个原则</h3>
+<p>总原则：</p>
+<ul>
+<li>
+<p>开闭原则   对扩展开放，对修改封闭。 在程序需要进行拓展的时候，不能去修改原有的代码，而是要扩展原有代码，实现一个热插拔的效果。所以一句话概括就是：为了使程序的扩展性好，易于维护和升级。 想要达到这样的效果，我们需要使用接口和抽象类等。</p>
+</li>
+<li>
+<p>单一职责原则  不要存在多于一个导致类变更的原因，也就是说<strong>每个类应该实现单一的职责</strong>，否则就应该把类拆分。</p>
+</li>
+<li>
+<p>里氏替换原则  任何基类可以出现的地方，子类一定可以出现。里氏替换原则是继承复用的基石，只有当衍生类可以替换基类，基类才能真正被复用。<strong>通俗来讲：子类可以扩展父类的功能，但不能改变父类原有的功能。</strong></p>
+</li>
+<li>
+<p>依赖倒置原则   高层模块不应该依赖低层模块，二者都应该依赖其抽象；抽象不应该依赖细节；细节应该依赖抽象。即<strong>针对接口编程</strong>，不要针对实现编程。在java 语言的表现为：</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211025200028398.png" alt="image-20211025200028398"></p>
+</li>
+<li>
+<p>接口隔离原则  每个接口中不存在子类用不到却必须实现的方法，如果不然，就要将接口拆分。使用多个隔离的接口，比使用单个接口（多个接口方法集合到一个的接口）要好。</p>
+</li>
+<li>
+<p>迪米特原则（最少知道原则）  一个类对自己依赖的类知道的越少越好。无论被依赖的类多么复杂，都应该将逻辑封装在方法的内部，通过public方法提供给外部。这样当被依赖的类变化时，才能最小的影响该类。 最少知道原则的另一个表达方式是：只与直接的朋友通信。类之间只要有耦合关系，就叫朋友关系。耦合分为依赖、关联、聚合、组合等。我们称出现为成员变量、方法参数、方法返回值中的类为直接朋友。局部变量、临时变量则不是直接的朋友。我们要求陌生的类不要作为局部变量出现在类中。<strong>低耦合、高内聚</strong></p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image_thumb_1.png" alt="image"></p>
+</li>
+<li>
+<p>组合/聚合复用原则【Composition/Aggregation Reuse Principle(CARP) 】: 尽量使用组合和聚合少使用继承的关系来达到复用的原则。</p>
+</li>
+</ul>
+<h3 id="2-设计模式分类">2. 设计模式分类</h3>
+<p>(1) 创建型模式</p>
+<ul>
+<li>
+<p>单例模式</p>
+<p>保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
+</li>
+<li>
+<p>简单工厂模式</p>
+</li>
+<li>
+<p>工厂方法模式</p>
+</li>
+<li>
+<p>抽象工厂模式</p>
+</li>
+<li>
+<p>生成器模式</p>
+</li>
+<li>
+<p>原型模式</p>
+</li>
+</ul>
+<p>(2) 结构型模式</p>
+<p>(3) 行为型模式</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://firefoxking.github.io/post/Java%E5%91%BD%E5%90%8D%E4%B9%A0%E6%83%AF/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Java命名习惯</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://firefoxking.github.io/post/Docker%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E4%B8%89/">
+                  <span class="button__text">Docker入门基础（三）</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://firefoxking.github.io/assets/main.js"></script>
+<script src="https://firefoxking.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
