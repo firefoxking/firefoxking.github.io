@@ -9,10 +9,50 @@
     <description>Recent content in Posts on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 27 Oct 2021 21:53:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 29 Oct 2021 10:45:21 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>二叉树遍历框架</title>
+      <link>https://firefoxking.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Fri, 29 Oct 2021 10:45:21 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E6%A1%86%E6%9E%B6/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          二叉树遍历框架：递归与迭代
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>114  二叉树展开为链表</title>
+      <link>https://firefoxking.github.io/post/114-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B1%95%E5%BC%80%E4%B8%BA%E9%93%BE%E8%A1%A8/</link>
+      <pubDate>Fri, 29 Oct 2021 09:46:22 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/114-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B1%95%E5%BC%80%E4%B8%BA%E9%93%BE%E8%A1%A8/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          leetcode 114 二叉树展开为链表
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Linux添加开机自启动脚本任务</title>
