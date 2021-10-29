@@ -9,15 +9,35 @@
     <description>Recent content in Categories on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 26 Oct 2021 21:52:37 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Oct 2021 21:53:00 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>linux</title>
+      <link>https://firefoxking.github.io/categories/linux/</link>
+      <pubDate>Wed, 27 Oct 2021 21:53:00 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/categories/linux/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>设计模式</title>
       <link>https://firefoxking.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
-      <pubDate>Tue, 26 Oct 2021 21:52:37 +0800</pubDate>
+      <pubDate>Wed, 27 Oct 2021 14:34:58 +0800</pubDate>
       
       <guid>https://firefoxking.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
       <description>

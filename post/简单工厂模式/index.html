@@ -243,6 +243,26 @@
 <li>如果想要完全封装隔离具体实现，让外部只能通过接口来操作封装体，那么可以选择简单工厂。</li>
 <li>如果想要把对外创建对象的职责集中管理和控制，可以选择简单工厂</li>
 </ul>
+<p><strong>简单工厂模式优缺点</strong></p>
+<ol>
+<li>优点
+<ul>
+<li>将创建实例与使用实例的任务分开，使用者不必关心对象是如何创建的，实现了系统的解耦。</li>
+<li>客户端无须知道所创建的具体产品类的类名，只需要知道具体产品类所对应的参数即可。</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>由于工厂类集中了所有产品创建逻辑，一旦不能正常工作，整个系统都要受到影响。</li>
+<li>系统扩展困难，一旦添加新产品就不得不修改工厂逻辑，在产品类型较多时，也有可能造成工厂逻辑过于复杂，不利于系统的扩展和维护。</li>
+</ul>
+</li>
+</ol>
+<p><strong>应用场景</strong></p>
+<ul>
+<li>工厂类负责创建的对象比较少：由于创建的对象比较少，不会造成工厂方法中业务逻辑过于复杂。</li>
+<li>客户端只需知道传入工厂类静态方法的参数，而不需要关心创建对象的细节。</li>
+</ul>
 <h2 id="三实现">三、实现</h2>
 <h3 id="1-class-diagram">1. Class Diagram</h3>
 <blockquote>
@@ -393,6 +413,13 @@
             <hr />
           </div>
           <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://firefoxking.github.io/post/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">工厂方法模式</span>
+                </a>
+              </span>
             
             
               <span class="button next">

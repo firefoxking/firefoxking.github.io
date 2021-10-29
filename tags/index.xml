@@ -9,10 +9,90 @@
     <description>Recent content in Tags on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 26 Oct 2021 21:52:37 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Oct 2021 21:53:00 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>centos7</title>
+      <link>https://firefoxking.github.io/tags/centos7/</link>
+      <pubDate>Wed, 27 Oct 2021 21:53:00 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/centos7/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://firefoxking.github.io/tags/shell/</link>
+      <pubDate>Wed, 27 Oct 2021 21:53:00 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/shell/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>适配器模式</title>
+      <link>https://firefoxking.github.io/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Wed, 27 Oct 2021 14:34:58 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>工厂方法模式</title>
+      <link>https://firefoxking.github.io/tags/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Wed, 27 Oct 2021 10:46:21 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>简单工厂模式</title>

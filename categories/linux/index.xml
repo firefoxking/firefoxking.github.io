@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Hello Friend</title>
+    
+    
+    
+    <link>https://firefoxking.github.io/categories/linux/</link>
+    <description>Recent content in linux on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 27 Oct 2021 21:53:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://firefoxking.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux添加开机自启动脚本任务</title>
+      <link>https://firefoxking.github.io/post/linux%E6%B7%BB%E5%8A%A0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC%E4%BB%BB%E5%8A%A1/</link>
+      <pubDate>Wed, 27 Oct 2021 21:53:00 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/linux%E6%B7%BB%E5%8A%A0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC%E4%BB%BB%E5%8A%A1/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Centos7 添加自己开机自启动脚本的方法 可以有很多种添加开机自启脚本的方法，我这里写一个自己喜欢的。 自己新建一个需要启动自运行的脚本 autostart.sh 1 2 #!/bin/bash echo start &amp;gt;&amp;gt; /home/user-for-dockerStudy/linux/test.txt 赋
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
