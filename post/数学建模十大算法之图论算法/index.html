@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        数学建模十大算法之图论算法 ::
+        Hello Friend — A simple theme for Hugo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="1. 图的相关概念 2. 图的深度优先搜索 3. 图的广度优先搜索 4. 图的拓扑排序 拓扑排序：对于有向无环图G = (V, E) 而言，其拓扑排序就是G 中所有节点的一种线性次"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://firefoxking.github.io/post/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%8D%81%E5%A4%A7%E7%AE%97%E6%B3%95%E4%B9%8B%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://firefoxking.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://firefoxking.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://firefoxking.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://firefoxking.github.io/img/favicon.png" />
+
+
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="数学建模十大算法之图论算法"/>
+<meta name="twitter:description" content="1. 图的相关概念 2. 图的深度优先搜索 3. 图的广度优先搜索 4. 图的拓扑排序 拓扑排序：对于有向无环图G = (V, E) 而言，其拓扑排序就是G 中所有节点的一种线性次"/>
+
+
+
+<meta property="og:title" content="数学建模十大算法之图论算法" />
+<meta property="og:description" content="1. 图的相关概念 2. 图的深度优先搜索 3. 图的广度优先搜索 4. 图的拓扑排序 拓扑排序：对于有向无环图G = (V, E) 而言，其拓扑排序就是G 中所有节点的一种线性次" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://firefoxking.github.io/post/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%8D%81%E5%A4%A7%E7%AE%97%E6%B3%95%E4%B9%8B%E5%9B%BE%E8%AE%BA%E7%AE%97%E6%B3%95/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-09-24T21:19:07+08:00" />
+<meta property="article:modified_time" content="2021-09-24T21:19:07+08:00" /><meta property="og:site_name" content="Hello Friend" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+        
+          <li><a href="/categories/">分类</a></li>
+        
+      
+        
+          <li><a href="/post/">归档</a></li>
+        
+      
+        
+          <li><a href="/tags/">标签</a></li>
+        
+      
+        
+          <li><a href="/">首页</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+      
+        <li><a href="/categories/">分类</a></li>
+      
+    
+      
+        <li><a href="/post/">归档</a></li>
+      
+    
+      
+        <li><a href="/tags/">标签</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">数学建模十大算法之图论算法</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-09-24
+        </span>
+
+        
+          
+        
+      
+
+      
+
+
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <h2 id="1-图的相关概念">1. 图的相关概念</h2>
+<h2 id="2-图的深度优先搜索">2. 图的深度优先搜索</h2>
+<h2 id="3-图的广度优先搜索">3. 图的广度优先搜索</h2>
+<h2 id="4-图的拓扑排序">4. 图的拓扑排序</h2>
+<p>拓扑排序：对于有向无环图G = (V, E) 而言，其拓扑排序就是G 中所有节点的一种线性次序， 使得图中任意一对顶点u和v，若边 (u,v)∈E(G) ，则u在线性序列中出现在v之前。对于一个图来说，拓扑排序可能不唯一。</p>
+<p>拓扑排序算法过程：</p>
+<ol>
+<li>选择一个入度为0的顶点并输出。</li>
+<li>从图中删除该顶点及其所有出边。</li>
+<li>循环执行以上两步，直到不存在入度为0的顶点为止；如果剩下入度非0的顶点（输出的顶点数小于图中的顶点数），就说明有回路，不存在拓扑排序。</li>
+</ol>
+<p>示例：</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/v2-9eb8323f6a98a5adbd43da9c0d55d655_720w.jpg" alt="v2-9eb8323f6a98a5adbd43da9c0d55d655_720w"></p>
+<p>将上图用字典表示：G = { &lsquo;a&rsquo;:&lsquo;bf&rsquo;, &lsquo;b&rsquo;:&lsquo;cdf&rsquo;,&lsquo;c&rsquo;:&rsquo;d',&rsquo;d':&lsquo;ef&rsquo;,&lsquo;e&rsquo;:&lsquo;f&rsquo;,f:''}</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">topSort</span>(graph):
+    <span style="color:#75715e"># 初始化入度为0</span>
+    in_degrees <span style="color:#f92672">=</span> dict((u, <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">for</span> u <span style="color:#f92672">in</span> graph)
+    num <span style="color:#f92672">=</span> len(in_degrees)
+    <span style="color:#75715e"># 计算每个顶点的入度</span>
+    <span style="color:#66d9ef">for</span> u <span style="color:#f92672">in</span> graph:
+        <span style="color:#66d9ef">for</span> v <span style="color:#f92672">in</span> graph[u]:
+            in_degrees[v] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    Q <span style="color:#f92672">=</span> [u <span style="color:#66d9ef">for</span> u <span style="color:#f92672">in</span> in_degrees <span style="color:#66d9ef">if</span> in_degrees[u] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>]
+    Seq <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">while</span> Q:
+        u <span style="color:#f92672">=</span>  Q<span style="color:#f92672">.</span>pop()
+        Seq<span style="color:#f92672">.</span>append(u)
+        <span style="color:#66d9ef">for</span> v <span style="color:#f92672">in</span> graph[u]:
+            in_degrees[v] <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">if</span> in_degrees[v] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+                Q<span style="color:#f92672">.</span>append(v)
+    <span style="color:#66d9ef">if</span> len(Seq) <span style="color:#f92672">==</span> num:
+        <span style="color:#66d9ef">return</span> Seq
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">None</span>
+
+
+G <span style="color:#f92672">=</span> {
+    <span style="color:#e6db74">&#39;a&#39;</span>:<span style="color:#e6db74">&#39;bf&#39;</span>,
+    <span style="color:#e6db74">&#39;b&#39;</span>:<span style="color:#e6db74">&#39;cdf&#39;</span>,
+    <span style="color:#e6db74">&#39;c&#39;</span>:<span style="color:#e6db74">&#39;d&#39;</span>,
+    <span style="color:#e6db74">&#39;d&#39;</span>:<span style="color:#e6db74">&#39;ef&#39;</span>,
+    <span style="color:#e6db74">&#39;e&#39;</span>:<span style="color:#e6db74">&#39;f&#39;</span>,
+    <span style="color:#e6db74">&#39;f&#39;</span>:<span style="color:#e6db74">&#39;&#39;</span>
+}
+print(topSort(G))
+
+<span style="color:#f92672">&gt;&gt;&gt;</span> [<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>, <span style="color:#e6db74">&#39;d&#39;</span>, <span style="color:#e6db74">&#39;e&#39;</span>, <span style="color:#e6db74">&#39;f&#39;</span>]
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="5-最小生成树算法">5. 最小生成树算法</h2>
+<p>解决最小生成树问题常用的有 <strong>Prim算法</strong> 和 <strong>Kruskal算法</strong> ，二者均基于贪心算法。 <strong>Prim算法</strong> 思想很简单，即每步都沿着最小权重的边向前搜索，找到一条权重最小的可以安全添加的边，将边添加到树中。 <strong>Kruskal算法</strong> 是对所有的权重进行排序，再次体现贪心算法的思想。通过对权重排序，将权重最小的边开始遍历，直至图中的所有节点都连在同一个树上，此时即为最小生成树。</p>
+<h3 id="prim-算法">Prim 算法</h3>
+<p>prim算法过程：</p>
+<ol>
+<li>
+<p>指定根节点r，划分两个集合，A 存已经在生成树中的节点、B 存还不在生成树中的节点</p>
+</li>
+<li>
+<p>找到权值最小的边（边的节点一个在 A 中，一个在 B 中）</p>
+</li>
+<li>
+<p>循环知道所有的节点都在A中。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">prim</span>(self):
+        res <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>nodenum <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> self<span style="color:#f92672">.</span>edgenum <span style="color:#f92672">&lt;</span> self<span style="color:#f92672">.</span>nodenum<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+            <span style="color:#66d9ef">return</span> res
+        res <span style="color:#f92672">=</span> []
+        seleted_node <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>]
+        candidate_node <span style="color:#f92672">=</span> [i <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, self<span style="color:#f92672">.</span>nodenum)]
+
+        <span style="color:#66d9ef">while</span> len(candidate_node) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+            begin, end, minweight <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">9999</span>
+            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> seleted_node:
+                <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> candidate_node:
+                    <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>maps[i][j] <span style="color:#f92672">&lt;</span> minweight:
+                        minweight <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>maps[i][j]
+                        begin <span style="color:#f92672">=</span> i
+                        end <span style="color:#f92672">=</span> j
+            res<span style="color:#f92672">.</span>append([begin, end, minweight])
+            seleted_node<span style="color:#f92672">.</span>append(end)
+            candidate_node<span style="color:#f92672">.</span>remove(end)
+        <span style="color:#66d9ef">return</span> res
+</code></pre></td></tr></table>
+</div>
+</div><p>这里找权值最小的边的过程是采用遍历的手段，速度较慢。可以使用最小优先队列数据结构存储到A集合中，A集合的节点v包含两个属性，一个是连接v与树中节点的所有边中最小边的权重，另一个则是节点v在树中的父节点。</p>
+</li>
+</ol>
+<h3 id="kruskal-算法">kruskal 算法</h3>
+<p>kruskal 算法过程：</p>
+<ol>
+<li>
+<p>初始化一个空集，存储生成树的边，并创建节点数目的N个树，每棵树仅包含一个节点</p>
+</li>
+<li>
+<p>对图的所有边按权值从小到大顺序排序</p>
+</li>
+<li>
+<p>按从小到大的次序对边进行检查，如果同属一棵树跳过该边，否则增加这条边，并对树进行合并</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">kruskal</span>(self):
+        res <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>nodenum <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> self<span style="color:#f92672">.</span>edgenum <span style="color:#f92672">&lt;</span> self<span style="color:#f92672">.</span>nodenum<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+            <span style="color:#66d9ef">return</span> res
+        edge_list <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>nodenum):
+            <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i,self<span style="color:#f92672">.</span>nodenum):
+                <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>maps[i][j] <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">9999</span>:
+                    edge_list<span style="color:#f92672">.</span>append([i, j, self<span style="color:#f92672">.</span>maps[i][j]])<span style="color:#75715e">#按[begin, end, weight]形式加入</span>
+        edge_list<span style="color:#f92672">.</span>sort(key<span style="color:#f92672">=</span><span style="color:#66d9ef">lambda</span> a:a[<span style="color:#ae81ff">2</span>])<span style="color:#75715e">#已经排好序的边集合</span>
+
+        group <span style="color:#f92672">=</span> [[i] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(self<span style="color:#f92672">.</span>nodenum)]
+        <span style="color:#66d9ef">for</span> edge <span style="color:#f92672">in</span> edge_list:
+            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(group)):
+                <span style="color:#66d9ef">if</span> edge[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">in</span> group[i]:
+                    m <span style="color:#f92672">=</span> i
+                <span style="color:#66d9ef">if</span> edge[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">in</span> group[i]:
+                    n <span style="color:#f92672">=</span> i
+            <span style="color:#66d9ef">if</span> m <span style="color:#f92672">!=</span> n:
+                res<span style="color:#f92672">.</span>append(edge)
+                group[m] <span style="color:#f92672">=</span> group[m] <span style="color:#f92672">+</span> group[n]
+                group[n] <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">return</span> res
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="6-单源最短路径算法">6. 单源最短路径算法</h2>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://firefoxking.github.io/post/%E8%AE%BA%E6%96%87%E7%94%BB%E5%9B%BE%E5%B7%A5%E5%85%B7%E5%B0%8F%E8%AE%A1/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">论文画图工具小计</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://firefoxking.github.io/post/%E6%8F%92%E5%80%BC%E4%B8%8E%E6%8B%9F%E5%90%88/">
+                  <span class="button__text">插值与拟合</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://firefoxking.github.io/assets/main.js"></script>
+<script src="https://firefoxking.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
