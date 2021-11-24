@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Hello Friend</title>
+    
+    
+    
+    <link>https://firefoxking.github.io/tags/Linux/</link>
+    <description>Recent content in Linux on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 16 Nov 2021 20:45:33 +0800</lastBuildDate>
+    
+	<atom:link href="https://firefoxking.github.io/tags/Linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux包安装apt Get</title>
+      <link>https://firefoxking.github.io/post/linux%E5%8C%85%E5%AE%89%E8%A3%85apt-get/</link>
+      <pubDate>Tue, 16 Nov 2021 20:45:33 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/linux%E5%8C%85%E5%AE%89%E8%A3%85apt-get/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          apt-get 命令汇总 列举版本列表 apt-cache madison &amp;lt;&amp;lt;package name&amp;gt;&amp;gt; 软件包更新 apt-get update 升级已安装的软件包 apt-get upgrade apt-get upgrade &amp;lt;package name&amp;gt; 安装指定版本 apt-get install &amp;lt;&amp;lt;package name&amp;gt;&amp;gt;=Version 删除软件包 apt-get remove &amp;lt;package name&amp;gt; 清理系统 apt-get autoremove
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

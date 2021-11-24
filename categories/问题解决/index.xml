@@ -9,10 +9,30 @@
     <description>Recent content in 问题解决 on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 21 Oct 2021 13:24:01 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Nov 2021 20:45:33 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux包安装apt Get</title>
+      <link>https://firefoxking.github.io/post/linux%E5%8C%85%E5%AE%89%E8%A3%85apt-get/</link>
+      <pubDate>Tue, 16 Nov 2021 20:45:33 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/linux%E5%8C%85%E5%AE%89%E8%A3%85apt-get/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          apt-get 命令汇总 列举版本列表 apt-cache madison &amp;lt;&amp;lt;package name&amp;gt;&amp;gt; 软件包更新 apt-get update 升级已安装的软件包 apt-get upgrade apt-get upgrade &amp;lt;package name&amp;gt; 安装指定版本 apt-get install &amp;lt;&amp;lt;package name&amp;gt;&amp;gt;=Version 删除软件包 apt-get remove &amp;lt;package name&amp;gt; 清理系统 apt-get autoremove
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Centos7的sudo权限设置</title>
