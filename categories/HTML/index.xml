@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTML on Hello Friend</title>
+    
+    
+    
+    <link>https://firefoxking.github.io/categories/HTML/</link>
+    <description>Recent content in HTML on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 25 Nov 2021 10:12:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://firefoxking.github.io/categories/HTML/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>前端基础 HTML</title>
+      <link>https://firefoxking.github.io/post/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80-HTML/</link>
+      <pubDate>Thu, 25 Nov 2021 10:12:54 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80-HTML/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          HTML快速入门：mozilla教程。
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
