@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Redis深入理解之事务 ::
+        Hello Friend — A simple theme for Hugo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="一、Redis 事务简介 Redis 通过 MULTI 、 EXEC 、 DISCARD 和 WATCH 等命令来实现事务功能。 MULTI ：开启事务，redis会将后续的命令逐个放入队列中，然后使用EXEC命令来"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://firefoxking.github.io/post/Redis%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E4%BA%8B%E5%8A%A1/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://firefoxking.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://firefoxking.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://firefoxking.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://firefoxking.github.io/img/favicon.png" />
+
+
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Redis深入理解之事务"/>
+<meta name="twitter:description" content="Redis深入理解，设计与实现"/>
+
+
+
+<meta property="og:title" content="Redis深入理解之事务" />
+<meta property="og:description" content="Redis深入理解，设计与实现" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://firefoxking.github.io/post/Redis%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E4%BA%8B%E5%8A%A1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-09T15:56:14+08:00" />
+<meta property="article:modified_time" content="2021-12-09T15:56:14+08:00" /><meta property="og:site_name" content="Hello Friend" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+        
+          <li><a href="/categories/">分类</a></li>
+        
+      
+        
+          <li><a href="/post/">归档</a></li>
+        
+      
+        
+          <li><a href="/tags/">标签</a></li>
+        
+      
+        
+          <li><a href="/">首页</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+      
+        <li><a href="/categories/">分类</a></li>
+      
+    
+      
+        <li><a href="/post/">归档</a></li>
+      
+    
+      
+        <li><a href="/tags/">标签</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Redis深入理解之事务</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-12-09
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by firefoxking</span
+        >
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://firefoxking.github.io/tags/Redis/">#Redis</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一redis-事务简介">一、Redis 事务简介</a></li>
+    <li><a href="#二事务的实现">二、事务的实现</a></li>
+    <li><a href="#三watch-命令的实现">三、WATCH 命令的实现</a></li>
+    <li><a href="#四事务的-acid-性质">四、事务的 ACID 性质</a>
+      <ul>
+        <li><a href="#41-原子性">4.1 原子性</a></li>
+        <li><a href="#42-一致性">4.2 一致性</a></li>
+        <li><a href="#43-隔离性">4.3 隔离性</a></li>
+        <li><a href="#44-耐久性">4.4 耐久性</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></aside>
+        
+      
+      <h2 id="一redis-事务简介">一、Redis 事务简介</h2>
+<p>Redis 通过 MULTI 、 EXEC 、 DISCARD 和 WATCH 等命令来实现事务功能。</p>
+<p>MULTI ：开启事务，redis会将后续的命令逐个放入队列中，然后使用EXEC命令来原子化执行这个命令系列。</p>
+<p>EXEC：执行事务中的所有操作命令。</p>
+<p>DISCARD：取消事务，放弃执行事务块中的所有命令。</p>
+<p>WATCH：监视一个或多个key,如果事务在执行前，这个key(或多个key)被其他命令修改，则事务被中断，不会执行事务中的任何命令。</p>
+<p>UNWATCH：取消WATCH对所有key的监视</p>
+<p>以下是一个事务执行的过程：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">127.0.0.1:6379&gt; MULTI
+OK
+127.0.0.1:6379&gt; set k1 <span style="color:#ae81ff">11</span>
+QUEUED
+127.0.0.1:6379&gt; set k2 <span style="color:#ae81ff">22</span>
+QUEUED
+127.0.0.1:6379&gt; EXEC
+1<span style="color:#f92672">)</span> OK
+2<span style="color:#f92672">)</span> OK
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="二事务的实现">二、事务的实现</h2>
+<ol>
+<li>
+<p>事务开始</p>
+<p>标识符，表示进入事务模式</p>
+</li>
+<li>
+<p>命令入队</p>
+<p>每个 Redis 客户端都有自己的事务状态，这个事务状态保存在客户端状态的mstate 属性里面：</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211209161715299.png" alt="image-20211209161715299"></p>
+<p>事务状态包含一个事务队列，以及一个已入队命令的计数器，也可以说是事务队列的长度：</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211209161811671.png" alt="image-20211209161811671"></p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211209161851326.png" alt="image-20211209161851326"></p>
+</li>
+<li>
+<p>事务执行</p>
+</li>
+</ol>
+<h2 id="三watch-命令的实现">三、WATCH 命令的实现</h2>
+<p>WATCH 是一个乐观锁，被 WATCH 的键会被监视，并会发觉这些键是否被改动过了。 如果有至少一个被监视的键在 EXEC 执行之前被修改了， 那么整个事务都会被取消， EXEC 返回nil-reply来表示事务已经失败。</p>
+<p>每个Redis 数据库都保存着一个 watched_keys字典：数据库键与监视键的客户端链表组成的键值对。利用这个字典，可以清楚知道哪些键被监视，以及哪些客户端正在监视这些数据库键。</p>
+<p>REDIS_DIRTY_CAS 标识，表示该客户端的事务安全性是否被破坏。</p>
+<p>最后判断事务是否安全：</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211209163905070.png" alt="image-20211209163905070"></p>
+<h2 id="四事务的-acid-性质">四、事务的 ACID 性质</h2>
+<p>在 Redis 中，事务总是具有原子性（Atomicity）、一致性（Consistency）和隔离性（Isolation），并且当 Redis 运行在某种特定的持久化模式下时，事务也具有耐久性（Durability）。</p>
+<h3 id="41-原子性">4.1 原子性</h3>
+<p>我们知道事务运行期的错误是不会回滚的，很多文章由此说Redis事务违背原子性的；而官方文档认为是遵从原子性的。</p>
+<p>Redis官方文档给的理解是，<strong>Redis的事务是原子性的：所有的命令，要么全部执行，要么全部不执行</strong>。而不是完全成功。</p>
+<h3 id="42-一致性">4.2 一致性</h3>
+<p>事务具有一致性指的是，如果数据库在执行事务之前是一致的，那么事务执行之后无论事务是否执行成功，数据库也应该仍然是一致的。</p>
+<ol>
+<li>
+<p>入队错误</p>
+<p>如果一个事务在入队命令的过程中，出现了命令不存在，或者命令的格式不正确等情况，那么Redis 将拒绝执行这个事务。</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211209170105528.png" alt="image-20211209170105528"></p>
+</li>
+<li>
+<p>执行错误</p>
+<p>除了入队时可能发送错误以外，事务还可能在执行的过程中发生错误。</p>
+<ul>
+<li>执行过程中发生的错误都是一些不能在入队时被服务器发现的错误，这些错误只会在命令实际执行时被触发。</li>
+<li>即使在事务的执行过程中发生了错误，服务器也不会中断事务的执行，它会继续执行事务中余下的其他命令，并且已执行的命令不会被出错的命令影响。</li>
+</ul>
+<p>对数据库键执行了错误类型的操作是事务执行期间最常见的错误之一。</p>
+</li>
+<li>
+<p>服务器停机</p>
+</li>
+</ol>
+<h3 id="43-隔离性">4.3 隔离性</h3>
+<p>redis事务是严格遵守隔离性的，原因是redis是单进程单线程模式(v6.0之前），可以保证命令执行过程中不会被其他客户端命令打断。</p>
+<p>但是，Redis不像其它结构化数据库有隔离级别这种设计。</p>
+<h3 id="44-耐久性">4.4 耐久性</h3>
+<p>持久化配置模式不同，对耐久性的保证也不同。</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://firefoxking.github.io/post/%E9%93%BE%E8%A1%A8%E9%A2%98%E8%A7%A3%E9%A2%98%E6%A1%86%E6%9E%B6/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">链表题解题框架</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://firefoxking.github.io/post/Redis%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E5%8F%91%E5%B8%83%E4%B8%8E%E8%AE%A2%E9%98%85/">
+                  <span class="button__text">Redis深入理解之发布与订阅</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://firefoxking.github.io/assets/main.js"></script>
+<script src="https://firefoxking.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

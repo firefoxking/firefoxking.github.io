@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        MySQL索引详解 ::
+        Hello Friend — A simple theme for Hugo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="一、MySQL 索引概述 首先明确一点是索引是在存储引擎层实现的，而不是在服务器层实现的，所以不同存储引擎具有不同的索引类型和实现。 对于常用的I"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://firefoxking.github.io/post/MySQL%E7%B4%A2%E5%BC%95%E8%AF%A6%E8%A7%A3/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://firefoxking.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://firefoxking.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://firefoxking.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://firefoxking.github.io/img/favicon.png" />
+
+
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MySQL索引详解"/>
+<meta name="twitter:description" content="MySQL的索引。"/>
+
+
+
+<meta property="og:title" content="MySQL索引详解" />
+<meta property="og:description" content="MySQL的索引。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://firefoxking.github.io/post/MySQL%E7%B4%A2%E5%BC%95%E8%AF%A6%E8%A7%A3/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-14T16:33:32+08:00" />
+<meta property="article:modified_time" content="2021-12-14T16:33:32+08:00" /><meta property="og:site_name" content="Hello Friend" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+        
+          <li><a href="/categories/">分类</a></li>
+        
+      
+        
+          <li><a href="/post/">归档</a></li>
+        
+      
+        
+          <li><a href="/tags/">标签</a></li>
+        
+      
+        
+          <li><a href="/">首页</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+      
+        <li><a href="/categories/">分类</a></li>
+      
+    
+      
+        <li><a href="/post/">归档</a></li>
+      
+    
+      
+        <li><a href="/tags/">标签</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">MySQL索引详解</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-12-14
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by firefoxking</span
+        >
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://firefoxking.github.io/tags/SQL/">#SQL</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <h2 id="一mysql-索引概述">一、MySQL 索引概述</h2>
+<p>首先明确一点是索引是在存储引擎层实现的，而不是在服务器层实现的，所以不同存储引擎具有不同的索引类型和实现。</p>
+<p>对于常用的InnoDB 存储引擎，支持一下几种常见的索引：</p>
+<ul>
+<li>B + 树索引</li>
+<li>全文索引</li>
+<li>哈希索引</li>
+</ul>
+<p>而在整个 MySQL 中，还有另一种主要索引：R-Tree 索引。</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>说明</th>
+<th>InnoDB</th>
+<th>MyISAM</th>
+<th>MEMORY</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B 树索引（B-Tree indexes）</td>
+<td>自增ID物理连续性更高，二叉树、红黑树高度不可控</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>R 树索引 （R-Tree indexes）</td>
+<td>空间索引</td>
+<td></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td>哈希索引（Hash indexes）</td>
+<td>无法做范围查询</td>
+<td>yes</td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td>全文索引（Full-text indexes）</td>
+<td></td>
+<td>yes</td>
+<td>yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>B+ 索引就是传统意义上的索引，是目前关系型数据库系统中查找最为常用和最为有效的索引。因为不再需要进行全表扫描，只需要对树进行搜索即可，因此查找速度快很多。除了用于查找，还可以用于排序和分组。</p>
+<blockquote>
+<p>在 MySQL 中，MyISAM 引擎和 InnoDB 引擎都是使用 B+Tree 作为索引结构，但是，两者的实现方式不太一样。非聚簇索引与聚簇索引之分。</p>
+</blockquote>
+<p>InnoDB 存储引擎支持的哈希索引是自适应的，InnoDB 存储引擎会根据表的使用情况来为表生成哈希索引，不能人为设置。</p>
+<h2 id="二b-tree-结构">二、B-Tree 结构</h2>
+<blockquote>
+<p>本部分来自程序员小灰的公众号</p>
+</blockquote>
+<h3 id="21-b--树">2.1 B- 树</h3>
+<p>B 树是一种多路平衡查找树，它的每个节点最多包含k个孩子，k 被称为 B 树的阶。 k的大小取决于磁盘页的大小。B 树的设计是为了使得一个查找树尽可能“矮胖”， 从而解决磁盘IO 的要求，在这种特定的查找场景下，尽可能提高查找效率。</p>
+<p>一个m 阶的B树（Ballance Tree）具有如下几个特征：</p>
+<ol>
+<li>
+<p>根结点至少有两个子女。</p>
+</li>
+<li>
+<p>每个中间节点都包含k-1个元素和k个孩子，其中 m/2 &lt;= k &lt;= m</p>
+</li>
+<li>
+<p>每一个叶子节点都包含k-1个元素，其中 m/2 &lt;= k &lt;= m</p>
+</li>
+<li>
+<p>所有的叶子结点都位于同一层。</p>
+</li>
+<li>
+<p>每个节点中的元素从小到大排列，节点当中k-1个元素正好是k个孩子包含的元素的值域分划。</p>
+</li>
+</ol>
+<p>文字描述很难理解，以一个3阶的B- 树为例就会很清晰。</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211215101441502.png" alt="image-20211215101441502"></p>
+<p><strong>分析：</strong></p>
+<ul>
+<li>这棵树中，咱们重点来看(2, 6) 这个节点。该节点有两个元素2和6，又有3个孩子，数量都小于阶数。满足第2, 3条特征。</li>
+<li>从整棵树来看，根节点包含2个孩子；所有叶子节点都在同一层；每个节点中的元素从小到大排列。</li>
+</ul>
+<p><strong>查找：</strong></p>
+<p>假如我们要查询的数值为5.</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211215102321541.png" alt="image-20211215102321541"></p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211215102339986.png" alt="image-20211215102339986"></p>
+<p>第二次磁盘IO ， 在内存中与（2， 6）比较。</p>
+<p>第三次磁盘IO，在内存中与（3，5）比较。</p>
+<p><strong>插入与删除</strong>：<a href="https://mp.weixin.qq.com/s/rDCEFzoKHIjyHfI_bsz5Rw">直接看小灰的</a></p>
+<h3 id="22-b-树">2.2 B+ 树</h3>
+<p>B+ 树是基于B- 树的一种变体，有着比B- 树更高的查询性能。</p>
+<p>一个m 阶的B+树具有如下几个特征：</p>
+<ol>
+<li>
+<p>有k个子树的中间节点包含有k个元素（B树中是k-1个元素），每个元素不保存数据，只用来索引，所有数据都保存在叶子节点。</p>
+</li>
+<li>
+<p>所有的叶子结点中包含了全部元素的信息，及指向含这些元素记录的指针，且叶子结点本身依关键字的大小自小而大顺序链接。</p>
+</li>
+<li>
+<p>所有的中间节点元素都同时存在于子节点，在子节点元素中是最大（或最小）元素。</p>
+</li>
+</ol>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211215102942251.png" alt="image-20211215102942251"></p>
+<p><strong>分析：</strong></p>
+<ul>
+<li>可以知道结构与B-树类似，都是多路平衡。但在细节上有不同。</li>
+<li>以（2，5，8）节点为例，该节点有3个元素，并且有3个孩子，这一点与B-树不同；每个元素还会出现在孩子节点中，而且是孩子节点的最大元素。</li>
+<li>叶子节点同样是排好序的，多了一个指向下一个叶子节点的指针，形成了一个有序链表。</li>
+</ul>
+<p>B+ 树还具有一个特点，这个特点实在索引之外，确是至关重要的特点。那就是[卫星数据]的位置。所谓卫星数据，指的是索引元素所指向的数据记录。比如数据库中的某一行。在B- 树种，无论中间节点还是叶子节点都带有卫星数据。</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211215103549859.png" alt="image-20211215103549859"></p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211215103618308.png" alt="image-20211215103618308"></p>
+<blockquote>
+<p>需要指出的是：B+ 树索引并不能找到一个给定键值的具体行。B+ 树索引能找到的只是被查找数据行所在的页。然后数据库通过把页读入到内存，再在内存中进行查找，最后得到要查找的数据。这一点与上述描述是一致的，比如找到索引包含5的节点（3，5），该节点表示的就是一个页，数据data就存在这个页中。</p>
+</blockquote>
+<p><strong>B+树的优势：</strong></p>
+<ol>
+<li>
+<p>单一节点存储更多的元素，使得查询的IO次数更少。</p>
+</li>
+<li>
+<p>所有查询都要查找到叶子节点，查询性能稳定。</p>
+</li>
+<li>
+<p>所有叶子节点形成有序链表，便于范围查询。</p>
+</li>
+</ol>
+<h2 id="三b-索引">三、B+ 索引</h2>
+<h3 id="31-myisam索引实现">3.1 MyISAM索引实现</h3>
+<p>MyISAM引擎使用B+Tree作为索引结构，叶节点的data域存放的是数据记录的地址。下图是MyISAM索引的原理图：</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/2015-07-07_559b7861829a0.png" alt="img"></p>
+<p>这里设表一共有三列，假设我们以Col1为主键，则上图是一个MyISAM表的主索引（Primary key）示意。可以看出MyISAM的索引文件仅仅保存数据记录的地址。在MyISAM中，主索引和辅助索引（Secondary key）在结构上没有任何区别，只是主索引要求key是唯一的，而辅助索引的key可以重复。如果我们在Col2上建立一个辅助索引，则此索引的结构如下图所示：</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/2015-07-07_559b7861a1787.png" alt="img"></p>
+<p>同样也是一颗B+Tree，data域保存数据记录的地址。因此，MyISAM中索引检索的算法为首先按照B+Tree搜索算法搜索索引，如果指定的Key存在，则取出其data域的值，然后以data域的值为地址，读取相应数据记录。</p>
+<p>MyISAM的索引方式也叫做“非聚集”的，之所以这么称呼是为了与InnoDB的聚集索引区分。</p>
+<blockquote>
+<p>MYISAM 引擎的表的.MYI 文件包含了表的索引， 该表的索引(B+树)的每个叶子非叶子节点存储索引， 叶子节点存储索引和索引对应数据的指针，指向.MYD 文件的数据。</p>
+</blockquote>
+<p>这是MySQL 的表的文件截图：</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/20210420165311654.png" alt="img"></p>
+<h3 id="32-innodb-索引实现">3.2 InnoDB 索引实现</h3>
+<p>虽然InnoDB也使用B+Tree作为索引结构，但具体实现方式却与MyISAM截然不同。</p>
+<p>第一个重大区别是InnoDB的数据文件本身就是索引文件。从上文知道，MyISAM索引文件和数据文件是分离的，索引文件仅保存数据记录的地址。而在InnoDB中，表数据文件本身就是按B+Tree组织的一个索引结构，这棵树的叶节点data域保存了完整的数据记录。这个索引的key是数据表的主键，因此InnoDB表数据文件本身就是主索引。</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/2015-07-07_559b7873b514d.png" alt="img"></p>
+<p>上图是InnoDB主索引（同时也是数据文件）的示意图，可以看到叶节点包含了完整的数据记录。这种索引叫做聚集索引。因为InnoDB的数据文件本身要按主键聚集，所以InnoDB要求表必须有主键（MyISAM可以没有），如果没有显式指定，则MySQL系统会自动选择一个可以唯一标识数据记录的列作为主键，如果不存在这种列，则MySQL自动为InnoDB表生成一个隐含字段作为主键，这个字段长度为6个字节，类型为长整形。</p>
+<p>第二个与MyISAM索引的不同是InnoDB的辅助索引data域存储相应记录主键的值而不是地址。换句话说，InnoDB的所有辅助索引都引用主键作为data域。例如，下图为定义在Col3上的一个辅助索引：</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/2015-07-07_559b7873ceaf1.png" alt="img"></p>
+<p>这里以英文字符的ASCII码作为比较准则。聚集索引这种实现方式使得按主键的搜索十分高效，但是辅助索引搜索需要检索两遍索引：首先检索辅助索引获得主键，然后用主键到主索引中检索获得记录。</p>
+<h3 id="32-聚集索引与非聚集索引">3.2 聚集索引与非聚集索引</h3>
+<ol>
+<li>
+<p>聚集索引</p>
+<p><strong>聚集索引即索引结构和数据一起存放的索引。主键索引属于聚集索引。</strong></p>
+<p>优点：</p>
+<p>聚集索引的查询速度非常的快，因为整个 B+树本身就是一颗多叉平衡树，叶子节点也都是有序的，定位到索引的节点，就相当于定位到了数据。</p>
+<p>缺点：</p>
+<ul>
+<li><strong>依赖于有序的数据</strong> ：因为 B+树是多路平衡树，如果索引的数据不是有序的，那么就需要在插入时排序，如果数据是整型还好，否则类似于字符串或 UUID 这种又长又难比较的数据，插入或查找的速度肯定比较慢。</li>
+<li><strong>更新代价大</strong> ： 如果对索引列的数据被修改时，那么对应的索引也将会被修改， 而且况聚集索引的叶子节点还存放着数据，修改代价肯定是较大的， 所以对于主键索引来说，主键一般都是不可被修改的。</li>
+</ul>
+</li>
+<li>
+<p>非聚集索引</p>
+<p><strong>非聚集索引即索引结构和数据分开存放的索引。</strong> 二级索引（辅助索引）属于非聚集索引。</p>
+<p>优点：</p>
+<p><strong>更新代价比聚集索引要小</strong> 。非聚集索引的更新代价就没有聚集索引那么大了，非聚集索引的叶子节点是不存放数据的</p>
+<p>缺点：</p>
+<ul>
+<li>
+<p>跟聚集索引一样，非聚集索引也依赖于有序的数据；</p>
+</li>
+<li>
+<p><strong>可能会二次查询(回表)</strong> :这应该是非聚集索引最大的缺点了。 当查到索引对应的指针或主键后，可能还需要根据指针或主键再到数据文件或表中查询。</p>
+<p>尽量使用覆盖索引，避免回表查询。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="四哈希索引">四、哈希索引</h2>
+<p>InnoDB 引擎有一个特殊的功能叫 “自适应哈希索引”，当某个索引值被使用的非常频繁时，会在 B+Tree 索引之上再创建一个哈希索引，这样就让 B+Tree 索引具有哈希索引的一些优点，比如快速的哈希查找。</p>
+<p>自适应哈希索引会占用InnoDN Buffer Pool。对于某些工作负载，如使用1like 和% 的范围查询以及高并发的 joins，不适合使用自适应哈希索引，维护哈希索引结构的额外开销会带来严重性能损耗。这种情况更适合于禁用自适应哈希索引。</p>
+<p>哈希索引能以 O(1) 时间进行查找，但是失去了有序性，它具有以下限制：</p>
+<ul>
+<li>无法用于排序与分组；</li>
+<li>只支持精确查找，无法用于部分查找和范围查找；</li>
+</ul>
+<h2 id="五全文索引">五、全文索引</h2>
+<p>MyISAM 存储引擎支持全文索引，用于查找文本中的关键词，而不是直接比较是否相等。查找条件使用 MATCH AGAINST，而不是普通的 WHERE。InnoDB 存储引擎在 MySQL 5.6.4 版本中也开始支持全文索引。</p>
+<p>全文索引通常使用倒排索引（inverted index）来实现。倒排索引是通过记录关键词到其所在文档的映射实现的。</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/524341-20160410174915968-1895730713.jpg" alt="img"></p>
+<p>以 ES 为例：</p>
+<p>Elasticsearch 使用一种称为  <em>倒排索引</em> 的结构，它适用于快速的全文搜索。一个倒排索引由文档中所有不重复词的列表构成，对于其中每个词，有一个包含它的文档列表。</p>
+<p>例如，假设我们有两个文档，每个文档的 <code>content</code> 域包含如下内容：</p>
+<ol>
+<li>The quick brown fox jumped over the lazy dog</li>
+<li>Quick brown foxes leap over lazy dogs in summer</li>
+</ol>
+<p>为了创建倒排索引，我们首先将每个文档的 <code>content</code> 域拆分成单独的  词（我们称它为 <code>词条</code> 或 <code>tokens</code> ），创建一个包含所有不重复词条的排序列表，然后列出每个词条出现在哪个文档。结果如下所示：</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211215134016083.png" alt="image-20211215134016083"></p>
+<p>现在，如果我们想搜索 <code>quick brown</code> ，我们只需要查找包含每个词条的文档：</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211215134037692.png" alt="image-20211215134037692"></p>
+<p>两个文档都匹配，但是第一个文档比第二个匹配度更高。如果我们使用仅计算匹配词条数量的简单 <em>相似性算法</em>  ，那么，我们可以说，对于我们查询的相关性来讲，第一个文档比第二个文档更佳。</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://firefoxking.github.io/post/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84%E6%8A%80%E5%B7%A7/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">前缀和与差分数组技巧</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://firefoxking.github.io/post/MySQL%E7%9A%84REDO%E6%97%A5%E5%BF%97%E4%B8%8E%E5%8F%8C%E5%86%99%E6%9C%BA%E5%88%B6/">
+                  <span class="button__text">MySQL的REDO日志与双写机制</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://firefoxking.github.io/assets/main.js"></script>
+<script src="https://firefoxking.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

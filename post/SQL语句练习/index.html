@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        SQL语句练习 ::
+        Hello Friend — A simple theme for Hugo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="一、构建表结构 本文全部来自sql语句练习，我是用来进行练习。并对sql的一些基础进行一下记录。 构建一个Grade 的表结构，进行 SQL 语句练习。 1"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://firefoxking.github.io/post/SQL%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://firefoxking.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://firefoxking.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://firefoxking.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://firefoxking.github.io/img/favicon.png" />
+
+
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SQL语句练习"/>
+<meta name="twitter:description" content="进行SQL语句的简单练习。"/>
+
+
+
+<meta property="og:title" content="SQL语句练习" />
+<meta property="og:description" content="进行SQL语句的简单练习。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://firefoxking.github.io/post/SQL%E8%AF%AD%E5%8F%A5%E7%BB%83%E4%B9%A0/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-10T18:35:55+08:00" />
+<meta property="article:modified_time" content="2021-12-10T18:35:55+08:00" /><meta property="og:site_name" content="Hello Friend" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+        
+          <li><a href="/categories/">分类</a></li>
+        
+      
+        
+          <li><a href="/post/">归档</a></li>
+        
+      
+        
+          <li><a href="/tags/">标签</a></li>
+        
+      
+        
+          <li><a href="/">首页</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+      
+        <li><a href="/categories/">分类</a></li>
+      
+    
+      
+        <li><a href="/post/">归档</a></li>
+      
+    
+      
+        <li><a href="/tags/">标签</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">SQL语句练习</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-12-10
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by firefoxking</span
+        >
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://firefoxking.github.io/tags/SQL/">#SQL</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <h2 id="一构建表结构">一、构建表结构</h2>
+<blockquote>
+<p>本文全部来自<a href="https://www.pdai.tech/md/db/sql-lan/sql-lan-pratice.html">sql语句练习</a>，我是用来进行练习。并对sql的一些基础进行一下记录。</p>
+</blockquote>
+<p>构建一个Grade 的表结构，进行 SQL 语句练习。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#75715e">-- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+</span><span style="color:#75715e">--
+</span><span style="color:#75715e">-- Host: localhost    Database: learn_sql_pdai_tech
+</span><span style="color:#75715e">-- ------------------------------------------------------
+</span><span style="color:#75715e">-- Server version	5.7.28
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */</span>;
+<span style="color:#75715e">/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */</span>;
+<span style="color:#75715e">/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */</span>;
+<span style="color:#75715e">/*!40101 SET NAMES utf8 */</span>;
+<span style="color:#75715e">/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */</span>;
+<span style="color:#75715e">/*!40103 SET TIME_ZONE=&#39;+00:00&#39; */</span>;
+<span style="color:#75715e">/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */</span>;
+<span style="color:#75715e">/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */</span>;
+<span style="color:#75715e">/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=&#39;NO_AUTO_VALUE_ON_ZERO&#39; */</span>;
+<span style="color:#75715e">/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */</span>;
+
+<span style="color:#75715e">--
+</span><span style="color:#75715e">-- Table structure for table `COURSE`
+</span><span style="color:#75715e">--
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> <span style="color:#f92672">`</span>COURSE<span style="color:#f92672">`</span>;
+<span style="color:#75715e">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span style="color:#75715e">/*!40101 SET character_set_client = utf8 */</span>;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>COURSE<span style="color:#f92672">`</span> (
+  <span style="color:#f92672">`</span>CNO<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">5</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>CNAME<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">10</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>TNO<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">10</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8;
+<span style="color:#75715e">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+
+<span style="color:#75715e">--
+</span><span style="color:#75715e">-- Dumping data for table `COURSE`
+</span><span style="color:#75715e">--
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">LOCK</span> TABLES <span style="color:#f92672">`</span>COURSE<span style="color:#f92672">`</span> <span style="color:#66d9ef">WRITE</span>;
+<span style="color:#75715e">/*!40000 ALTER TABLE `COURSE` DISABLE KEYS */</span>;
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> <span style="color:#f92672">`</span>COURSE<span style="color:#f92672">`</span> <span style="color:#66d9ef">VALUES</span> (<span style="color:#e6db74">&#39;3-105&#39;</span>,<span style="color:#e6db74">&#39;计算机导论&#39;</span>,<span style="color:#e6db74">&#39;825&#39;</span>),(<span style="color:#e6db74">&#39;3-245&#39;</span>,<span style="color:#e6db74">&#39;操作系统&#39;</span>,<span style="color:#e6db74">&#39;804&#39;</span>),(<span style="color:#e6db74">&#39;6-166&#39;</span>,<span style="color:#e6db74">&#39;数据电路&#39;</span>,<span style="color:#e6db74">&#39;856&#39;</span>),(<span style="color:#e6db74">&#39;9-888&#39;</span>,<span style="color:#e6db74">&#39;高等数学&#39;</span>,<span style="color:#e6db74">&#39;100&#39;</span>);
+<span style="color:#75715e">/*!40000 ALTER TABLE `COURSE` ENABLE KEYS */</span>;
+UNLOCK TABLES;
+
+<span style="color:#75715e">--
+</span><span style="color:#75715e">-- Table structure for table `SCORE`
+</span><span style="color:#75715e">--
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> <span style="color:#f92672">`</span>SCORE<span style="color:#f92672">`</span>;
+<span style="color:#75715e">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span style="color:#75715e">/*!40101 SET character_set_client = utf8 */</span>;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>SCORE<span style="color:#f92672">`</span> (
+  <span style="color:#f92672">`</span>SNO<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">3</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>CNO<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">5</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>DEGREE<span style="color:#f92672">`</span> decimal(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8;
+<span style="color:#75715e">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+
+<span style="color:#75715e">--
+</span><span style="color:#75715e">-- Dumping data for table `SCORE`
+</span><span style="color:#75715e">--
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">LOCK</span> TABLES <span style="color:#f92672">`</span>SCORE<span style="color:#f92672">`</span> <span style="color:#66d9ef">WRITE</span>;
+<span style="color:#75715e">/*!40000 ALTER TABLE `SCORE` DISABLE KEYS */</span>;
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> <span style="color:#f92672">`</span>SCORE<span style="color:#f92672">`</span> <span style="color:#66d9ef">VALUES</span> (<span style="color:#e6db74">&#39;103&#39;</span>,<span style="color:#e6db74">&#39;3-245&#39;</span>,<span style="color:#ae81ff">86</span>.<span style="color:#ae81ff">0</span>),(<span style="color:#e6db74">&#39;105&#39;</span>,<span style="color:#e6db74">&#39;3-245&#39;</span>,<span style="color:#ae81ff">75</span>.<span style="color:#ae81ff">0</span>),(<span style="color:#e6db74">&#39;109&#39;</span>,<span style="color:#e6db74">&#39;3-245&#39;</span>,<span style="color:#ae81ff">68</span>.<span style="color:#ae81ff">0</span>),(<span style="color:#e6db74">&#39;103&#39;</span>,<span style="color:#e6db74">&#39;3-105&#39;</span>,<span style="color:#ae81ff">92</span>.<span style="color:#ae81ff">0</span>),(<span style="color:#e6db74">&#39;105&#39;</span>,<span style="color:#e6db74">&#39;3-105&#39;</span>,<span style="color:#ae81ff">88</span>.<span style="color:#ae81ff">0</span>),(<span style="color:#e6db74">&#39;109&#39;</span>,<span style="color:#e6db74">&#39;3-105&#39;</span>,<span style="color:#ae81ff">76</span>.<span style="color:#ae81ff">0</span>),(<span style="color:#e6db74">&#39;101&#39;</span>,<span style="color:#e6db74">&#39;3-105&#39;</span>,<span style="color:#ae81ff">64</span>.<span style="color:#ae81ff">0</span>),(<span style="color:#e6db74">&#39;107&#39;</span>,<span style="color:#e6db74">&#39;3-105&#39;</span>,<span style="color:#ae81ff">91</span>.<span style="color:#ae81ff">0</span>),(<span style="color:#e6db74">&#39;101&#39;</span>,<span style="color:#e6db74">&#39;6-166&#39;</span>,<span style="color:#ae81ff">85</span>.<span style="color:#ae81ff">0</span>),(<span style="color:#e6db74">&#39;107&#39;</span>,<span style="color:#e6db74">&#39;6-106&#39;</span>,<span style="color:#ae81ff">79</span>.<span style="color:#ae81ff">0</span>),(<span style="color:#e6db74">&#39;108&#39;</span>,<span style="color:#e6db74">&#39;3-105&#39;</span>,<span style="color:#ae81ff">78</span>.<span style="color:#ae81ff">0</span>),(<span style="color:#e6db74">&#39;108&#39;</span>,<span style="color:#e6db74">&#39;6-166&#39;</span>,<span style="color:#ae81ff">81</span>.<span style="color:#ae81ff">0</span>);
+<span style="color:#75715e">/*!40000 ALTER TABLE `SCORE` ENABLE KEYS */</span>;
+UNLOCK TABLES;
+
+<span style="color:#75715e">--
+</span><span style="color:#75715e">-- Table structure for table `STUDENT`
+</span><span style="color:#75715e">--
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> <span style="color:#f92672">`</span>STUDENT<span style="color:#f92672">`</span>;
+<span style="color:#75715e">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span style="color:#75715e">/*!40101 SET character_set_client = utf8 */</span>;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>STUDENT<span style="color:#f92672">`</span> (
+  <span style="color:#f92672">`</span>SNO<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">3</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>SNAME<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">4</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>SSEX<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">2</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>SBIRTHDAY<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span><span style="color:#66d9ef">CLASS</span><span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">5</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>
+) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8;
+<span style="color:#75715e">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+
+<span style="color:#75715e">--
+</span><span style="color:#75715e">-- Dumping data for table `STUDENT`
+</span><span style="color:#75715e">--
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">LOCK</span> TABLES <span style="color:#f92672">`</span>STUDENT<span style="color:#f92672">`</span> <span style="color:#66d9ef">WRITE</span>;
+<span style="color:#75715e">/*!40000 ALTER TABLE `STUDENT` DISABLE KEYS */</span>;
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> <span style="color:#f92672">`</span>STUDENT<span style="color:#f92672">`</span> <span style="color:#66d9ef">VALUES</span> (<span style="color:#e6db74">&#39;108&#39;</span>,<span style="color:#e6db74">&#39;曾华&#39;</span>,<span style="color:#e6db74">&#39;男&#39;</span>,<span style="color:#e6db74">&#39;1977-09-01 00:00:00&#39;</span>,<span style="color:#e6db74">&#39;95033&#39;</span>),(<span style="color:#e6db74">&#39;105&#39;</span>,<span style="color:#e6db74">&#39;匡明&#39;</span>,<span style="color:#e6db74">&#39;男&#39;</span>,<span style="color:#e6db74">&#39;1975-10-02 00:00:00&#39;</span>,<span style="color:#e6db74">&#39;95031&#39;</span>),(<span style="color:#e6db74">&#39;107&#39;</span>,<span style="color:#e6db74">&#39;王丽&#39;</span>,<span style="color:#e6db74">&#39;女&#39;</span>,<span style="color:#e6db74">&#39;1976-01-23 00:00:00&#39;</span>,<span style="color:#e6db74">&#39;95033&#39;</span>),(<span style="color:#e6db74">&#39;101&#39;</span>,<span style="color:#e6db74">&#39;李军&#39;</span>,<span style="color:#e6db74">&#39;男&#39;</span>,<span style="color:#e6db74">&#39;1976-02-20 00:00:00&#39;</span>,<span style="color:#e6db74">&#39;95033&#39;</span>),(<span style="color:#e6db74">&#39;109&#39;</span>,<span style="color:#e6db74">&#39;王芳&#39;</span>,<span style="color:#e6db74">&#39;女&#39;</span>,<span style="color:#e6db74">&#39;1975-02-10 00:00:00&#39;</span>,<span style="color:#e6db74">&#39;95031&#39;</span>),(<span style="color:#e6db74">&#39;103&#39;</span>,<span style="color:#e6db74">&#39;陆君&#39;</span>,<span style="color:#e6db74">&#39;男&#39;</span>,<span style="color:#e6db74">&#39;1974-06-03 00:00:00&#39;</span>,<span style="color:#e6db74">&#39;95031&#39;</span>);
+<span style="color:#75715e">/*!40000 ALTER TABLE `STUDENT` ENABLE KEYS */</span>;
+UNLOCK TABLES;
+
+<span style="color:#75715e">--
+</span><span style="color:#75715e">-- Table structure for table `TEACHER`
+</span><span style="color:#75715e">--
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">EXISTS</span> <span style="color:#f92672">`</span>TEACHER<span style="color:#f92672">`</span>;
+<span style="color:#75715e">/*!40101 SET @saved_cs_client     = @@character_set_client */</span>;
+<span style="color:#75715e">/*!40101 SET character_set_client = utf8 */</span>;
+<span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#f92672">`</span>TEACHER<span style="color:#f92672">`</span> (
+  <span style="color:#f92672">`</span>TNO<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">3</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>TNAME<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">4</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>TSEX<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">2</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>TBIRTHDAY<span style="color:#f92672">`</span> datetime <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>PROF<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">6</span>) <span style="color:#66d9ef">DEFAULT</span> <span style="color:#66d9ef">NULL</span>,
+  <span style="color:#f92672">`</span>DEPART<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">10</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>
+) ENGINE<span style="color:#f92672">=</span>InnoDB <span style="color:#66d9ef">DEFAULT</span> CHARSET<span style="color:#f92672">=</span>utf8;
+<span style="color:#75715e">/*!40101 SET character_set_client = @saved_cs_client */</span>;
+
+<span style="color:#75715e">--
+</span><span style="color:#75715e">-- Dumping data for table `TEACHER`
+</span><span style="color:#75715e">--
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">LOCK</span> TABLES <span style="color:#f92672">`</span>TEACHER<span style="color:#f92672">`</span> <span style="color:#66d9ef">WRITE</span>;
+<span style="color:#75715e">/*!40000 ALTER TABLE `TEACHER` DISABLE KEYS */</span>;
+<span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> <span style="color:#f92672">`</span>TEACHER<span style="color:#f92672">`</span> <span style="color:#66d9ef">VALUES</span> (<span style="color:#e6db74">&#39;804&#39;</span>,<span style="color:#e6db74">&#39;李诚&#39;</span>,<span style="color:#e6db74">&#39;男&#39;</span>,<span style="color:#e6db74">&#39;1958-12-02 00:00:00&#39;</span>,<span style="color:#e6db74">&#39;副教授&#39;</span>,<span style="color:#e6db74">&#39;计算机系&#39;</span>),(<span style="color:#e6db74">&#39;856&#39;</span>,<span style="color:#e6db74">&#39;张旭&#39;</span>,<span style="color:#e6db74">&#39;男&#39;</span>,<span style="color:#e6db74">&#39;1969-03-12 00:00:00&#39;</span>,<span style="color:#e6db74">&#39;讲师&#39;</span>,<span style="color:#e6db74">&#39;电子工程系&#39;</span>),(<span style="color:#e6db74">&#39;825&#39;</span>,<span style="color:#e6db74">&#39;王萍&#39;</span>,<span style="color:#e6db74">&#39;女&#39;</span>,<span style="color:#e6db74">&#39;1972-05-05 00:00:00&#39;</span>,<span style="color:#e6db74">&#39;助教&#39;</span>,<span style="color:#e6db74">&#39;计算机系&#39;</span>),(<span style="color:#e6db74">&#39;831&#39;</span>,<span style="color:#e6db74">&#39;刘冰&#39;</span>,<span style="color:#e6db74">&#39;女&#39;</span>,<span style="color:#e6db74">&#39;1977-08-14 00:00:00&#39;</span>,<span style="color:#e6db74">&#39;助教&#39;</span>,<span style="color:#e6db74">&#39;电子工程系&#39;</span>);
+<span style="color:#75715e">/*!40000 ALTER TABLE `TEACHER` ENABLE KEYS */</span>;
+UNLOCK TABLES;
+<span style="color:#75715e">/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */</span>;
+
+<span style="color:#75715e">/*!40101 SET SQL_MODE=@OLD_SQL_MODE */</span>;
+<span style="color:#75715e">/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */</span>;
+<span style="color:#75715e">/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */</span>;
+<span style="color:#75715e">/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */</span>;
+<span style="color:#75715e">/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */</span>;
+<span style="color:#75715e">/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */</span>;
+<span style="color:#75715e">/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */</span>;
+
+<span style="color:#75715e">-- Dump completed on 2020-02-06 18:18:25
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="二练习">二、练习</h2>
+<ol>
+<li>
+<p>查询 Student 表中的所有记录的Sname、Ssex和Class 列。</p>
+<blockquote>
+<p>注释</p>
+<p><code>select * from table -- 这是一条注释</code></p>
+<p><code># 这是一条注释</code></p>
+<p><code>/* 注释 */</code></p>
+<p>简单的 检索数据 select 用法</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> Sname, Ssex, <span style="color:#66d9ef">Class</span> <span style="color:#66d9ef">FROM</span> student;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询教师所有的单位即不重复的 Depart 列。</p>
+<blockquote>
+<p>检索不同的值，使用 DISTINCT 关键词</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> depart <span style="color:#66d9ef">FROM</span> teacher;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询Student 表的所有记录。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> student;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询 Score 表中成绩在60到 80 之间的所有记录。</p>
+<blockquote>
+<p>过滤数据，where， between</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">WHERE</span> degree <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">60</span> <span style="color:#66d9ef">AND</span> degree <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">80</span>;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询 Score 表中成绩为85，86或88的记录。</p>
+<blockquote>
+<p>高级过滤数据， where，in、or</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">WHERE</span> degree <span style="color:#66d9ef">IN</span> ( <span style="color:#ae81ff">85</span>, <span style="color:#ae81ff">86</span>, <span style="color:#ae81ff">88</span>);
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询 Student 表中”95031“班 或性别为 ”女“的同学记录。</p>
+<blockquote>
+<p>高级过滤数据，组合where 子句：and， OR</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> student <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">class</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;95031&#39;</span> <span style="color:#66d9ef">AND</span> Ssex <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;女&#39;</span>;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>以 Class 降序查询 Student 表的所有记录。</p>
+<blockquote>
+<p>排序检索数据，order by 、desc</p>
+<p>数据排序默认是升序排序。ASC 没有多大用处。</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> student <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#66d9ef">class</span> <span style="color:#66d9ef">DESC</span>;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>以 Cno 升序、Degree降序查询 Score 表的所有记录。</p>
+<blockquote>
+<p>按照多个列进行排序，为每一个列都进行指定顺序</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> Cno, Degree <span style="color:#66d9ef">DESC</span>;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询 ”95031“ 班的学生人数。</p>
+<blockquote>
+<p>汇总数据，count、avg、max、min、sum</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">AS</span> num <span style="color:#66d9ef">FROM</span> student <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">class</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;95031&#39;</span>;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询 Score 表中的最高分的学生学号和课程号。</p>
+<blockquote>
+<p>子查询</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> sno, cno <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">WHERE</span> 
+degree <span style="color:#f92672">=</span> ( <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">MAX</span>(degree) <span style="color:#66d9ef">FROM</span> score);
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询’3-105‘ 号课程的平均分。</p>
+<blockquote>
+<p>AVG字段</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">AVG</span>(degree) <span style="color:#66d9ef">AS</span> avgdegree <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">WHERE</span> Cno <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;3-105&#39;</span>;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询 score 表中至少有5名学生选修的并以3开头的课程的平均分数。</p>
+<blockquote>
+<p>分组数据：group by、having 过滤</p>
+<p>group by 子句必须出现在 where 子句之后， order by 子句之后</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span>
+  <span style="color:#66d9ef">avg</span>(DEGREE),
+  CNO
+<span style="color:#66d9ef">from</span> SCORE
+<span style="color:#66d9ef">where</span> cno <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;3%&#39;</span>
+<span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> CNO
+<span style="color:#66d9ef">having</span> <span style="color:#66d9ef">count</span>(<span style="color:#f92672">*</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span>;
+
+<span style="color:#960050;background-color:#1e0010">下面的方式是冗余的</span>
+<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">AVG</span>(degree) <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">WHERE</span> Cno <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;3%&#39;</span> <span style="color:#66d9ef">AND</span> 
+Cno <span style="color:#66d9ef">in</span> (<span style="color:#66d9ef">SELECT</span> Cno <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> Cno <span style="color:#66d9ef">HAVING</span> <span style="color:#66d9ef">COUNT</span>(<span style="color:#f92672">*</span>) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">5</span>);
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询最低分大于70，最高分小于90的sno列。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> sno, <span style="color:#66d9ef">MAX</span>(degree), <span style="color:#66d9ef">MIN</span>(degree) <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> sno <span style="color:#66d9ef">HAVING</span> <span style="color:#66d9ef">MAX</span>(degree) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">90</span> <span style="color:#66d9ef">AND</span> <span style="color:#66d9ef">MIN</span>(degree) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">70</span>;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询所有学生的 Sname、Con和Degree列。</p>
+<blockquote>
+<p>联结：内连接、左外连接、右外连接、全外连接、笛卡儿积</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> Sname, Cno, Degree <span style="color:#66d9ef">FROM</span> student, score <span style="color:#66d9ef">WHERE</span> student.sno <span style="color:#f92672">=</span> score.sno;
+<span style="color:#66d9ef">SELECT</span> Sname, Cno, Degree <span style="color:#66d9ef">FROM</span> student <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> score <span style="color:#66d9ef">ON</span> student.sno <span style="color:#f92672">=</span> score.sno;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询所有学生的 Sno、Cname和 Degree 列。</p>
+<blockquote>
+<p>联结多个表数据</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> student.Sno, Cname, Degree <span style="color:#66d9ef">FROM</span> student, score, course <span style="color:#66d9ef">WHERE</span> student.sno <span style="color:#f92672">=</span> score.sno <span style="color:#66d9ef">AND</span> score.cno <span style="color:#f92672">=</span> course.cno;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询所有学生的Sname、Cname和Degree列。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> A.SNAME, <span style="color:#66d9ef">C</span>.cname, B.degree <span style="color:#66d9ef">FROM</span> student <span style="color:#66d9ef">AS</span> A <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> (score <span style="color:#66d9ef">AS</span> B, course <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">C</span>) <span style="color:#66d9ef">ON</span> A.sno <span style="color:#f92672">=</span> B.sno <span style="color:#66d9ef">AND</span> B.cno <span style="color:#f92672">=</span> <span style="color:#66d9ef">C</span>.cno;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询“95033”班所选课程的平均分。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">AVG</span>(B.degree) <span style="color:#66d9ef">FROM</span> student <span style="color:#66d9ef">AS</span> A  <span style="color:#66d9ef">INNER</span> <span style="color:#66d9ef">JOIN</span> score <span style="color:#66d9ef">AS</span> B <span style="color:#66d9ef">ON</span> A.sno <span style="color:#f92672">=</span> B.sno <span style="color:#66d9ef">WHERE</span> A.<span style="color:#66d9ef">CLASS</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;95033&#39;</span>;
+
+<span style="color:#66d9ef">select</span> <span style="color:#66d9ef">avg</span>(DEGREE)
+<span style="color:#66d9ef">from</span> SCORE
+<span style="color:#66d9ef">where</span> sno <span style="color:#66d9ef">in</span> (<span style="color:#66d9ef">select</span> SNO
+              <span style="color:#66d9ef">from</span> STUDENT
+              <span style="color:#66d9ef">where</span> <span style="color:#66d9ef">CLASS</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;95033&#39;</span>);
+
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>假设使用如下命令建立了一个grade表:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> grade (
+  low  numeric(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>),
+  upp  numeric(<span style="color:#ae81ff">3</span>),
+  rank char(<span style="color:#ae81ff">1</span>)
+);
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> grade <span style="color:#66d9ef">values</span> (<span style="color:#ae81ff">90</span>, <span style="color:#ae81ff">100</span>, <span style="color:#e6db74">&#39;A&#39;</span>);
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> grade <span style="color:#66d9ef">values</span> (<span style="color:#ae81ff">80</span>, <span style="color:#ae81ff">89</span>, <span style="color:#e6db74">&#39;B&#39;</span>);
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> grade <span style="color:#66d9ef">values</span> (<span style="color:#ae81ff">70</span>, <span style="color:#ae81ff">79</span>, <span style="color:#e6db74">&#39;C&#39;</span>);
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> grade <span style="color:#66d9ef">values</span> (<span style="color:#ae81ff">60</span>, <span style="color:#ae81ff">69</span>, <span style="color:#e6db74">&#39;D&#39;</span>);
+<span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> grade <span style="color:#66d9ef">values</span> (<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">59</span>, <span style="color:#e6db74">&#39;E&#39;</span>);
+</code></pre></td></tr></table>
+</div>
+</div><p>现查询所有同学的Sno、Cno和rank列。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span>
+  A.SNO,
+  A.CNO,
+  B.RANK
+<span style="color:#66d9ef">FROM</span> SCORE A, grade B
+<span style="color:#66d9ef">WHERE</span> A.DEGREE <span style="color:#66d9ef">BETWEEN</span> B.LOW <span style="color:#66d9ef">AND</span> B.UPP
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> RANK;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询选修“3-105”课程的成绩高于“109”号同学成绩的所有同学的记录。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">WHERE</span> cno <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;3-105&#39;</span> <span style="color:#66d9ef">and</span> degree <span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">ALL</span>(<span style="color:#66d9ef">SELECT</span> degree <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">where</span> sno <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;109&#39;</span>);
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">WHERE</span> cno <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;3-105&#39;</span> <span style="color:#66d9ef">and</span> degree <span style="color:#f92672">&gt;</span> (<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">MAX</span>(degree) <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">where</span> sno <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;109&#39;</span>);
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询score中选学一门以上课程的同学中分数为非最高分成绩的学生记录</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> STUDENT <span style="color:#66d9ef">where</span> SNO
+  <span style="color:#66d9ef">in</span> (<span style="color:#66d9ef">select</span> SNO
+  <span style="color:#66d9ef">from</span> SCORE
+  <span style="color:#66d9ef">where</span> DEGREE <span style="color:#f92672">&lt;</span> (<span style="color:#66d9ef">select</span> <span style="color:#66d9ef">MAX</span>(DEGREE) <span style="color:#66d9ef">from</span> SCORE)
+  <span style="color:#66d9ef">group</span> <span style="color:#66d9ef">by</span> SNO
+  <span style="color:#66d9ef">having</span> <span style="color:#66d9ef">count</span>(<span style="color:#f92672">*</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>);
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询成绩高于学号为“109”、课程号为“3-105”的成绩的所有记录.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span>
+<span style="color:#66d9ef">from</span> SCORE
+<span style="color:#66d9ef">where</span> CNO <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;3-105&#39;</span> <span style="color:#66d9ef">and</span> DEGREE <span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">ALL</span> (
+  <span style="color:#66d9ef">select</span> DEGREE
+  <span style="color:#66d9ef">from</span> SCORE
+  <span style="color:#66d9ef">where</span> SNO <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;109&#39;</span>
+);
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询和学号为108的同学同年出生的所有学生的Sno、Sname和Sbirthday列。</p>
+<blockquote>
+<p>数据处理函数，时间处理</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> Sno, Sname, Sbirthday <span style="color:#66d9ef">FROM</span> student <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">YEAR</span>(Sbirthday) <span style="color:#f92672">=</span> (<span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">YEAR</span>(Sbirthday) <span style="color:#66d9ef">FROM</span> student <span style="color:#66d9ef">WHERE</span> sno <span style="color:#f92672">=</span> <span style="color:#ae81ff">108</span>);
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询“张旭“教师任课的学生成绩。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span>
+<span style="color:#66d9ef">from</span> SCORE
+<span style="color:#66d9ef">where</span> cno <span style="color:#f92672">=</span> (
+  <span style="color:#66d9ef">select</span> CNO
+  <span style="color:#66d9ef">from</span> COURSE
+    <span style="color:#66d9ef">inner</span> <span style="color:#66d9ef">join</span> TEACHER <span style="color:#66d9ef">on</span> COURSE.TNO <span style="color:#f92672">=</span> TEACHER.TNO <span style="color:#66d9ef">and</span> TNAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;张旭&#39;</span>
+);
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://firefoxking.github.io/post/GAN%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%E5%88%9D%E6%AD%A5/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">GAN对抗网络初步</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://firefoxking.github.io/post/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E6%8A%80%E5%B7%A7%E6%A1%86%E6%9E%B6/">
+                  <span class="button__text">滑动窗口技巧框架</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://firefoxking.github.io/assets/main.js"></script>
+<script src="https://firefoxking.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

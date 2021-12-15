@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>前端框架 on Hello Friend</title>
+    
+    
+    
+    <link>https://firefoxking.github.io/categories/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/</link>
+    <description>Recent content in 前端框架 on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 29 Nov 2021 20:14:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://firefoxking.github.io/categories/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vue简单入门使用</title>
+      <link>https://firefoxking.github.io/post/Vue%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 29 Nov 2021 20:14:57 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/Vue%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Vue入门基础，基于Vue官网
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

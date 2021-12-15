@@ -226,6 +226,7 @@
     <li><a href="#三例题">三、例题</a>
       <ul>
         <li><a href="#752-打开转盘锁httpsleetcode-cncomproblemsopen-the-lock"><a href="https://leetcode-cn.com/problems/open-the-lock/">752. 打开转盘锁</a></a></li>
+        <li><a href="#1091-二进制矩阵中的最短路径httpsleetcode-cncomproblemsshortest-path-in-binary-matrix"><a href="https://leetcode-cn.com/problems/shortest-path-in-binary-matrix/">1091. 二进制矩阵中的最短路径</a></a></li>
       </ul>
     </li>
   </ul>
@@ -520,6 +521,176 @@
     <span style="color:#f92672">}</span>
     <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
 <span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="1091-二进制矩阵中的最短路径httpsleetcode-cncomproblemsshortest-path-in-binary-matrix"><a href="https://leetcode-cn.com/problems/shortest-path-in-binary-matrix/">1091. 二进制矩阵中的最短路径</a></h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> HashSet<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> set <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashSet<span style="color:#f92672">&lt;&gt;();</span>
+    <span style="color:#66d9ef">private</span> ArrayDeque<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> qOfx <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayDeque<span style="color:#f92672">&lt;&gt;();</span>
+    <span style="color:#66d9ef">private</span> ArrayDeque<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> qOfy <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayDeque<span style="color:#f92672">&lt;&gt;();</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">shortestPathBinaryMatrix</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> grid<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>grid <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> grid<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> grid<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> grid<span style="color:#f92672">[</span>0<span style="color:#f92672">].</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        qOfx<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+        qOfy<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(!</span>qOfx<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">int</span> sz <span style="color:#f92672">=</span> qOfx<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
+            res<span style="color:#f92672">++;</span>
+            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> sz<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> qOfx<span style="color:#f92672">.</span><span style="color:#a6e22e">poll</span><span style="color:#f92672">();</span>
+                <span style="color:#66d9ef">int</span> y <span style="color:#f92672">=</span> qOfy<span style="color:#f92672">.</span><span style="color:#a6e22e">poll</span><span style="color:#f92672">();</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>grid<span style="color:#f92672">[</span>x<span style="color:#f92672">][</span>y<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> 1<span style="color:#f92672">)</span>
+                    <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>x <span style="color:#f92672">==</span> m<span style="color:#f92672">-</span>1 <span style="color:#f92672">&amp;&amp;</span> y <span style="color:#f92672">==</span> n<span style="color:#f92672">-</span>1<span style="color:#f92672">)</span>
+                    <span style="color:#66d9ef">return</span> res<span style="color:#f92672">;</span>
+                search<span style="color:#f92672">(</span>x<span style="color:#f92672">-</span>1<span style="color:#f92672">,</span> y<span style="color:#f92672">-</span>1<span style="color:#f92672">,</span> m<span style="color:#f92672">,</span> n<span style="color:#f92672">,</span> grid<span style="color:#f92672">);</span>
+                search<span style="color:#f92672">(</span>x<span style="color:#f92672">-</span>1<span style="color:#f92672">,</span> y<span style="color:#f92672">,</span> m<span style="color:#f92672">,</span> n<span style="color:#f92672">,</span> grid<span style="color:#f92672">);</span>
+                search<span style="color:#f92672">(</span>x<span style="color:#f92672">-</span>1<span style="color:#f92672">,</span> y<span style="color:#f92672">+</span>1<span style="color:#f92672">,</span> m<span style="color:#f92672">,</span> n<span style="color:#f92672">,</span> grid<span style="color:#f92672">);</span>
+                search<span style="color:#f92672">(</span>x<span style="color:#f92672">,</span> y<span style="color:#f92672">-</span>1<span style="color:#f92672">,</span> m<span style="color:#f92672">,</span> n<span style="color:#f92672">,</span> grid<span style="color:#f92672">);</span>
+                search<span style="color:#f92672">(</span>x<span style="color:#f92672">,</span> y<span style="color:#f92672">+</span>1<span style="color:#f92672">,</span> m<span style="color:#f92672">,</span> n<span style="color:#f92672">,</span> grid<span style="color:#f92672">);</span>
+                search<span style="color:#f92672">(</span>x<span style="color:#f92672">+</span>1<span style="color:#f92672">,</span> y<span style="color:#f92672">-</span>1<span style="color:#f92672">,</span> m<span style="color:#f92672">,</span> n<span style="color:#f92672">,</span> grid<span style="color:#f92672">);</span>
+                search<span style="color:#f92672">(</span>x<span style="color:#f92672">+</span>1<span style="color:#f92672">,</span> y<span style="color:#f92672">,</span> m<span style="color:#f92672">,</span> n<span style="color:#f92672">,</span> grid<span style="color:#f92672">);</span>
+                search<span style="color:#f92672">(</span>x<span style="color:#f92672">+</span>1<span style="color:#f92672">,</span> y<span style="color:#f92672">+</span>1<span style="color:#f92672">,</span> m<span style="color:#f92672">,</span> n<span style="color:#f92672">,</span> grid<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">search</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> y<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> m<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> n<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> grid<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>x <span style="color:#f92672">&gt;=</span> 0 <span style="color:#f92672">&amp;&amp;</span> y <span style="color:#f92672">&gt;=</span> 0 <span style="color:#f92672">&amp;&amp;</span> x <span style="color:#f92672">&lt;</span> m <span style="color:#f92672">&amp;&amp;</span> y <span style="color:#f92672">&lt;</span> n <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>set<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>x<span style="color:#f92672">*</span>n<span style="color:#f92672">+</span>y<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+            qOfx<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>x<span style="color:#f92672">);</span>
+            qOfy<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>y<span style="color:#f92672">);</span>
+            set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>x<span style="color:#f92672">*</span>n<span style="color:#f92672">+</span>y<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上面的写法很low</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">shortestPathBinaryMatrix</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> grids<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>grids <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> grids<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 0 <span style="color:#f92672">||</span> grids<span style="color:#f92672">[</span>0<span style="color:#f92672">].</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> direction <span style="color:#f92672">=</span> <span style="color:#f92672">{{</span>1<span style="color:#f92672">,</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">},</span> <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 0<span style="color:#f92672">},</span> <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 1<span style="color:#f92672">},</span> <span style="color:#f92672">{</span>0<span style="color:#f92672">,</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">},</span> <span style="color:#f92672">{</span>0<span style="color:#f92672">,</span> 1<span style="color:#f92672">},</span> <span style="color:#f92672">{-</span>1<span style="color:#f92672">,</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">},</span> <span style="color:#f92672">{-</span>1<span style="color:#f92672">,</span> 0<span style="color:#f92672">},</span> <span style="color:#f92672">{-</span>1<span style="color:#f92672">,</span> 1<span style="color:#f92672">}};</span>
+        <span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> grids<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">,</span> n <span style="color:#f92672">=</span> grids<span style="color:#f92672">[</span>0<span style="color:#f92672">].</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
+        Queue<span style="color:#f92672">&lt;</span>Pair<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;&gt;</span> queue <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;();</span>
+        queue<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Pair<span style="color:#f92672">&lt;&gt;(</span>0<span style="color:#f92672">,</span> 0<span style="color:#f92672">));</span>
+        <span style="color:#66d9ef">int</span> pathLength <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(!</span>queue<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> queue<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
+            pathLength<span style="color:#f92672">++;</span>
+            <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>size<span style="color:#f92672">--</span> <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                Pair<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> Integer<span style="color:#f92672">&gt;</span> cur <span style="color:#f92672">=</span> queue<span style="color:#f92672">.</span><span style="color:#a6e22e">poll</span><span style="color:#f92672">();</span>
+                <span style="color:#66d9ef">int</span> cr <span style="color:#f92672">=</span> cur<span style="color:#f92672">.</span><span style="color:#a6e22e">getKey</span><span style="color:#f92672">(),</span> cc <span style="color:#f92672">=</span> cur<span style="color:#f92672">.</span><span style="color:#a6e22e">getValue</span><span style="color:#f92672">();</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>grids<span style="color:#f92672">[</span>cr<span style="color:#f92672">][</span>cc<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>cr <span style="color:#f92672">==</span> m <span style="color:#f92672">-</span> 1 <span style="color:#f92672">&amp;&amp;</span> cc <span style="color:#f92672">==</span> n <span style="color:#f92672">-</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    <span style="color:#66d9ef">return</span> pathLength<span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+                grids<span style="color:#f92672">[</span>cr<span style="color:#f92672">][</span>cc<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span> <span style="color:#75715e">// 标记
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> d <span style="color:#f92672">:</span> direction<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    <span style="color:#66d9ef">int</span> nr <span style="color:#f92672">=</span> cr <span style="color:#f92672">+</span> d<span style="color:#f92672">[</span>0<span style="color:#f92672">],</span> nc <span style="color:#f92672">=</span> cc <span style="color:#f92672">+</span> d<span style="color:#f92672">[</span>1<span style="color:#f92672">];</span>
+                    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>nr <span style="color:#f92672">&lt;</span> 0 <span style="color:#f92672">||</span> nr <span style="color:#f92672">&gt;=</span> m <span style="color:#f92672">||</span> nc <span style="color:#f92672">&lt;</span> 0 <span style="color:#f92672">||</span> nc <span style="color:#f92672">&gt;=</span> n<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                        <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+                    <span style="color:#f92672">}</span>
+                    queue<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Pair<span style="color:#f92672">&lt;&gt;(</span>nr<span style="color:#f92672">,</span> nc<span style="color:#f92672">));</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
 </code></pre></td></tr></table>
 </div>
 </div>

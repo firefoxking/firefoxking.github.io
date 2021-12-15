@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Redis深入理解引言 ::
+        Hello Friend — A simple theme for Hugo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="一、Nosql SQL与Nosql 数据库，随着大数据的容量变大，关系型数据库在高并发的场景下能力有限，而Nosql数据库在这方面能力更强。 首先"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://firefoxking.github.io/post/Redis%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%BC%95%E8%A8%80/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://firefoxking.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://firefoxking.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://firefoxking.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://firefoxking.github.io/img/favicon.png" />
+
+
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Redis深入理解引言"/>
+<meta name="twitter:description" content="Redis深入理解，设计与实现"/>
+
+
+
+<meta property="og:title" content="Redis深入理解引言" />
+<meta property="og:description" content="Redis深入理解，设计与实现" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://firefoxking.github.io/post/Redis%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E5%BC%95%E8%A8%80/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-29T19:59:25+08:00" />
+<meta property="article:modified_time" content="2021-11-29T19:59:25+08:00" /><meta property="og:site_name" content="Hello Friend" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+        
+          <li><a href="/categories/">分类</a></li>
+        
+      
+        
+          <li><a href="/post/">归档</a></li>
+        
+      
+        
+          <li><a href="/tags/">标签</a></li>
+        
+      
+        
+          <li><a href="/">首页</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+      
+        <li><a href="/categories/">分类</a></li>
+      
+    
+      
+        <li><a href="/post/">归档</a></li>
+      
+    
+      
+        <li><a href="/tags/">标签</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Redis深入理解引言</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-11-29
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by firefoxking</span
+        >
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://firefoxking.github.io/tags/Redis/">#Redis</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一nosql">一、Nosql</a></li>
+    <li><a href="#二目录">二、目录</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <h2 id="一nosql">一、Nosql</h2>
+<p>SQL与Nosql 数据库，随着大数据的容量变大，关系型数据库在高并发的场景下能力有限，而Nosql数据库在这方面能力更强。</p>
+<p>首先理解一下关系型数据库的缺点 <a href="https://www.cnblogs.com/xrq730/p/11039384.html">Sql Or Nosql</a>：</p>
+<ul>
+<li><strong>高并发下IO压力大</strong></li>
+</ul>
+<p>　　数据按行存储，即使只针对其中某一列进行运算，也会将整行数据从存储设备中读入内存，导致IO较高</p>
+<ul>
+<li><strong>为维护索引付出的代价大</strong></li>
+</ul>
+<p>　　为了提供丰富的查询能力，通常热点表都会有多个二级索引，一旦有了二级索引，数据的新增必然伴随着所有二级索引的新增，数据的更新也必然伴随着所有二级索引的更新，这不可避免地降低了关系型数据库的读写能力，且索引越多读写能力越差。有机会的话可以看一下自己公司的数据库，除了数据文件不可避免地占空间外，索引占的空间其实也并不少</p>
+<ul>
+<li><strong>为维护数据一致性付出的代价大</strong></li>
+</ul>
+<p>　　数据一致性是关系型数据库的核心，但是同样为了维护数据一致性的代价也是非常大的。我们都知道SQL标准为事务定义了不同的隔离级别，从低到高依次是读未提交、读已提交、可重复度、串行化，事务隔离级别越低，可能出现的并发异常越多，但是通常而言能提供的并发能力越强。那么为了保证事务一致性，数据库就需要提供并发控制与故障恢复两种技术，前者用于减少并发异常，后者可以在系统异常的时候保证事务与数据库状态不会被破坏。对于并发控制，其核心思想就是加锁，无论是乐观锁还是悲观锁，只要提供的隔离级别越高，那么读写性能必然越差</p>
+<ul>
+<li><strong>水平扩展后带来的种种问题难处理</strong></li>
+</ul>
+<p>　　前文提过，随着企业规模扩大，一种方式是对数据库做分库，做了分库之后，数据迁移（1个库的数据按照一定规则打到2个库中）、跨库join（订单数据里有用户数据，两条数据不在同一个库中）、分布式事务处理都是需要考虑的问题，尤其是分布式事务处理，业界当前都没有特别好的解决方案</p>
+<ul>
+<li><strong>表结构扩展不方便</strong></li>
+</ul>
+<p>　　由于数据库存储的是结构化数据，因此表结构schema是固定的，扩展不方便，如果需要修改表结构，需要执行DDL（data definition language）语句修改，修改期间会导致锁表，部分服务不可用</p>
+<ul>
+<li><strong>全文搜索功能弱</strong></li>
+</ul>
+<p>　　例如like &ldquo;%中国真伟大%&quot;，只能搜索到&quot;2019年中国真伟大，爱祖国&rdquo;，无法搜索到&quot;中国真是太伟大了&quot;这样的文本，即不具备分词能力，且like查询在&quot;%中国真伟大&quot;这样的搜索条件下，无法命中索引，将会导致查询效率大大降低</p>
+<p>写了这么多，我的理解核心还是前三点，它反映出的一个问题是<strong>关系型数据库在高并发下的能力是有瓶颈的</strong>，尤其是写入/更新频繁的情况下，出现瓶颈的结果就是数据库CPU高、Sql执行慢、客户端报数据库连接池不够等错误，因此例如万人秒杀这种场景，我们绝对不可能通过数据库直接去扣减库存。</p>
+<p>可能有朋友说，数据库在高并发下的能力有瓶颈，我公司有钱，加CPU、换固态硬盘、继续买服务器加数据库做分库不就好了，问题是这是一种性价比非常低的方式，花1000万达到的效果，换其他方式可能100万就达到了，不考虑人员、服务器投入产出比的Leader就是个不合格的Leader，且关系型数据库的方式，受限于它本身的特点，可能花了钱都未必能达到想要的效果。至于什么是花100万就能达到花1000万效果的方式呢？可以继续往下看，这就是我们要说的NoSql。</p>
+<p>像上文分析的，数据库作为一种关系型数据的存储引擎，存储的是关系型数据，它有优点，同时也有明显的缺点，因此通常在企业规模不断扩大的情况下，不会一味指望通过增强数据库的能力来解决数据存储问题，而是会引入其他存储，也就是我们说的NoSql。</p>
+<p>NoSql的全称为Not Only SQL，泛指非关系型数据库，是对关系型数据库的一种<strong>补充</strong>，特别注意补充这两个字，这意味着NoSql与关系型数据库并不是对立关系，二者各有优劣，取长补短，在合适的场景下选择合适的存储引擎才是正确的做法。</p>
+<h2 id="二目录">二、目录</h2>
+<ol>
+<li>
+<p>数据结构与对象</p>
+<p>Redis 数据库是 K-V 键值数据库， 里面的每个键值对（key-value pair）都是由对象（object）组成的：</p>
+<ul>
+<li>其中， 数据库键总是一个字符串对象（string object）；</li>
+<li>而数据库键的值则可以是字符串对象、 列表对象（list object）、 哈希对象（hash object）、 集合对象（set object）、 有序集合对象（sorted set object）这五种对象中的其中一种。</li>
+</ul>
+<p>主要分析这些数据结构的底层，重点理解这些底层数据结构如何影响对应对象功能的。</p>
+</li>
+<li>
+<p>单机数据库实现</p>
+<p>关于单机数据库设计的内容，主要理解持久化、客户端与服务器的运作机制等。</p>
+</li>
+<li>
+<p>多机数据库的实现</p>
+<p>主要理解复制、哨兵机制、与集群的概念与运作</p>
+</li>
+<li>
+<p>独立功能实现</p>
+<p>发布与订阅、事务等</p>
+</li>
+</ol>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://firefoxking.github.io/post/Vue%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">Vue简单入门使用</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://firefoxking.github.io/post/Redis%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E4%B9%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%AF%B9%E8%B1%A1/">
+                  <span class="button__text">Redis深入理解之数据结构与对象</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://firefoxking.github.io/assets/main.js"></script>
+<script src="https://firefoxking.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
