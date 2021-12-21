@@ -9,15 +9,235 @@
     <description>Recent content in Tags on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 14 Dec 2021 20:43:17 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 21 Dec 2021 10:59:28 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>扫描线，差分数组</title>
+      <link>https://firefoxking.github.io/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/</link>
+      <pubDate>Tue, 21 Dec 2021 10:59:28 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>贪心</title>
+      <link>https://firefoxking.github.io/tags/%E8%B4%AA%E5%BF%83/</link>
+      <pubDate>Tue, 21 Dec 2021 10:59:28 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E8%B4%AA%E5%BF%83/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>图</title>
+      <link>https://firefoxking.github.io/tags/%E5%9B%BE/</link>
+      <pubDate>Mon, 20 Dec 2021 18:35:12 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E5%9B%BE/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>问题解决</title>
+      <link>https://firefoxking.github.io/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Sat, 18 Dec 2021 15:31:48 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>动态规划</title>
+      <link>https://firefoxking.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <pubDate>Fri, 17 Dec 2021 20:37:45 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>LFU</title>
+      <link>https://firefoxking.github.io/tags/LFU/</link>
+      <pubDate>Fri, 17 Dec 2021 08:38:21 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/LFU/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>LRU</title>
+      <link>https://firefoxking.github.io/tags/LRU/</link>
+      <pubDate>Fri, 17 Dec 2021 08:38:21 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/LRU/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>单调栈</title>
+      <link>https://firefoxking.github.io/tags/%E5%8D%95%E8%B0%83%E6%A0%88/</link>
+      <pubDate>Thu, 16 Dec 2021 14:13:55 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E5%8D%95%E8%B0%83%E6%A0%88/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>单调队列</title>
+      <link>https://firefoxking.github.io/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/</link>
+      <pubDate>Thu, 16 Dec 2021 14:13:55 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>代理</title>
+      <link>https://firefoxking.github.io/tags/%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Wed, 15 Dec 2021 21:37:45 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E4%BB%A3%E7%90%86/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>高可用</title>
+      <link>https://firefoxking.github.io/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/</link>
+      <pubDate>Wed, 15 Dec 2021 14:10:15 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>数组</title>
       <link>https://firefoxking.github.io/tags/%E6%95%B0%E7%BB%84/</link>
-      <pubDate>Tue, 14 Dec 2021 20:43:17 +0800</pubDate>
+      <pubDate>Wed, 15 Dec 2021 13:53:28 +0800</pubDate>
       
       <guid>https://firefoxking.github.io/tags/%E6%95%B0%E7%BB%84/</guid>
       <description>
@@ -220,26 +440,6 @@
       <pubDate>Tue, 16 Nov 2021 20:45:33 +0800</pubDate>
       
       <guid>https://firefoxking.github.io/tags/Linux/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>动态规划</title>
-      <link>https://firefoxking.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
-      <pubDate>Mon, 15 Nov 2021 12:16:07 +0800</pubDate>
-      
-      <guid>https://firefoxking.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
       <description>
         
           

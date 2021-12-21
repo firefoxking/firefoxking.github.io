@@ -900,6 +900,223 @@ Cno <span style="color:#66d9ef">in</span> (<span style="color:#66d9ef">SELECT</s
 </code></pre></td></tr></table>
 </div>
 </div></li>
+<li>
+<p>查询选修某课程的同学人数多于5人的教师姓名。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> tname <span style="color:#66d9ef">FROM</span> teacher <span style="color:#66d9ef">WHERE</span> tno <span style="color:#f92672">=</span> (
+<span style="color:#66d9ef">SELECT</span> tno <span style="color:#66d9ef">FROM</span> course <span style="color:#66d9ef">WHERE</span> cno <span style="color:#f92672">=</span> (
+<span style="color:#66d9ef">SELECT</span> cno <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> cno <span style="color:#66d9ef">HAVING</span> <span style="color:#66d9ef">COUNT</span>(sno) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span>));
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询95033班和95031班全体学生的记录。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#f92672">*</span>
+<span style="color:#66d9ef">from</span> STUDENT
+<span style="color:#66d9ef">where</span> <span style="color:#66d9ef">CLASS</span> <span style="color:#66d9ef">in</span> (<span style="color:#e6db74">&#39;95033&#39;</span>, <span style="color:#e6db74">&#39;95031&#39;</span>);
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询存在有85分以上成绩的课程Cno</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> cno <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> cno <span style="color:#66d9ef">HAVING</span> <span style="color:#66d9ef">MAX</span>(degree) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">85</span>;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询出“计算机系“教师所教课程的成绩表</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">WHERE</span> cno <span style="color:#66d9ef">IN</span> (
+<span style="color:#66d9ef">SELECT</span> cno <span style="color:#66d9ef">FROM</span> course <span style="color:#66d9ef">WHERE</span> tno <span style="color:#66d9ef">IN</span> (
+<span style="color:#66d9ef">SELECT</span> tno <span style="color:#66d9ef">FROM</span> teacher <span style="color:#66d9ef">WHERE</span> depart <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;计算机系&#39;</span>));
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询“计算机系”与“电子工程系“不同职称的教师的Tname和Prof</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span>
+  tname,
+  prof
+<span style="color:#66d9ef">from</span> TEACHER
+<span style="color:#66d9ef">where</span> depart <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;计算机系&#39;</span> <span style="color:#66d9ef">and</span> prof <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">in</span> (
+  <span style="color:#66d9ef">select</span> prof
+  <span style="color:#66d9ef">from</span> TEACHER
+  <span style="color:#66d9ef">where</span> depart <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;电子工程系&#39;</span>
+);
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询选修编号为“3-105“课程且成绩至少高于选修编号为“3-245”的同学的Cno、Sno和Degree,并按Degree从高到低次序排序。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> cno, sno, degree <span style="color:#66d9ef">FROM</span> score
+<span style="color:#66d9ef">WHERE</span> cno <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;3-105&#39;</span> <span style="color:#66d9ef">AND</span> degree <span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">any</span> (
+	<span style="color:#66d9ef">SELECT</span> degree <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">WHERE</span> cno <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;3-245&#39;</span>
+)
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> degree <span style="color:#66d9ef">desc</span>;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询选修编号为“3-105”且成绩高于选修编号为“3-245”课程的同学的Cno、Sno和Degree.</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> cno, sno, degree <span style="color:#66d9ef">FROM</span> score
+<span style="color:#66d9ef">WHERE</span> cno <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;3-105&#39;</span> <span style="color:#66d9ef">AND</span> degree <span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">ALL</span> (
+	<span style="color:#66d9ef">SELECT</span> degree <span style="color:#66d9ef">FROM</span> score <span style="color:#66d9ef">WHERE</span> cno <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;3-245&#39;</span>
+)
+<span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> degree <span style="color:#66d9ef">desc</span>;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询所有教师和同学的name、sex和birthday</p>
+<blockquote>
+<p>组合查询：union</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span>
+  TNAME     name,
+  TSEX      sex,
+  TBIRTHDAY birthday
+<span style="color:#66d9ef">from</span> TEACHER
+<span style="color:#66d9ef">union</span>
+<span style="color:#66d9ef">select</span>
+  sname     name,
+  SSEX      sex,
+  SBIRTHDAY birthday
+<span style="color:#66d9ef">from</span> STUDENT;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查询所有“女”教师和“女”同学的name、sex和birthday</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span>
+  TNAME     name,
+  TSEX      sex,
+  TBIRTHDAY birthday
+<span style="color:#66d9ef">from</span> TEACHER
+<span style="color:#66d9ef">where</span> TSEX <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;女&#39;</span>
+<span style="color:#66d9ef">union</span>
+<span style="color:#66d9ef">select</span>
+  sname     name,
+  SSEX      sex,
+  SBIRTHDAY birthday
+<span style="color:#66d9ef">from</span> STUDENT
+<span style="color:#66d9ef">where</span> SSEX <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;女&#39;</span>;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>视图</p>
+<p>视图是虚拟的表，本身不包含数据，也就不能对其进行索引操作。</p>
+<p>对视图的操作和对普通表的操作一样。</p>
+<p>视图具有如下好处：</p>
+<ul>
+<li>简化复杂的 SQL 操作，比如复杂的连接；</li>
+<li>只使用实际表的一部分数据；</li>
+<li>通过只给用户访问视图的权限，保证数据的安全性；</li>
+<li>更改数据格式和表示。</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">VIEW</span> myview <span style="color:#66d9ef">AS</span>
+<span style="color:#66d9ef">SELECT</span> Concat(col1, col2) <span style="color:#66d9ef">AS</span> concat_col, col3<span style="color:#f92672">*</span>col4 <span style="color:#66d9ef">AS</span> compute_col
+<span style="color:#66d9ef">FROM</span> mytable
+<span style="color:#66d9ef">WHERE</span> col5 <span style="color:#f92672">=</span> val;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li></li>
 </ol>
 
     </div>

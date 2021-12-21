@@ -9,10 +9,30 @@
     <description>Recent content in java基础 on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 16 Sep 2021 21:42:48 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Dec 2021 15:31:48 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/categories/java%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java泛型之Incompatible Types List ArrayList</title>
+      <link>https://firefoxking.github.io/post/java%E6%B3%9B%E5%9E%8B%E4%B9%8BIncompatible-types-List-ArrayList/</link>
+      <pubDate>Sat, 18 Dec 2021 15:31:48 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/java%E6%B3%9B%E5%9E%8B%E4%B9%8BIncompatible-types-List-ArrayList/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          incompatible types: ArrayList&lt;ArrayList&lt;Integer&gt;&gt; cannot be converted to List&lt;List&lt;Integer&gt;&gt;。
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Java8接口多继承问题</title>
