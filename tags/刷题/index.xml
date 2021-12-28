@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>刷题 on Hello Friend</title>
+    
+    
+    
+    <link>https://firefoxking.github.io/tags/%E5%88%B7%E9%A2%98/</link>
+    <description>Recent content in 刷题 on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 28 Dec 2021 08:54:08 +0800</lastBuildDate>
+    
+	<atom:link href="https://firefoxking.github.io/tags/%E5%88%B7%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>刷题打卡day2</title>
+      <link>https://firefoxking.github.io/post/%E5%88%B7%E9%A2%98%E6%89%93%E5%8D%A1day2/</link>
+      <pubDate>Tue, 28 Dec 2021 08:54:08 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E5%88%B7%E9%A2%98%E6%89%93%E5%8D%A1day2/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          在代码随想录中进行刷题打卡。
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>刷题打卡day1</title>
+      <link>https://firefoxking.github.io/post/%E5%88%B7%E9%A2%98%E6%89%93%E5%8D%A1day1/</link>
+      <pubDate>Mon, 27 Dec 2021 14:11:45 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E5%88%B7%E9%A2%98%E6%89%93%E5%8D%A1day1/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          在代码随想录中进行刷题打卡。
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
