@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="description"
-  content="一、刷题打卡 213. 打家劫舍 II 想到了动态规划解法，由于是一个环形，所以我分了两种情况：第一个房屋偷和不偷。这个打家劫舍系列还没看过，写的不好，感觉"
+  content="一、刷题打卡 打家劫舍系列：动态规划&amp;mdash;树形DP 删除字符串所有相邻重复项：栈 动态规划练习：最大子数组和、分割等和子集、零钱兑换 213. 打家"
 />
 <meta
   name="keywords"
@@ -218,7 +218,12 @@
     <div class="post-content">
       
       <h2 id="一刷题打卡">一、刷题打卡</h2>
-<h4 id="213-打家劫舍-iihttpsleetcode-cncomproblemshouse-robber-ii"><a href="https://leetcode-cn.com/problems/house-robber-ii/">213. 打家劫舍 II</a></h4>
+<ul>
+<li>打家劫舍系列：动态规划&mdash;树形DP</li>
+<li>删除字符串所有相邻重复项：栈</li>
+<li>动态规划练习：最大子数组和、分割等和子集、零钱兑换</li>
+</ul>
+<h3 id="213-打家劫舍-iihttpsleetcode-cncomproblemshouse-robber-ii"><a href="https://leetcode-cn.com/problems/house-robber-ii/">213. 打家劫舍 II</a></h3>
 <p>想到了动态规划解法，由于是一个环形，所以我分了两种情况：第一个房屋偷和不偷。这个打家劫舍系列还没看过，写的不好，感觉有冗余。再把它压缩一下空间。</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -310,7 +315,7 @@
 <span style="color:#f92672">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="198-打家劫舍httpsleetcode-cncomproblemshouse-robber"><a href="https://leetcode-cn.com/problems/house-robber/">198. 打家劫舍</a></h4>
+</div><h3 id="198-打家劫舍httpsleetcode-cncomproblemshouse-robber"><a href="https://leetcode-cn.com/problems/house-robber/">198. 打家劫舍</a></h3>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -376,7 +381,7 @@
 </div></li>
 </ul>
 <p>打家劫舍Ⅱ的做法都是分情况讨论。不过我的写的不好，考虑的不够清晰。</p>
-<h4 id="337-打家劫舍-iiihttpsleetcode-cncomproblemshouse-robber-iii"><a href="https://leetcode-cn.com/problems/house-robber-iii/">337. 打家劫舍 III</a></h4>
+<h3 id="337-打家劫舍-iiihttpsleetcode-cncomproblemshouse-robber-iii"><a href="https://leetcode-cn.com/problems/house-robber-iii/">337. 打家劫舍 III</a></h3>
 <ol>
 <li>
 <p>递归：存在重复求某个节点的最大盗取数额</p>
@@ -429,9 +434,9 @@
 </div>
 </div></li>
 </ol>
-<h4 id="1047-删除字符串中的所有相邻重复项httpsleetcode-cncomproblemsremove-all-adjacent-duplicates-in-string"><a href="https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string/">1047. 删除字符串中的所有相邻重复项</a></h4>
+<h3 id="1047-删除字符串中的所有相邻重复项httpsleetcode-cncomproblemsremove-all-adjacent-duplicates-in-string"><a href="https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string/">1047. 删除字符串中的所有相邻重复项</a></h3>
 <p>利用栈的思想，判断栈顶元素与遍历的第i个元素是否相等。</p>
-<h4 id="406-根据身高重建队列httpsleetcode-cncomproblemsqueue-reconstruction-by-height"><a href="https://leetcode-cn.com/problems/queue-reconstruction-by-height/">406. 根据身高重建队列</a></h4>
+<h3 id="406-根据身高重建队列httpsleetcode-cncomproblemsqueue-reconstruction-by-height"><a href="https://leetcode-cn.com/problems/queue-reconstruction-by-height/">406. 根据身高重建队列</a></h3>
 <p>这题我的做法是利用拓扑排序的思想，对于每一个people，每次都选择出<code>people[i][1] == 0 &amp;&amp; peopel[i][0] 最小</code>的作为这一次确定了次序的人。不过我的代码里为了图发方便直接sort了，时间复杂度很高，提交耗时上百毫秒。</p>
 <p>改了一下后，执行用时25ms，也很慢。</p>
 <p>题解中大部分都是先排好序</p>
@@ -596,11 +601,11 @@
 <span style="color:#f92672">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="53-最大子数组和httpsleetcode-cncomproblemsmaximum-subarray"><a href="https://leetcode-cn.com/problems/maximum-subarray/">53. 最大子数组和</a></h4>
+</div><h3 id="53-最大子数组和httpsleetcode-cncomproblemsmaximum-subarray"><a href="https://leetcode-cn.com/problems/maximum-subarray/">53. 最大子数组和</a></h3>
 <p>动态规划，思路就是dp[i] 表示以第i个元素结尾的子数组和最大值。</p>
-<h4 id="416-分割等和子集httpsleetcode-cncomproblemspartition-equal-subset-sum"><a href="https://leetcode-cn.com/problems/partition-equal-subset-sum/">416. 分割等和子集</a></h4>
+<h3 id="416-分割等和子集httpsleetcode-cncomproblemspartition-equal-subset-sum"><a href="https://leetcode-cn.com/problems/partition-equal-subset-sum/">416. 分割等和子集</a></h3>
 <p>昨天做过完全类似的，都是转化成背包问题解决。</p>
-<h4 id="322-零钱兑换httpsleetcode-cncomproblemscoin-change"><a href="https://leetcode-cn.com/problems/coin-change/">322. 零钱兑换</a></h4>
+<h3 id="322-零钱兑换httpsleetcode-cncomproblemscoin-change"><a href="https://leetcode-cn.com/problems/coin-change/">322. 零钱兑换</a></h3>
 <p>完全背包问题</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -634,7 +639,7 @@
 <span style="color:#f92672">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h4 id="518-零钱兑换-iihttpsleetcode-cncomproblemscoin-change-2"><a href="https://leetcode-cn.com/problems/coin-change-2/">518. 零钱兑换 II</a></h4>
+</div><h3 id="518-零钱兑换-iihttpsleetcode-cncomproblemscoin-change-2"><a href="https://leetcode-cn.com/problems/coin-change-2/">518. 零钱兑换 II</a></h3>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
