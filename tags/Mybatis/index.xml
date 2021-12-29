@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mybatis on Hello Friend</title>
+    
+    
+    
+    <link>https://firefoxking.github.io/tags/Mybatis/</link>
+    <description>Recent content in Mybatis on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 28 Dec 2021 19:48:20 +0800</lastBuildDate>
+    
+	<atom:link href="https://firefoxking.github.io/tags/Mybatis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mybatis学习笔记（1）— 使用篇</title>
+      <link>https://firefoxking.github.io/post/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01-%E4%BD%BF%E7%94%A8%E7%AF%87/</link>
+      <pubDate>Tue, 28 Dec 2021 19:48:20 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01-%E4%BD%BF%E7%94%A8%E7%AF%87/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          一、Mybatis 是什么？ 注意Mybatis 与 JDBC 官网Mybatis 定义：MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
