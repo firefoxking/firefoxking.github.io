@@ -9,10 +9,30 @@
     <description>Recent content in Mybatis on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 28 Dec 2021 19:48:20 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 30 Dec 2021 09:35:33 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/categories/Mybatis/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mybatis学习笔记（2）—— 配置篇 </title>
+      <link>https://firefoxking.github.io/post/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02-%E9%85%8D%E7%BD%AE%E7%AF%87/</link>
+      <pubDate>Thu, 30 Dec 2021 09:35:33 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02-%E9%85%8D%E7%BD%AE%E7%AF%87/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          一、mybatis-config.xml 配置详解 1.1 属性（properties） 这些属性可以在外部进行配置，并可以进行动态替换。你既可以在典型
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Mybatis学习笔记（1）— 使用篇</title>

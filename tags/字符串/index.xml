@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>字符串 on Hello Friend</title>
+    
+    
+    
+    <link>https://firefoxking.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+    <description>Recent content in 字符串 on Hello Friend</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 30 Dec 2021 16:57:52 +0800</lastBuildDate>
+    
+	<atom:link href="https://firefoxking.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>KMP算法理解</title>
+      <link>https://firefoxking.github.io/post/KMP%E7%AE%97%E6%B3%95%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Thu, 30 Dec 2021 16:57:52 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/KMP%E7%AE%97%E6%B3%95%E7%90%86%E8%A7%A3/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          字符串的解题总结，包含KMP字符串匹配等等。
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>字符串系列</title>
+      <link>https://firefoxking.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B3%BB%E5%88%97/</link>
+      <pubDate>Thu, 30 Dec 2021 13:03:47 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B3%BB%E5%88%97/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          字符串的解题总结，包含KMP字符串匹配等等。
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

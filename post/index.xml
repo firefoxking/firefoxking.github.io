@@ -9,10 +9,90 @@
     <description>Recent content in Posts on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 29 Dec 2021 10:27:46 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 30 Dec 2021 16:57:52 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>KMP算法理解</title>
+      <link>https://firefoxking.github.io/post/KMP%E7%AE%97%E6%B3%95%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Thu, 30 Dec 2021 16:57:52 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/KMP%E7%AE%97%E6%B3%95%E7%90%86%E8%A7%A3/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          字符串的解题总结，包含KMP字符串匹配等等。
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>字符串系列</title>
+      <link>https://firefoxking.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B3%BB%E5%88%97/</link>
+      <pubDate>Thu, 30 Dec 2021 13:03:47 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B3%BB%E5%88%97/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          字符串的解题总结，包含KMP字符串匹配等等。
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>刷题打卡day4</title>
+      <link>https://firefoxking.github.io/post/%E5%88%B7%E9%A2%98%E6%89%93%E5%8D%A1day4/</link>
+      <pubDate>Thu, 30 Dec 2021 11:16:17 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E5%88%B7%E9%A2%98%E6%89%93%E5%8D%A1day4/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          在代码随想录中进行刷题打卡。
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Mybatis学习笔记（2）—— 配置篇 </title>
+      <link>https://firefoxking.github.io/post/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02-%E9%85%8D%E7%BD%AE%E7%AF%87/</link>
+      <pubDate>Thu, 30 Dec 2021 09:35:33 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02-%E9%85%8D%E7%BD%AE%E7%AF%87/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          一、mybatis-config.xml 配置详解 1.1 属性（properties） 这些属性可以在外部进行配置，并可以进行动态替换。你既可以在典型
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>刷题打卡day3</title>
