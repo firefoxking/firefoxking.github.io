@@ -251,7 +251,7 @@
 本文用 pat 表示模式串，长度为 M，txt 表示文本串，长度为 N。KMP 算法是在 txt 中查找子串 pat，如果存在，返回这个子串的起始索引，否则返回 -1
 </code></pre></td></tr></table>
 </div>
-</div><p>直观的解法的是：枚举文本串 txt 中的每个字符作为「发起点」，每次从文本串串的「发起点」和匹配串的「首位」开始尝试匹配：</p>
+</div><p>直观的解法的是：枚举文本串 txt 中的每个字符作为「发起点」，每次从文本串的「发起点」和匹配串的「首位」开始尝试匹配：</p>
 <p>匹配成功：返回本次匹配的文本串「发起点」。
 匹配失败：枚举文本串的下一个「发起点」，重新尝试匹配。</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -299,7 +299,7 @@
 </div><p>时间复杂度 O((M - N) * N)</p>
 <h2 id="二kmp-算法">二、KMP 算法</h2>
 <p>KMP 算法是一个快速查找匹配串的算法，它的作用其实就是本题问题：如何快速在「原字符串」中找到「匹配字符串」。</p>
-<p>上述的朴素解法，不考虑剪枝的话复杂度是 O(m * n)O(m∗n) 的，而 KMP 算法的复杂度为 O(m + n)O(m+n)。</p>
+<p>上述的朴素解法，不考虑剪枝的话复杂度是 O(m * n) 的，而 KMP 算法的复杂度为 O(m + n)。</p>
 <p>KMP 之所以能够在 O(m + n)O(m+n) 复杂度内完成查找，是因为其能在「非完全匹配」的过程中提取到有效信息进行复用，以减少「重复匹配」的消耗。</p>
 <h3 id="1-最长前缀后缀匹配长度">1. 最长前缀、后缀匹配长度</h3>
 <p>在模拟 KMP 匹配过程之前，我们先建立两个概念：</p>
@@ -324,7 +324,7 @@ next:  [-1 0 1 0 1 2 3 ...]
 </code></pre></td></tr></table>
 </div>
 </div><p>对于这个模式串</p>
-<p>i = 0 时：前面没有串规定为0</p>
+<p>i = 0 时：前面没有串规定为-1</p>
 <p>i = 1 时：前面的串为“a&quot;, 最长匹配长度为0</p>
 <p>i = 2 时：前面的串为”aa&quot;, 最长匹配长度为1</p>
 <p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/image-20211230175748359.png" alt="image-20211230175748359"></p>
@@ -458,6 +458,13 @@ next:  [-1 0 1 0 1 2 3 ...]
             <hr />
           </div>
           <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://firefoxking.github.io/post/%E5%88%B7%E9%A2%98%E6%89%93%E5%8D%A1day5/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">刷题打卡day5</span>
+                </a>
+              </span>
             
             
               <span class="button next">
