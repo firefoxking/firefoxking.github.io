@@ -9,10 +9,30 @@
     <description>Recent content in 算法 on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 31 Dec 2021 10:05:11 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 31 Dec 2021 16:32:36 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>字符串系列第二弹</title>
+      <link>https://firefoxking.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B3%BB%E5%88%97%E7%AC%AC%E4%BA%8C%E5%BC%B9/</link>
+      <pubDate>Fri, 31 Dec 2021 16:32:36 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B3%BB%E5%88%97%E7%AC%AC%E4%BA%8C%E5%BC%B9/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          字符串的解题总结，包含回文串。
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>刷题打卡day5</title>
@@ -55,11 +75,11 @@
     </item>
     
     <item>
-      <title>字符串系列</title>
-      <link>https://firefoxking.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B3%BB%E5%88%97/</link>
+      <title>字符串系列第一弹</title>
+      <link>https://firefoxking.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B3%BB%E5%88%97%E7%AC%AC%E4%B8%80%E5%BC%B9/</link>
       <pubDate>Thu, 30 Dec 2021 13:03:47 +0800</pubDate>
       
-      <guid>https://firefoxking.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B3%BB%E5%88%97/</guid>
+      <guid>https://firefoxking.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B3%BB%E5%88%97%E7%AC%AC%E4%B8%80%E5%BC%B9/</guid>
       <description>
         
           
