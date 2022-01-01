@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Mybatis学习笔记（3）—简单映射篇 ::
+        Hello Friend — A simple theme for Hugo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="一、CRUD 标签 可以发现除了一些基本配置外，Mybatis的精华就在于Mapper（映射）部分。Mybatis是针对映射器构造的SQL构建的"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://firefoxking.github.io/post/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%AE%80%E5%8D%95%E6%98%A0%E5%B0%84%E7%AF%87/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://firefoxking.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://firefoxking.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://firefoxking.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://firefoxking.github.io/img/favicon.png" />
+
+
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mybatis学习笔记（3）—简单映射篇"/>
+<meta name="twitter:description" content="一、CRUD 标签 可以发现除了一些基本配置外，Mybatis的精华就在于Mapper（映射）部分。Mybatis是针对映射器构造的SQL构建的"/>
+
+
+
+<meta property="og:title" content="Mybatis学习笔记（3）—简单映射篇" />
+<meta property="og:description" content="一、CRUD 标签 可以发现除了一些基本配置外，Mybatis的精华就在于Mapper（映射）部分。Mybatis是针对映射器构造的SQL构建的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://firefoxking.github.io/post/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%AE%80%E5%8D%95%E6%98%A0%E5%B0%84%E7%AF%87/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-30T11:15:50+08:00" />
+<meta property="article:modified_time" content="2021-12-30T11:15:50+08:00" /><meta property="og:site_name" content="Hello Friend" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+        
+          <li><a href="/categories/">分类</a></li>
+        
+      
+        
+          <li><a href="/post/">归档</a></li>
+        
+      
+        
+          <li><a href="/tags/">标签</a></li>
+        
+      
+        
+          <li><a href="/">首页</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+      
+        <li><a href="/categories/">分类</a></li>
+      
+    
+      
+        <li><a href="/post/">归档</a></li>
+      
+    
+      
+        <li><a href="/tags/">标签</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Mybatis学习笔记（3）—简单映射篇</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2021-12-30
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by firefoxking</span
+        >
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://firefoxking.github.io/tags/Mybatis/">#Mybatis</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+        
+        <h2>Table of Contents</h2>
+        <aside class="table-of-contents"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#一crud-标签">一、CRUD 标签</a>
+      <ul>
+        <li><a href="#11-select">1.1 select</a></li>
+        <li><a href="#12-输入映射">1.2 输入映射</a></li>
+        <li><a href="#13-输出映射13输出">1.3 <a href="#1.3%E8%BE%93%E5%87%BA">输出映射</a></a></li>
+        <li><a href="#14-insert">1.4 insert</a></li>
+        <li><a href="#15-update">1.5 update</a></li>
+        <li><a href="#16-delete">1.6 delete</a></li>
+      </ul>
+    </li>
+    <li><a href="#二resultmap-标签">二、resultMap 标签</a></li>
+    <li><a href="#三sql-标签">三、sql 标签</a></li>
+    <li><a href="#四-和-">四、#{} 和 $</a></li>
+  </ul>
+</nav></aside>
+        
+      
+      <h2 id="一crud-标签">一、CRUD 标签</h2>
+<blockquote>
+<p>可以发现除了一些基本配置外，Mybatis的精华就在于Mapper（映射）部分。Mybatis是针对映射器构造的SQL构建的轻量级框架，并且可以通过配置生成对应的JavaBean给调用者。在Mybatis中可以灵活使用SQL来满足各种不同场景的需求，所以在互联网企业内更偏爱于使用Mybatis来应对高速变化的需求，而传统企业更偏向于使用Hibernate。</p>
+<p>来自：https://juejin.cn/post/6844903556286267400</p>
+</blockquote>
+<h3 id="11-select">1.1 select</h3>
+<blockquote>
+<p>select – 书写查询sql语句</p>
+<p>select中的几个属性说明：</p>
+<p>id属性：当前名称空间下的statement的唯一标识。必须。要求id和</p>
+<p>mapper接口中的方法的名字一致。</p>
+<p>resultType：将结果集映射为java的对象类型。必须（和 resultMap 二选一）</p>
+<p>parameterType：传入参数类型。可以省略</p>
+</blockquote>
+<p>select元素是我们最常用的元素，正如在SQL里是查询功能也是最主要的功能之一。在我们常识里，查询语句通常都是根据<strong>一个或者多个</strong>条件，查询数据库<strong>返回一个，多个或者所有字段</strong>。之前我们举得<code>getAllCommodity</code>没有查询条件，返回所有字段。</p>
+<p>在Mybatis里，我们可以传入简单的参数类型，像int,float,String这些，也可以传入一些复杂的类型，比如JavaBean、Map之流的，Mybatis把这些参数转换成SQL语句需要的类型后，返回结果，并且通过映射，将结果集自动绑定到JavaBean中，所以JDBC里面那一套一个一个从ResultSet获取值的操作都被省略了。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!-- 官网例子 --&gt;</span>
+<span style="color:#f92672">&lt;select</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;selectPerson&#34;</span> <span style="color:#a6e22e">parameterType=</span><span style="color:#e6db74">&#34;int&#34;</span> <span style="color:#a6e22e">resultType=</span><span style="color:#e6db74">&#34;hashmap&#34;</span><span style="color:#f92672">&gt;</span>
+  SELECT * FROM PERSON WHERE ID = #{id}
+<span style="color:#f92672">&lt;/select&gt;</span>
+
+<span style="color:#f92672">&lt;select</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;getCommodityById&#34;</span> <span style="color:#a6e22e">parameterType=</span><span style="color:#e6db74">&#34;int&#34;</span> <span style="color:#a6e22e">resultType=</span><span style="color:#e6db74">&#34;com.mybatis02.pojo.Commodity&#34;</span><span style="color:#f92672">&gt;</span>
+        select * from commodity where id = #{id}
+<span style="color:#f92672">&lt;/select&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="12-输入映射">1.2 输入映射</h3>
+<ul>
+<li>
+<p>通过Map 传递参数</p>
+<p>这种做法很常见，方便，不过提倡。</p>
+<p>在使用map之前，看一个错误例子。传递两个输入参数id、name</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;select</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;getCommodityById&#34;</span> <span style="color:#a6e22e">resultType=</span><span style="color:#e6db74">&#34;com.mybatis02.pojo.Commodity&#34;</span><span style="color:#f92672">&gt;</span>
+    select * from commodity where id = #{id} and name = #{name}
+<span style="color:#f92672">&lt;/select&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>报错：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ibatis</span><span style="color:#f92672">.</span><span style="color:#a6e22e">exceptions</span><span style="color:#f92672">.</span><span style="color:#a6e22e">PersistenceException</span><span style="color:#f92672">:</span> 
+<span style="color:#960050;background-color:#1e0010">###</span> Error querying database<span style="color:#f92672">.</span>  Cause<span style="color:#f92672">:</span> org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ibatis</span><span style="color:#f92672">.</span><span style="color:#a6e22e">binding</span><span style="color:#f92672">.</span><span style="color:#a6e22e">BindingException</span><span style="color:#f92672">:</span> Parameter <span style="color:#960050;background-color:#1e0010">&#39;</span>id<span style="color:#960050;background-color:#1e0010">&#39;</span> not found<span style="color:#f92672">.</span> Available parameters are <span style="color:#f92672">[</span>arg1<span style="color:#f92672">,</span> arg0<span style="color:#f92672">,</span> param1<span style="color:#f92672">,</span> param2<span style="color:#f92672">]</span>
+<span style="color:#960050;background-color:#1e0010">###</span> Cause<span style="color:#f92672">:</span> org<span style="color:#f92672">.</span><span style="color:#a6e22e">apache</span><span style="color:#f92672">.</span><span style="color:#a6e22e">ibatis</span><span style="color:#f92672">.</span><span style="color:#a6e22e">binding</span><span style="color:#f92672">.</span><span style="color:#a6e22e">BindingException</span><span style="color:#f92672">:</span> Parameter <span style="color:#960050;background-color:#1e0010">&#39;</span>id<span style="color:#960050;background-color:#1e0010">&#39;</span> not found<span style="color:#f92672">.</span> Available parameters are <span style="color:#f92672">[</span>arg1<span style="color:#f92672">,</span> arg0<span style="color:#f92672">,</span> param1<span style="color:#f92672">,</span> param2<span style="color:#f92672">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>再来看看Map的方式</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;select</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;getCommodityById&#34;</span> <span style="color:#a6e22e">parameterType=</span><span style="color:#e6db74">&#34;map&#34;</span> <span style="color:#a6e22e">resultType=</span><span style="color:#e6db74">&#34;com.mybatis02.pojo.Commodity&#34;</span><span style="color:#f92672">&gt;</span>
+    select * from commodity where id = #{id} and name = #{name}
+<span style="color:#f92672">&lt;/select&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">testGetCommodityById</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    SqlSession sqlSession <span style="color:#f92672">=</span> MybatisUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">getSqlSession</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+        CommodityMapper commodityMapper <span style="color:#f92672">=</span> sqlSession<span style="color:#f92672">.</span><span style="color:#a6e22e">getMapper</span><span style="color:#f92672">(</span>CommodityMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+        Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
+        map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">,</span> 1001<span style="color:#f92672">);</span>
+        map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;野葡萄烤饼&#34;</span><span style="color:#f92672">);</span>
+        Commodity commodity <span style="color:#f92672">=</span> commodityMapper<span style="color:#f92672">.</span><span style="color:#a6e22e">getCommodityById</span><span style="color:#f92672">(</span>map<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>commodity<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
+        sqlSession<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>虽然Map很简单，但是光是看传入参数Map，你不知道包含了怎样的内容，若是深入还得看如何设置Map的，而且使用时还要一项项指定Map的Key的名字，所以不怎么提倡使用了。</p>
+</li>
+<li>
+<p>使用注解方式传递参数</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List<span style="color:#f92672">&lt;</span>Commodity<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getCommodityByAnnotation</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@Param</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">)</span> String name<span style="color:#f92672">,</span> <span style="color:#a6e22e">@Param</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;price&#34;</span><span style="color:#f92672">)</span> Double price<span style="color:#f92672">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>使用 POJO传递参数</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;select</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;getCommodityByPOJO&#34;</span> <span style="color:#a6e22e">parameterType=</span><span style="color:#e6db74">&#34;com.shuqing28.pojo.Commodity&#34;</span> <span style="color:#a6e22e">resultType=</span><span style="color:#e6db74">&#34;com.shuqing28.pojo.Commodity&#34;</span><span style="color:#f92672">&gt;</span>
+    SELECT * FROM commodity WHERE name like &#39;%${name}%&#39; AND price&amp;lt;#{price}
+<span style="color:#f92672">&lt;/select&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="13-输出映射13输出">1.3 <a href="#1.3%E8%BE%93%E5%87%BA">输出映射</a></h3>
+<ul>
+<li>
+<p>resultType</p>
+<p>上面的例子有，可以是简单类型，也可以是 POJO对象或POJO列表。</p>
+<p>不管是POJO对象还是POJO列表，我们在resultType中的定义都是一样的，只不过接口定义不一样</p>
+</li>
+<li>
+<p>resultMap</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/1456626-20190327211835662-809178670.png" alt="img"></p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/1456626-20190327211845574-1504006745.png" alt="img"></p>
+<p><!-- raw HTML omitted --></p>
+</li>
+</ul>
+<h3 id="14-insert">1.4 insert</h3>
+<blockquote>
+<p>insert 的几个属性说明：</p>
+<p>id：唯一标识，随便写，在同一个命名空间下保持唯一，使用动态代理之后要求和方法名保持一致</p>
+<p>parameterType：参数的类型，使用动态代理之后和方法的参数类型一致</p>
+<p>useGeneratedKeys:开启主键回写</p>
+<p>keyColumn：指定数据库的主键</p>
+<p>keyProperty：主键对应的pojo属性名</p>
+<p>标签内部：具体的sql语句。</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">&lt;</span>insert id<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;insertCommodity&#34;</span> useGeneratedKeys<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span>
+   keyProperty<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">&gt;</span>
+   insert into <span style="color:#a6e22e">commodity</span> <span style="color:#f92672">(</span>name<span style="color:#f92672">,</span>price<span style="color:#f92672">,</span>description<span style="color:#f92672">)</span>
+   values <span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">{</span>name<span style="color:#f92672">},</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">{</span>price<span style="color:#f92672">},</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#f92672">{</span>description<span style="color:#f92672">})</span>
+<span style="color:#f92672">&lt;/</span>insert<span style="color:#f92672">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="15-update">1.5 update</h3>
+<blockquote>
+<p>id属性：当前名称空间下的statement的唯一标识(必须属性)；</p>
+<p>parameterType：传入的参数类型，可以省略。</p>
+<p>标签内部：具体的sql语句。</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;update</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;updateCommodity&#34;</span> <span style="color:#a6e22e">parameterType=</span><span style="color:#e6db74">&#34;commodity&#34;</span><span style="color:#f92672">&gt;</span>
+    update commodity set 
+    name=#{name},
+    price=#{price},
+    description=#{description}
+    where id=#{id}
+<span style="color:#f92672">&lt;/update&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="16-delete">1.6 delete</h3>
+<blockquote>
+<p>delete 的几个属性说明：</p>
+<p>id属性：当前名称空间下的statement的唯一标识(必须属性)；</p>
+<p>parameterType：传入的参数类型，可以省略。</p>
+<p>标签内部：具体的sql语句。</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;delete</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;deleteCommodity&#34;</span> <span style="color:#a6e22e">parameterType=</span><span style="color:#e6db74">&#34;int&#34;</span><span style="color:#f92672">&gt;</span>
+    delete from commodity where id=#{id}
+<span style="color:#f92672">&lt;/delete&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="二resultmap-标签">二、resultMap 标签</h2>
+<p>[见上文](#1.3 输出映射)</p>
+<h2 id="三sql-标签">三、sql 标签</h2>
+<p>这个元素可以用来定义可重用的 SQL 代码片段，以便在其它语句中使用。          参数可以静态地（在加载的时候）确定下来，并且可以在不同的 include 元素中定义不同的参数值。比如：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;sql</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;commonSql&#34;</span><span style="color:#f92672">&gt;</span> 
+	id, user_name, password, name, age,
+<span style="color:#f92672">&lt;/sql&gt;</span> 
+
+<span style="color:#f92672">&lt;sql</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;userColumns&#34;</span><span style="color:#f92672">&gt;</span> ${alias}.id,${alias}.username,${alias}.password <span style="color:#f92672">&lt;/sql&gt;</span>
+
+<span style="color:#f92672">&lt;select</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;selectUsers&#34;</span> <span style="color:#a6e22e">resultType=</span><span style="color:#e6db74">&#34;map&#34;</span><span style="color:#f92672">&gt;</span>
+  select
+    <span style="color:#f92672">&lt;include</span> <span style="color:#a6e22e">refid=</span><span style="color:#e6db74">&#34;userColumns&#34;</span><span style="color:#f92672">&gt;&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;alias&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;t1&#34;</span><span style="color:#f92672">/&gt;&lt;/include&gt;</span>,
+    <span style="color:#f92672">&lt;include</span> <span style="color:#a6e22e">refid=</span><span style="color:#e6db74">&#34;userColumns&#34;</span><span style="color:#f92672">&gt;&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;alias&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;t2&#34;</span><span style="color:#f92672">/&gt;&lt;/include&gt;</span>
+  from some_table t1
+    cross join some_table t2
+<span style="color:#f92672">&lt;/select&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="四-和-">四、#{} 和 $</h2>
+<p><em>注意：</em>
+<code>#{}</code> 只是替换？，相当于PreparedStatement使用占位符去替换参数，<strong>可以防止sql注入</strong>。
+<code>${}</code> 是进行字符串拼接，相当于sql语句中的Statement，使用字符串去拼接sql；$可以是sql中的任一部分传入到Statement中，不能防止sql注入。</p>
+<p>使用<code>${}</code> 去取出参数值信息，需要使用<code>${value}</code>
+<code>#{}</code> 只是表示占位，与参数的名字无关，如果只有一个参数，会自动对应。</p>
+
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+              <span class="button previous">
+                <a href="https://firefoxking.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B3%BB%E5%88%97%E7%AC%AC%E4%B8%80%E5%BC%B9/">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">字符串系列第一弹</span>
+                </a>
+              </span>
+            
+            
+              <span class="button next">
+                <a href="https://firefoxking.github.io/post/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02-%E9%85%8D%E7%BD%AE%E7%AF%87/">
+                  <span class="button__text">Mybatis学习笔记（2）—— 配置篇 </span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2022 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://firefoxking.github.io/assets/main.js"></script>
+<script src="https://firefoxking.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>

@@ -9,10 +9,30 @@
     <description>Recent content in Mybatis on Hello Friend</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 30 Dec 2021 09:35:33 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 30 Dec 2021 11:15:50 +0800</lastBuildDate>
     
 	<atom:link href="https://firefoxking.github.io/tags/Mybatis/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mybatis学习笔记（3）—简单映射篇</title>
+      <link>https://firefoxking.github.io/post/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%AE%80%E5%8D%95%E6%98%A0%E5%B0%84%E7%AF%87/</link>
+      <pubDate>Thu, 30 Dec 2021 11:15:50 +0800</pubDate>
+      
+      <guid>https://firefoxking.github.io/post/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%E7%AE%80%E5%8D%95%E6%98%A0%E5%B0%84%E7%AF%87/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          一、CRUD 标签 可以发现除了一些基本配置外，Mybatis的精华就在于Mapper（映射）部分。Mybatis是针对映射器构造的SQL构建的
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Mybatis学习笔记（2）—— 配置篇 </title>
