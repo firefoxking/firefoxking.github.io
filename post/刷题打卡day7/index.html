@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        刷题打卡day7 ::
+        Hello Friend — A simple theme for Hugo
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="一、刷题打卡 快速排序 力扣周赛：参加会议的最多员工数：找环&#43;找链 词典中最长的单词、无重复字符的最长子串、交错字符串 912. 排序数组 排序部分可以 liweiwei1419 1 2"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://firefoxking.github.io/post/%E5%88%B7%E9%A2%98%E6%89%93%E5%8D%A1day7/" />
+
+
+
+
+
+<link rel="stylesheet" href="https://firefoxking.github.io/assets/style.css" />
+
+<link rel="stylesheet" href="https://firefoxking.github.io/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="https://firefoxking.github.io/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="https://firefoxking.github.io/img/favicon.png" />
+
+
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://firefoxking.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="刷题打卡day7"/>
+<meta name="twitter:description" content="在代码随想录中进行刷题打卡。"/>
+
+
+
+<meta property="og:title" content="刷题打卡day7" />
+<meta property="og:description" content="在代码随想录中进行刷题打卡。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://firefoxking.github.io/post/%E5%88%B7%E9%A2%98%E6%89%93%E5%8D%A1day7/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-02T15:27:56+08:00" />
+<meta property="article:modified_time" content="2022-01-02T15:27:56+08:00" /><meta property="og:site_name" content="Hello Friend" />
+
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+        
+          <li><a href="/categories/">分类</a></li>
+        
+      
+        
+          <li><a href="/post/">归档</a></li>
+        
+      
+        
+          <li><a href="/tags/">标签</a></li>
+        
+      
+        
+          <li><a href="/">首页</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/showcase">Showcase</a></li>
+      
+    
+      
+        <li><a href="/categories/">分类</a></li>
+      
+    
+      
+        <li><a href="/post/">归档</a></li>
+      
+    
+      
+        <li><a href="/tags/">标签</a></li>
+      
+    
+      
+        <li><a href="/">首页</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">刷题打卡day7</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2022-01-02
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by firefoxking</span
+        >
+
+
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="https://firefoxking.github.io/tags/%E5%88%B7%E9%A2%98/">#刷题</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <h2 id="一刷题打卡">一、刷题打卡</h2>
+<ul>
+<li>快速排序</li>
+<li>力扣周赛：参加会议的最多员工数：找环+找链</li>
+<li>词典中最长的单词、无重复字符的最长子串、交错字符串</li>
+</ul>
+<h3 id="912-排序数组httpsleetcode-cncomproblemssort-an-array"><a href="https://leetcode-cn.com/problems/sort-an-array/">912. 排序数组</a></h3>
+<p>排序部分可以 <a href="https://leetcode-cn.com/problems/sort-an-array/solution/fu-xi-ji-chu-pai-xu-suan-fa-java-by-liweiwei1419/">liweiwei1419</a></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">sortArray</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        quickSort<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> nums<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">quickSort</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> left<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> right<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>left <span style="color:#f92672">&gt;=</span> right<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">int</span> pIndex <span style="color:#f92672">=</span> partition<span style="color:#f92672">(</span>arr<span style="color:#f92672">,</span> left<span style="color:#f92672">,</span> right<span style="color:#f92672">);</span>
+        quickSort<span style="color:#f92672">(</span>arr<span style="color:#f92672">,</span> left<span style="color:#f92672">,</span> pIndex <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+        quickSort<span style="color:#f92672">(</span>arr<span style="color:#f92672">,</span> pIndex <span style="color:#f92672">+</span> 1<span style="color:#f92672">,</span> right<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">partition</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> left<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> right<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> pivot <span style="color:#f92672">=</span> arr<span style="color:#f92672">[</span>left<span style="color:#f92672">];</span>
+        <span style="color:#66d9ef">int</span> lt <span style="color:#f92672">=</span> left<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> left <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;=</span> right<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>arr<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> pivot<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                lt<span style="color:#f92672">++;</span>
+                swap<span style="color:#f92672">(</span>arr<span style="color:#f92672">,</span> lt<span style="color:#f92672">,</span> i<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        swap<span style="color:#f92672">(</span>arr<span style="color:#f92672">,</span> left<span style="color:#f92672">,</span> lt<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> lt<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">swap</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> i<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> j<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">==</span> j<span style="color:#f92672">)</span>
+            <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+        arr<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">^=</span> arr<span style="color:#f92672">[</span>j<span style="color:#f92672">];</span>
+        arr<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">^=</span> arr<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+        arr<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">^=</span> arr<span style="color:#f92672">[</span>j<span style="color:#f92672">];</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="5970-参加会议的最多员工数httpsleetcode-cncomproblemsmaximum-employees-to-be-invited-to-a-meeting"><a href="https://leetcode-cn.com/problems/maximum-employees-to-be-invited-to-a-meeting/">5970. 参加会议的最多员工数</a></h3>
+<p>2022/1/2日的力扣周赛</p>
+<p>最后一题没做出来，其余的三题都很简单就不贴了。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">int</span> maxDepth <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">maximumInvitations</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> favorite<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> favorite<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
+        Map<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> g <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
+        <span style="color:#75715e">// 入度
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> deg <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>n<span style="color:#f92672">];</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> n<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">int</span> w <span style="color:#f92672">=</span> favorite<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+            g<span style="color:#f92672">.</span><span style="color:#a6e22e">putIfAbsent</span><span style="color:#f92672">(</span>w<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;());</span>
+            g<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>w<span style="color:#f92672">).</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+            deg<span style="color:#f92672">[</span>w<span style="color:#f92672">]++;</span>
+        <span style="color:#f92672">}</span>
+        Queue<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> q <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">&lt;&gt;();</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> n<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>deg<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span>
+                q<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(!</span>q<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">int</span> v <span style="color:#f92672">=</span> q<span style="color:#f92672">.</span><span style="color:#a6e22e">poll</span><span style="color:#f92672">();</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(--</span>deg<span style="color:#f92672">[</span>favorite<span style="color:#f92672">[</span>v<span style="color:#f92672">]]</span> <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span>
+                q<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>favorite<span style="color:#f92672">[</span>v<span style="color:#f92672">]);</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">boolean</span><span style="color:#f92672">[]</span> vis <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">boolean</span><span style="color:#f92672">[</span>n<span style="color:#f92672">];</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> n<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>vis<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> deg<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> ring <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+                foundRing<span style="color:#f92672">(</span>ring<span style="color:#f92672">,</span> vis<span style="color:#f92672">,</span> favorite<span style="color:#f92672">,</span> i<span style="color:#f92672">);</span>
+                <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> ring<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>size <span style="color:#f92672">==</span> 2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    <span style="color:#66d9ef">int</span> v <span style="color:#f92672">=</span> ring<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>
+                    <span style="color:#66d9ef">int</span> w <span style="color:#f92672">=</span> ring<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+                    maxDepth <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+                    rdfs<span style="color:#f92672">(</span>v<span style="color:#f92672">,</span> w<span style="color:#f92672">,</span> g<span style="color:#f92672">,</span> 1<span style="color:#f92672">);</span>
+                    sum <span style="color:#f92672">+=</span> maxDepth<span style="color:#f92672">;</span>
+                    maxDepth <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+                    rdfs<span style="color:#f92672">(</span>w<span style="color:#f92672">,</span> v<span style="color:#f92672">,</span> g<span style="color:#f92672">,</span> 1<span style="color:#f92672">);</span>
+                    sum <span style="color:#f92672">+=</span> maxDepth<span style="color:#f92672">;</span>
+                    ans <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>ans<span style="color:#f92672">,</span> sum<span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                    ans <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>size<span style="color:#f92672">,</span> ans<span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> ans<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">foundRing</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> ring<span style="color:#f92672">,</span> <span style="color:#66d9ef">boolean</span><span style="color:#f92672">[]</span> vis<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> favorite<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> i<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        vis<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        ring<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>i<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>vis<span style="color:#f92672">[</span>favorite<span style="color:#f92672">[</span>i<span style="color:#f92672">]])</span> <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+        foundRing<span style="color:#f92672">(</span>ring<span style="color:#f92672">,</span> vis<span style="color:#f92672">,</span> favorite<span style="color:#f92672">,</span> favorite<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">rdfs</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> cur<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> last<span style="color:#f92672">,</span> Map<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> rmap<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> depth<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        maxDepth <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>maxDepth<span style="color:#f92672">,</span> depth<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>rmap<span style="color:#f92672">.</span><span style="color:#a6e22e">containsKey</span><span style="color:#f92672">(</span>cur<span style="color:#f92672">))</span> <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">:</span> rmap<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>cur<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+            <span style="color:#75715e">//不与上一个相等，如果与上上个相等，意味着构成大于2的环了，那么就不会走这里过
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">!=</span> last<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+                rdfs<span style="color:#f92672">(</span>i<span style="color:#f92672">,</span> cur<span style="color:#f92672">,</span> rmap<span style="color:#f92672">,</span> depth <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="720-词典中最长的单词httpsleetcode-cncomproblemslongest-word-in-dictionary"><a href="https://leetcode-cn.com/problems/longest-word-in-dictionary/">720. 词典中最长的单词</a></h3>
+<p>我首先想到的是 sort + set 的方法，还可以用 trie 前缀树，后面再补。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">longestWord</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> words<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span>words<span style="color:#f92672">,</span> <span style="color:#f92672">(</span>o1<span style="color:#f92672">,</span> o2<span style="color:#f92672">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>o1<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> o2<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">return</span> o2<span style="color:#f92672">.</span><span style="color:#a6e22e">compareTo</span><span style="color:#f92672">(</span>o1<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">return</span> o1<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> o2<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">});</span>
+        String res <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+        HashSet<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> set <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashSet<span style="color:#f92672">&lt;&gt;();</span>
+        set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>res<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String word <span style="color:#f92672">:</span> words<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>set<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>word<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> word<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">)))</span> <span style="color:#f92672">{</span>
+                res <span style="color:#f92672">=</span> word<span style="color:#f92672">;</span>
+                set<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>word<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> res<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3-无重复字符的最长子串httpsleetcode-cncomproblemslongest-substring-without-repeating-characters"><a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">3. 无重复字符的最长子串</a></h3>
+<p>这次刷题做过，滑动窗口</p>
+<h3 id="97-交错字符串httpsleetcode-cncomproblemsinterleaving-string"><a href="https://leetcode-cn.com/problems/interleaving-string/">97. 交错字符串</a></h3>
+<p>想到了利用 DFS 的解法，但是超时了：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isInterleave</span><span style="color:#f92672">(</span>String s1<span style="color:#f92672">,</span> String s2<span style="color:#f92672">,</span> String s3<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>s3<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> s1<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> s2<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">())</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">char</span><span style="color:#f92672">[]</span> str1 <span style="color:#f92672">=</span> s1<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">char</span><span style="color:#f92672">[]</span> str2 <span style="color:#f92672">=</span> s2<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">char</span><span style="color:#f92672">[]</span> str3 <span style="color:#f92672">=</span> s3<span style="color:#f92672">.</span><span style="color:#a6e22e">toCharArray</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">return</span> dfs<span style="color:#f92672">(</span>str1<span style="color:#f92672">,</span> str2<span style="color:#f92672">,</span> str3<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">dfs</span><span style="color:#f92672">(</span><span style="color:#66d9ef">char</span><span style="color:#f92672">[]</span> str1<span style="color:#f92672">,</span> <span style="color:#66d9ef">char</span><span style="color:#f92672">[]</span> str2<span style="color:#f92672">,</span> <span style="color:#66d9ef">char</span><span style="color:#f92672">[]</span> str3<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> i<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> j<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> k<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>k <span style="color:#f92672">==</span> str3<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">)</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">char</span> a <span style="color:#f92672">=</span> i <span style="color:#f92672">&gt;=</span> str1<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">:</span> str1<span style="color:#f92672">[</span>i<span style="color:#f92672">];</span>
+        <span style="color:#66d9ef">char</span> b <span style="color:#f92672">=</span> j <span style="color:#f92672">&gt;=</span> str2<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#39; &#39;</span> <span style="color:#f92672">:</span> str2<span style="color:#f92672">[</span>j<span style="color:#f92672">];</span>
+        <span style="color:#66d9ef">char</span> c <span style="color:#f92672">=</span> str3<span style="color:#f92672">[</span>k<span style="color:#f92672">];</span>
+        <span style="color:#66d9ef">boolean</span> ret <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>c <span style="color:#f92672">==</span> a<span style="color:#f92672">)</span>
+            ret <span style="color:#f92672">|=</span> dfs<span style="color:#f92672">(</span>str1<span style="color:#f92672">,</span> str2<span style="color:#f92672">,</span> str3<span style="color:#f92672">,</span> i<span style="color:#f92672">+</span>1<span style="color:#f92672">,</span> j<span style="color:#f92672">,</span> k<span style="color:#f92672">+</span>1<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>c <span style="color:#f92672">==</span> b<span style="color:#f92672">)</span>
+            ret <span style="color:#f92672">|=</span> dfs<span style="color:#f92672">(</span>str1<span style="color:#f92672">,</span> str2<span style="color:#f92672">,</span> str3<span style="color:#f92672">,</span> i<span style="color:#f92672">,</span> j<span style="color:#f92672">+</span>1<span style="color:#f92672">,</span> k<span style="color:#f92672">+</span>1<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> ret<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>用 递归其实是有很多重复运算的。</p>
+<p><img src="https://gitee.com/lacquer-gland/pic-bed/raw/master/img/51e7687c873cd0f4d00e7875f0527e4c83ed2fbc87064c152fd2bfceaa572e77-image.png" alt="image.png"></p>
+<p>可以据此改为记忆化的DFS 解法，对前面代码略加改动增加一个备忘录memo即可，当然也由此可以改成动态规划。能用动态规划的一定能用递归，加入记忆化也很容易，有的题目动态规划好入手，有的不好入手，或者边界情况比较难确定。DFS+记忆化是一个不错的保底思路，时间复杂度和DP是一样的</p>
+<p><a href="https://leetcode-cn.com/problems/interleaving-string/solution/shou-hua-tu-jie-dfshui-su-dfsji-yi-hua-by-hyj8/">手画图解</a></p>
+<p>以下是动态规划，没有压缩空间</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isInterleave</span><span style="color:#f92672">(</span>String s1<span style="color:#f92672">,</span> String s2<span style="color:#f92672">,</span> String s3<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> s1<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">(),</span> m <span style="color:#f92672">=</span> s2<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">(),</span> t <span style="color:#f92672">=</span> s3<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>n <span style="color:#f92672">+</span> m <span style="color:#f92672">!=</span> t<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#66d9ef">boolean</span><span style="color:#f92672">[][]</span> f <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">boolean</span><span style="color:#f92672">[</span>n <span style="color:#f92672">+</span> 1<span style="color:#f92672">][</span>m <span style="color:#f92672">+</span> 1<span style="color:#f92672">];</span>
+
+        f<span style="color:#f92672">[</span>0<span style="color:#f92672">][</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;=</span> n<span style="color:#f92672">;</span> <span style="color:#f92672">++</span>i<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> j <span style="color:#f92672">&lt;=</span> m<span style="color:#f92672">;</span> <span style="color:#f92672">++</span>j<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> i <span style="color:#f92672">+</span> j <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    f<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> f<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#f92672">(</span>f<span style="color:#f92672">[</span>i <span style="color:#f92672">-</span> 1<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> s1<span style="color:#f92672">.</span><span style="color:#a6e22e">charAt</span><span style="color:#f92672">(</span>i <span style="color:#f92672">-</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> s3<span style="color:#f92672">.</span><span style="color:#a6e22e">charAt</span><span style="color:#f92672">(</span>p<span style="color:#f92672">));</span>
+                <span style="color:#f92672">}</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>j <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    f<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> f<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">||</span> <span style="color:#f92672">(</span>f<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j <span style="color:#f92672">-</span> 1<span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> s2<span style="color:#f92672">.</span><span style="color:#a6e22e">charAt</span><span style="color:#f92672">(</span>j <span style="color:#f92672">-</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> s3<span style="color:#f92672">.</span><span style="color:#a6e22e">charAt</span><span style="color:#f92672">(</span>p<span style="color:#f92672">));</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#66d9ef">return</span> f<span style="color:#f92672">[</span>n<span style="color:#f92672">][</span>m<span style="color:#f92672">];</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+    
+      
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h"
+              >Read other posts</span
+            >
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            
+            
+              <span class="button next">
+                <a href="https://firefoxking.github.io/post/%E5%88%B7%E9%A2%98%E6%89%93%E5%8D%A1day6/">
+                  <span class="button__text">刷题打卡day6</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            
+          </div>
+        </div>
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >hello friend</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2022 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="https://firefoxking.github.io/assets/main.js"></script>
+<script src="https://firefoxking.github.io/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
